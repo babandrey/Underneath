@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpare2c5pfeq3"]
+
+[ext_resource type="Script" uid="uid://cexoyfubv2nrc" path="res://platformer_character_2d.gd" id="1_37kl0"]
+[ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_8uh7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uh7m"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
+size = Vector2(1204, 53)
+
+[node name="TestPlatformer" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(198, 177)
+script = ExtResource("1_37kl0")
+acceleration = 50.0
+deacceleration = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_8uh7m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_8uh7m")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(203, 287)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(304, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(303.5, -1)
+scale = Vector2(9.4296875, 0.421875)
+texture = ExtResource("2_8uh7m")
