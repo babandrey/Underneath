@@ -1,7 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpare2c5pfeq3"]
+[gd_scene load_steps=7 format=3 uid="uid://dpare2c5pfeq3"]
 
 [ext_resource type="Script" uid="uid://cexoyfubv2nrc" path="res://player.gd" id="1_37kl0"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_8uh7m"]
+[ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://grayscale.gdshader" id="2_m1smf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b0n32"]
+shader = ExtResource("2_m1smf")
+shader_parameter/red_open = false
+shader_parameter/blue_open = false
+shader_parameter/green_open = false
+shader_parameter/purple_open = false
+shader_parameter/yellow_open = false
+shader_parameter/red = Color(0.8980392, 0.23921569, 0.32156864, 1)
+shader_parameter/blue = Color(0.3180015, 0.59325933, 0.7989095, 1)
+shader_parameter/green = Color(0, 0.8666667, 0, 1)
+shader_parameter/purple = Color(0.49009496, 0.2373046, 0.7094146, 1)
+shader_parameter/yellow = Color(0.87058824, 0.98039216, 0, 1)
+shader_parameter/threshold = 0.25
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uh7m"]
 size = Vector2(128, 128)
@@ -18,9 +33,11 @@ acceleration = 50.0
 deacceleration = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
+material = SubResource("ShaderMaterial_b0n32")
 texture = ExtResource("2_8uh7m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+visible = false
 shape = SubResource("RectangleShape2D_8uh7m")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
