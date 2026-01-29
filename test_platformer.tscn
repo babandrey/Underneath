@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cumn78w0n5mp4"]
+[gd_scene load_steps=7 format=3 uid="uid://cumn78w0n5mp4"]
 
 [ext_resource type="Script" uid="uid://cexoyfubv2nrc" path="res://Scripts/player.gd" id="1_37kl0"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_8uh7m"]
 [ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://grayscale.gdshader" id="2_m1smf"]
-[ext_resource type="Texture2D" uid="uid://0seyb3wkkt3a" path="res://Art/Sadness.png" id="4_b0n32"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b0n32"]
 shader = ExtResource("2_m1smf")
@@ -63,4 +62,3 @@ texture = ExtResource("2_8uh7m")
 material = SubResource("ShaderMaterial_b0n32")
 position = Vector2(481, -192)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_b0n32")
