@@ -50,7 +50,7 @@ var item_in_area: Item = null
 
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
-	vignette.show()
+	#vignette.show()
 
 func _physics_process(delta: float) -> void:
 	if is_talking: return
