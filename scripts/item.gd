@@ -10,5 +10,5 @@ func get_interaction_text() -> String:
 
 func interact() -> void:
 	if avatar_quest:
-		Dialogic.VAR.Sadness.quest_completed = true		
+		Dialogic.VAR.get(avatar_quest.to_pascal_case()).quest_completed = true		
 		queue_free()

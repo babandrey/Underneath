@@ -732,8 +732,13 @@ position = Vector2(594, 234)
 action_text = "fill the bucket from the watefall"
 avatar_quest = "sadness"
 
+[node name="Spider" parent="Interactables" instance=ExtResource("7_uk2yf")]
+position = Vector2(13371, 477)
+action_text = "pick up the spider"
+avatar_quest = "fear"
+
 [node name="Player" parent="." instance=ExtResource("1_5fr2l")]
-position = Vector2(5574, 323)
+position = Vector2(371, 85)
 
 [node name="Water" parent="." instance=ExtResource("6_ff0s2")]
 position = Vector2(1069, 290)

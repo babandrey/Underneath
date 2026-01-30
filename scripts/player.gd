@@ -131,7 +131,7 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 	if area is Avatar:
 		var avatar: Avatar = area as Avatar
 		avatar_in_area = avatar
-		interact_label.text = "Press 'E' to talk to " + avatar.avatar_name
+		show_interact_avatar_text()
 	elif area is Item:
 		var item = area as Item
 		item_in_area = item
@@ -145,4 +145,10 @@ func _on_interaction_area_area_exited(area: Area2D) -> void:
 func _on_dialogue_ended() -> void:
 	is_talking = false
 	if avatar_in_area:
-		interact_label.text = "Press 'E' to talk to " + avatar_in_area.avatar_name
+		show_interact_avatar_text()
+
+func show_interact_avatar_text() -> void:
+		var avatar_name = avatar_in_area.avatar_name.to_pascal_case()
+		avatar_name = avatar_name if Dialogic.VAR.get(avatar_name).is_colored else "???"
+		interact_label.text = "Press 'E' to talk to " + avatar_name
+	
