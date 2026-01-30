@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cumn78w0n5mp4"]
+[gd_scene load_steps=17 format=3 uid="uid://cumn78w0n5mp4"]
 
 [ext_resource type="PackedScene" uid="uid://b030j6fl17evo" path="res://scenes/player.tscn" id="1_qqjtu"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_8uh7m"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dabsd4gm6dpfl" path="res://art/Avatars/sadness.png" id="4_jdah1"]
 [ext_resource type="PackedScene" uid="uid://bsaii60gy3ya8" path="res://scenes/item.tscn" id="6_qe2qm"]
 [ext_resource type="PackedScene" uid="uid://bp0rvix62ab4o" path="res://scenes/dark_death_zone.tscn" id="8_vd26p"]
+[ext_resource type="PackedScene" uid="uid://px7kdlrn1vm1" path="res://scenes/checkpoint.tscn" id="9_6cesl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
 size = Vector2(865, 53)
@@ -217,6 +218,12 @@ offset_bottom = 734.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_vd26p")
+
+[node name="Checkpoint" parent="." instance=ExtResource("9_6cesl")]
+position = Vector2(1722, 275)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("9_6cesl")]
+position = Vector2(708, 257)
 
 [editable path="SadnessAvatar"]
 [editable path="AnxietyAvatar"]
