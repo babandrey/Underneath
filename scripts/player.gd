@@ -46,7 +46,13 @@ enum Ability
 @export var sprite: AnimatedSprite2D
 @export var vignette: ColorRect
 @export var interact_label: Label
+@export var new_ability_label_description: RichTextLabel
 @export var camera: Camera2D
+@onready var new_ability_labels: MarginContainer = %NewAbilityLabels
+
+var new_ability_unlocked := Ability.None
+
+@onready var vignette_material: ShaderMaterial = vignette.material
 
 var avatar_in_area: Avatar = null
 var item_in_area: Item = null
@@ -54,11 +60,11 @@ var barrier_in_area: Barrier = null
 
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
-	#vignette.show()
+	vignette.show()
+	new_ability_labels.show()
+	new_ability_labels.modulate.a = 0.0
 
 func _physics_process(delta: float) -> void:
-	if is_talking: return
-	
 	var g = water_gravity if is_swimming else gravity
 	var acc = water_acceleration if is_swimming else acceleration
 	var deacc = water_deaccelartion if is_swimming else deacceleration
@@ -69,7 +75,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y += g * delta
 		if is_swimming:
 			velocity.y = min(max_water_gravity_velocity, velocity.y)
-
+	
+	if is_talking:
+		velocity.x = move_toward(velocity.x, 0.0, deacc)
+		move_and_slide()
+		return
+	
 	if Input.is_action_just_pressed("jump"):
 		if is_swimming or is_on_floor():
 			velocity.y = -jump_vel
@@ -156,9 +167,34 @@ func _on_dialogue_ended() -> void:
 	is_talking = false
 	if avatar_in_area:
 		show_interact_avatar_text()
+	if new_ability_unlocked != Ability.None:
+		show_new_ability(new_ability_unlocked)
+		new_ability_unlocked = Ability.None
 
 func show_interact_avatar_text() -> void:
 	var avatar_name = avatar_in_area.avatar_name.to_pascal_case()
 	avatar_name = avatar_name if Dialogic.VAR.get(avatar_name).is_colored else "???"
 	interact_label.text = "Press 'E' to talk to " + avatar_name
+
+func show_new_ability(new_ability: Ability) -> void:
+	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).set_parallel()
+	tween.tween_method(vignette_change_alpha, 0.4, 1.0, 1.0)
+	tween.tween_property(new_ability_labels, "modulate:a", 1.0, 3.0)
+	var text: String
+	match new_ability:
+		Ability.Swim: text = "You can now swim in [color=cyan][b][wave amp=30.0 freq=3.5 connected=1]water[/wave][/b][/color].."
+		Ability.Run: text = "You can now press 'Shift' to [color=khaki][b]run[/b][/color]."
+		Ability.GoThroughDark: text = "You are no longer afraid of [color=indigo]the darkness[/color]."
+		Ability.BreakBarriers: text = "You can now interact to [color=red_orange]break barriers[/color]."
+		# TODO: add last ability
+		_: push_error("unknown ability")
+		
+	new_ability_label_description.text = text
+	await tween.finished
 	
+	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).set_parallel()
+	tween.tween_method(vignette_change_alpha, 1.0, 0.4, 3.0).set_delay(1.0)
+	tween.tween_property(new_ability_labels, "modulate:a", 0.0, 3.0).set_delay(1.0)
+	
+func vignette_change_alpha(value: float) -> void:
+	vignette_material.set_shader_parameter("alpha", value)

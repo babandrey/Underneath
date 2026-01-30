@@ -662,10 +662,22 @@ texture = ExtResource("2_2sb77")
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("10_6nivd")]
-position = Vector2(1722, 275)
+position = Vector2(1715, 227)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("10_6nivd")]
-position = Vector2(708, 257)
+position = Vector2(701, 209)
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("10_6nivd")]
+position = Vector2(4775, 212)
+
+[node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("10_6nivd")]
+position = Vector2(6964, -25)
+
+[node name="Checkpoint5" parent="Checkpoints" instance=ExtResource("10_6nivd")]
+position = Vector2(9634, -74)
+
+[node name="Checkpoint6" parent="Checkpoints" instance=ExtResource("10_6nivd")]
+position = Vector2(13578, 450)
 
 [node name="Avatars" type="Node2D" parent="."]
 
@@ -720,21 +732,19 @@ position = Vector2(-24, -45)
 shape = SubResource("CircleShape2D_ff0s2")
 
 [node name="FearAvatar" parent="Avatars" instance=ExtResource("3_fkrx8")]
-position = Vector2(13444, -169)
+position = Vector2(13402, -244)
 avatar_name = "fear"
 player_ability_unlock = 3
 unlock_color = "purple"
 
 [node name="Sprite2D" parent="Avatars/FearAvatar" index="0"]
 material = SubResource("ShaderMaterial_6nivd")
-position = Vector2(-28, -101)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("10_mwgft")
 flip_h = true
 
 [node name="CollisionShape2D" parent="Avatars/FearAvatar" index="1"]
 visible = false
-position = Vector2(-38, -61)
 shape = SubResource("CircleShape2D_uk2yf")
 
 [node name="ShameAvatar" parent="Avatars" instance=ExtResource("3_fkrx8")]
@@ -784,8 +794,13 @@ position = Vector2(3633, 243)
 action_text = "pick up stick"
 avatar_quest = "anger"
 
+[node name="CrystalBall" parent="Interactables" instance=ExtResource("7_uk2yf")]
+position = Vector2(2501, 242)
+action_text = "pick up crystal ball"
+avatar_quest = "anxiety"
+
 [node name="Player" parent="." instance=ExtResource("1_5fr2l")]
-position = Vector2(3246, 180)
+position = Vector2(340, 131)
 
 [node name="Water" parent="." instance=ExtResource("6_ff0s2")]
 position = Vector2(1069, 290)
@@ -811,7 +826,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 7471.0
-offset_top = -895.0
+offset_top = -1768.0
 offset_right = 9471.0
 offset_bottom = 105.0
 grow_horizontal = 2
