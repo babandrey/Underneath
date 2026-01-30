@@ -8,13 +8,20 @@ uniform float yellow_anim = 0.0;
 uniform float purple_anim = 0.0;
 
 /* Target colors */
-uniform vec3 red: source_color;
-uniform vec3 blue1: source_color;
-uniform vec3 blue2: source_color;
-uniform vec3 blue3: source_color;
-uniform vec3 green: source_color;
-uniform vec3 yellow: source_color;
-uniform vec3 purple: source_color;
+#define RED_COLORS 3
+uniform vec3 red[RED_COLORS]: source_color;
+
+#define BLUE_COLORS 3
+uniform vec3 blue[BLUE_COLORS]: source_color;
+
+#define GREEN_COLORS 3
+uniform vec3 green[GREEN_COLORS]: source_color;
+
+#define YELLOW_COLORS 3
+uniform vec3 yellow[YELLOW_COLORS]: source_color;
+
+#define PURPLE_COLORS 7
+uniform vec3 purple[PURPLE_COLORS]: source_color;
 
 uniform float threshold = 0.15;
 uniform float edge_softness = 0.05;
@@ -33,36 +40,30 @@ void fragment() {
 
     float keep_color = 0.0;
 
-    // Red
-    keep_color = max(keep_color,
-        color_mask(tex.rgb, red) * red_anim
-    );
-
-    // Blue (multiple targets)
-    keep_color = max(keep_color,
-        color_mask(tex.rgb, blue1) * blue_anim
-    );
-    keep_color = max(keep_color,
-        color_mask(tex.rgb, blue2) * blue_anim
-    );
-    keep_color = max(keep_color,
-        color_mask(tex.rgb, blue3) * blue_anim
-    );
-
-    // Green
-    keep_color = max(keep_color,
-        color_mask(tex.rgb, green) * green_anim
-    );
-
-    // Yellow
-    keep_color = max(keep_color,
-        color_mask(tex.rgb, yellow) * yellow_anim
-    );
-
-    // Purple
-    keep_color = max(keep_color,
-        color_mask(tex.rgb, purple) * purple_anim
-    );
+	for(int i = 0; i < RED_COLORS; i++)
+	{
+		keep_color = max(keep_color, color_mask(tex.rgb, red[i]) * red_anim);
+	}
+	
+	for(int i = 0; i < BLUE_COLORS; i++)
+	{
+		keep_color = max(keep_color, color_mask(tex.rgb, blue[i]) * blue_anim);
+	}
+	
+	for(int i = 0; i < GREEN_COLORS; i++)
+	{
+		keep_color = max(keep_color, color_mask(tex.rgb, green[i]) * green_anim);
+	}
+	
+	for(int i = 0; i < YELLOW_COLORS; i++)
+	{
+		keep_color = max(keep_color, color_mask(tex.rgb, yellow[i]) * yellow_anim);
+	}
+	
+	for(int i = 0; i < PURPLE_COLORS; i++)
+	{
+		keep_color = max(keep_color, color_mask(tex.rgb, purple[i]) * purple_anim);
+	}
 
     vec3 final_color = mix(gray_color, tex.rgb, clamp(keep_color, 0.0, 1.0));
     COLOR = vec4(final_color, tex.a);

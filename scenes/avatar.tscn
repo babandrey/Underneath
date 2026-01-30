@@ -1,25 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bplqieon6vd7b"]
+[gd_scene load_steps=5 format=3 uid="uid://bplqieon6vd7b"]
 
 [ext_resource type="Script" uid="uid://c58main60dyil" path="res://scripts/avatar.gd" id="1_702cj"]
-[ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://shaders/grayscale.gdshader" id="2_k23up"]
+[ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="2_k23up"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="3_07tn8"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d0d8i"]
-shader = ExtResource("2_k23up")
-shader_parameter/red_anim = 0.0
-shader_parameter/blue_anim = 0.0
-shader_parameter/green_anim = 0.0
-shader_parameter/yellow_anim = 0.0
-shader_parameter/purple_anim = 0.0
-shader_parameter/red = Color(1, 0, 0, 1)
-shader_parameter/blue1 = Color(0.08627451, 0.15686275, 0.4627451, 1)
-shader_parameter/blue2 = Color(0.08235294, 0.23137255, 0.8901961, 1)
-shader_parameter/blue3 = Color(0.24705882, 0.3882353, 1, 1)
-shader_parameter/green = Color(0, 0.6117647, 0, 1)
-shader_parameter/yellow = Color(1, 0.95686275, 0, 1)
-shader_parameter/purple = Color(0.64705884, 0.33333334, 0.92156863, 1)
-shader_parameter/threshold = 0.15
-shader_parameter/edge_softness = 0.05
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kn5ym"]
 radius = 100.93
@@ -30,7 +13,7 @@ script = ExtResource("1_702cj")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_d0d8i")
+material = ExtResource("2_k23up")
 texture = ExtResource("3_07tn8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

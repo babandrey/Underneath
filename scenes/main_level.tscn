@@ -1,0 +1,833 @@
+[gd_scene load_steps=32 format=3 uid="uid://8d4wbkvyunov"]
+
+[ext_resource type="PackedScene" uid="uid://b030j6fl17evo" path="res://scenes/player.tscn" id="1_5fr2l"]
+[ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_2sb77"]
+[ext_resource type="PackedScene" uid="uid://bplqieon6vd7b" path="res://scenes/avatar.tscn" id="3_fkrx8"]
+[ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://shaders/grayscale.gdshader" id="4_mwgft"]
+[ext_resource type="Texture2D" uid="uid://dabsd4gm6dpfl" path="res://art/Avatars/sadness.png" id="5_adxub"]
+[ext_resource type="PackedScene" uid="uid://ca8cjq2maapex" path="res://scenes/water.tscn" id="6_ff0s2"]
+[ext_resource type="PackedScene" uid="uid://bsaii60gy3ya8" path="res://scenes/item.tscn" id="7_uk2yf"]
+[ext_resource type="Texture2D" uid="uid://c70j8e22csf1l" path="res://art/Avatars/Anxiety.png" id="8_2sb77"]
+[ext_resource type="PackedScene" uid="uid://bp0rvix62ab4o" path="res://scenes/dark_death_zone.tscn" id="8_ondrs"]
+[ext_resource type="Script" uid="uid://cdqlvv4yr501r" path="res://scenes/death_zone.gd" id="9_0e4v7"]
+[ext_resource type="Texture2D" uid="uid://dc78tn6p45dum" path="res://art/Avatars/Shame.png" id="9_adxub"]
+[ext_resource type="Texture2D" uid="uid://dn4wljhyfmo3" path="res://art/Avatars/Anger.png" id="9_fkrx8"]
+[ext_resource type="PackedScene" uid="uid://px7kdlrn1vm1" path="res://scenes/checkpoint.tscn" id="10_6nivd"]
+[ext_resource type="PackedScene" uid="uid://og2kiem1py8t" path="res://scenes/running_wiitch.tscn" id="10_ff0s2"]
+[ext_resource type="Texture2D" uid="uid://b0awn7kno1n0b" path="res://art/Avatars/Fear.png" id="10_mwgft"]
+[ext_resource type="PackedScene" uid="uid://dk3tnf0trie1o" path="res://scenes/running_wiitch_trigger.tscn" id="11_uk2yf"]
+[ext_resource type="PackedScene" uid="uid://dvlenlgfgsy36" path="res://scenes/barrier.tscn" id="17_ondrs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
+size = Vector2(865, 53)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uk2yf"]
+resource_local_to_scene = true
+shader = ExtResource("4_mwgft")
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
+shader_parameter/red = PackedColorArray(0.32941177, 0.12156863, 0.0627451, 1, 0.6862745, 0.24313726, 0.05882353, 1, 0.84313726, 0.3529412, 0.1882353, 1)
+shader_parameter/blue = PackedColorArray(0.078431375, 0.14117648, 0.4117647, 1, 0.07450981, 0.20784314, 0.7921569, 1, 0.21960784, 0.34509805, 0.8901961, 1)
+shader_parameter/green = PackedColorArray(0.043137256, 0.1764706, 0.02745098, 1, 0.15294118, 0.5176471, 0.40392157, 1, 0.60784316, 0.8901961, 0.5764706, 1)
+shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1, 0.6745098, 0.4862745, 0.27058825, 1, 0.8901961, 0.7372549, 0.5176471, 1)
+shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
+shader_parameter/threshold = 0.15
+shader_parameter/edge_softness = 0.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sv7eu"]
+radius = 241.42
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ondrs"]
+resource_local_to_scene = true
+shader = ExtResource("4_mwgft")
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
+shader_parameter/red = PackedColorArray(0.32941177, 0.12156863, 0.0627451, 1, 0.6862745, 0.24313726, 0.05882353, 1, 0.84313726, 0.3529412, 0.1882353, 1)
+shader_parameter/blue = PackedColorArray(0.078431375, 0.14117648, 0.4117647, 1, 0.07450981, 0.20784314, 0.7921569, 1, 0.21960784, 0.34509805, 0.8901961, 1)
+shader_parameter/green = PackedColorArray(0.043137256, 0.1764706, 0.02745098, 1, 0.15294118, 0.5176471, 0.40392157, 1, 0.60784316, 0.8901961, 0.5764706, 1)
+shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1, 0.6745098, 0.4862745, 0.27058825, 1, 0.8901961, 0.7372549, 0.5176471, 1)
+shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
+shader_parameter/threshold = 0.15
+shader_parameter/edge_softness = 0.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_63km7"]
+resource_local_to_scene = true
+radius = 210.34258
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0e4v7"]
+resource_local_to_scene = true
+shader = ExtResource("4_mwgft")
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
+shader_parameter/red = PackedColorArray(0.32941177, 0.12156863, 0.0627451, 1, 0.6862745, 0.24313726, 0.05882353, 1, 0.84313726, 0.3529412, 0.1882353, 1)
+shader_parameter/blue = PackedColorArray(0.078431375, 0.14117648, 0.4117647, 1, 0.07450981, 0.20784314, 0.7921569, 1, 0.21960784, 0.34509805, 0.8901961, 1)
+shader_parameter/green = PackedColorArray(0.043137256, 0.1764706, 0.02745098, 1, 0.15294118, 0.5176471, 0.40392157, 1, 0.60784316, 0.8901961, 0.5764706, 1)
+shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1, 0.6745098, 0.4862745, 0.27058825, 1, 0.8901961, 0.7372549, 0.5176471, 1)
+shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
+shader_parameter/threshold = 0.15
+shader_parameter/edge_softness = 0.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ff0s2"]
+resource_local_to_scene = true
+radius = 291.21
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6nivd"]
+resource_local_to_scene = true
+shader = ExtResource("4_mwgft")
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
+shader_parameter/red = PackedColorArray(0.32941177, 0.12156863, 0.0627451, 1, 0.6862745, 0.24313726, 0.05882353, 1, 0.84313726, 0.3529412, 0.1882353, 1)
+shader_parameter/blue = PackedColorArray(0.078431375, 0.14117648, 0.4117647, 1, 0.07450981, 0.20784314, 0.7921569, 1, 0.21960784, 0.34509805, 0.8901961, 1)
+shader_parameter/green = PackedColorArray(0.043137256, 0.1764706, 0.02745098, 1, 0.15294118, 0.5176471, 0.40392157, 1, 0.60784316, 0.8901961, 0.5764706, 1)
+shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1, 0.6745098, 0.4862745, 0.27058825, 1, 0.8901961, 0.7372549, 0.5176471, 1)
+shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
+shader_parameter/threshold = 0.15
+shader_parameter/edge_softness = 0.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uk2yf"]
+resource_local_to_scene = true
+radius = 246.51978
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_al56o"]
+resource_local_to_scene = true
+shader = ExtResource("4_mwgft")
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
+shader_parameter/red = PackedColorArray(0.32941177, 0.12156863, 0.0627451, 1, 0.6862745, 0.24313726, 0.05882353, 1, 0.84313726, 0.3529412, 0.1882353, 1)
+shader_parameter/blue = PackedColorArray(0.078431375, 0.14117648, 0.4117647, 1, 0.07450981, 0.20784314, 0.7921569, 1, 0.21960784, 0.34509805, 0.8901961, 1)
+shader_parameter/green = PackedColorArray(0.043137256, 0.1764706, 0.02745098, 1, 0.15294118, 0.5176471, 0.40392157, 1, 0.60784316, 0.8901961, 0.5764706, 1)
+shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1, 0.6745098, 0.4862745, 0.27058825, 1, 0.8901961, 0.7372549, 0.5176471, 1)
+shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
+shader_parameter/threshold = 0.15
+shader_parameter/edge_softness = 0.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adxub"]
+resource_local_to_scene = true
+radius = 225.10886
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8j58j"]
+
+[sub_resource type="Gradient" id="Gradient_qe2qm"]
+offsets = PackedFloat32Array(0, 0.18529412, 0.8264706, 1)
+colors = PackedColorArray(0.36078432, 0.36078432, 0.36078432, 0, 0.0035892325, 0.0035892325, 0.0035892325, 1, 0.029411765, 0.029411765, 0.029411765, 1, 0.29411766, 0.29411766, 0.29411766, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vd26p"]
+gradient = SubResource("Gradient_qe2qm")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="Terrain"]
+position = Vector2(203, 287)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground2" type="StaticBody2D" parent="Terrain"]
+position = Vector2(1932, 296)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground2"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground2"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground6" type="StaticBody2D" parent="Terrain"]
+position = Vector2(2802, 296)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground6"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground6"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground7" type="StaticBody2D" parent="Terrain"]
+position = Vector2(3672, 293)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground7"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground7"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground8" type="StaticBody2D" parent="Terrain"]
+position = Vector2(4449, 284)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground8"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground8"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground9" type="StaticBody2D" parent="Terrain"]
+position = Vector2(4866, 348)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground9"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground9"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground10" type="StaticBody2D" parent="Terrain"]
+position = Vector2(5141, 434)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground10"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground10"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground11" type="StaticBody2D" parent="Terrain"]
+position = Vector2(5441, 507)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground11"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground11"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground12" type="StaticBody2D" parent="Terrain"]
+position = Vector2(5991, 605)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground12"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground12"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground20" type="StaticBody2D" parent="Terrain"]
+position = Vector2(6847, 605)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground20"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground20"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground21" type="StaticBody2D" parent="Terrain"]
+position = Vector2(7722, 605)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground21"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground21"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground22" type="StaticBody2D" parent="Terrain"]
+position = Vector2(8590, 605)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground22"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground22"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground23" type="StaticBody2D" parent="Terrain"]
+position = Vector2(9471, 605)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground23"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground23"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground24" type="StaticBody2D" parent="Terrain"]
+position = Vector2(10346, 611)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground24"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground24"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground25" type="StaticBody2D" parent="Terrain"]
+position = Vector2(10688, -13)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground25"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground25"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground35" type="StaticBody2D" parent="Terrain"]
+position = Vector2(11589, -13)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground35"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground35"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground36" type="StaticBody2D" parent="Terrain"]
+position = Vector2(12490, -2)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground36"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground36"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground37" type="StaticBody2D" parent="Terrain"]
+position = Vector2(13396, -2)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground37"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground37"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground26" type="StaticBody2D" parent="Terrain"]
+position = Vector2(14498, 244)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground26"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground26"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground38" type="StaticBody2D" parent="Terrain"]
+position = Vector2(14817, 187)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground38"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground38"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground39" type="StaticBody2D" parent="Terrain"]
+position = Vector2(14407, 62)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground39"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground39"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground27" type="StaticBody2D" parent="Terrain"]
+position = Vector2(14302, 324)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground27"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground27"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground28" type="StaticBody2D" parent="Terrain"]
+position = Vector2(16204, 189)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground28"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground28"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground29" type="StaticBody2D" parent="Terrain"]
+position = Vector2(15329, 195)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground29"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground29"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground40" type="StaticBody2D" parent="Terrain"]
+position = Vector2(15420, 134)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground40"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground40"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground30" type="StaticBody2D" parent="Terrain"]
+position = Vector2(13990, 409)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground30"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground30"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground31" type="StaticBody2D" parent="Terrain"]
+position = Vector2(13751, 489)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground31"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground31"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground32" type="StaticBody2D" parent="Terrain"]
+position = Vector2(12075, 612)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground32"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground32"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground34" type="StaticBody2D" parent="Terrain"]
+position = Vector2(12950, 551)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground34"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground34"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground33" type="StaticBody2D" parent="Terrain"]
+position = Vector2(11213, 611)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground33"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground33"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground13" type="StaticBody2D" parent="Terrain"]
+position = Vector2(5667, 128)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground13"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground13"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground19" type="StaticBody2D" parent="Terrain"]
+position = Vector2(6138, 79)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground19"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground19"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground14" type="StaticBody2D" parent="Terrain"]
+position = Vector2(6684, 32)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground14"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground14"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground15" type="StaticBody2D" parent="Terrain"]
+position = Vector2(7542, 32)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground15"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground15"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground16" type="StaticBody2D" parent="Terrain"]
+position = Vector2(8386, 39)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground16"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground16"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground17" type="StaticBody2D" parent="Terrain"]
+position = Vector2(9274, 32)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground17"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground17"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground18" type="StaticBody2D" parent="Terrain"]
+position = Vector2(9807, -5)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground18"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground18"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground3" type="StaticBody2D" parent="Terrain"]
+position = Vector2(1073, 1144)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground3"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground3"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground4" type="StaticBody2D" parent="Terrain"]
+position = Vector2(752, 606)
+rotation = 1.5707964
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground4"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground4"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground5" type="StaticBody2D" parent="Terrain"]
+position = Vector2(1667, 603)
+rotation = 1.5707964
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground5"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground5"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("10_6nivd")]
+position = Vector2(1722, 275)
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("10_6nivd")]
+position = Vector2(708, 257)
+
+[node name="Avatars" type="Node2D" parent="."]
+
+[node name="SadnessAvatar" parent="Avatars" instance=ExtResource("3_fkrx8")]
+position = Vector2(43, 91)
+avatar_name = "sadness"
+player_ability_unlock = 1
+unlock_color = "blue"
+
+[node name="Sprite2D" parent="Avatars/SadnessAvatar" index="0"]
+material = SubResource("ShaderMaterial_uk2yf")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_adxub")
+flip_h = true
+
+[node name="CollisionShape2D" parent="Avatars/SadnessAvatar" index="1"]
+visible = false
+position = Vector2(23, 9)
+shape = SubResource("CircleShape2D_sv7eu")
+
+[node name="AnxietyAvatar" parent="Avatars" instance=ExtResource("3_fkrx8")]
+position = Vector2(2026, 144)
+avatar_name = "anxiety"
+player_ability_unlock = 2
+unlock_color = "yellow"
+
+[node name="Sprite2D" parent="Avatars/AnxietyAvatar" index="0"]
+material = SubResource("ShaderMaterial_ondrs")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_2sb77")
+
+[node name="CollisionShape2D" parent="Avatars/AnxietyAvatar" index="1"]
+visible = false
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_63km7")
+
+[node name="AngerAvatar" parent="Avatars" instance=ExtResource("3_fkrx8")]
+position = Vector2(4089, 212)
+avatar_name = "anger"
+player_ability_unlock = 4
+unlock_color = "red"
+
+[node name="Sprite2D" parent="Avatars/AngerAvatar" index="0"]
+material = SubResource("ShaderMaterial_0e4v7")
+position = Vector2(-23, -101)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("9_fkrx8")
+
+[node name="CollisionShape2D" parent="Avatars/AngerAvatar" index="1"]
+visible = false
+position = Vector2(-24, -45)
+shape = SubResource("CircleShape2D_ff0s2")
+
+[node name="FearAvatar" parent="Avatars" instance=ExtResource("3_fkrx8")]
+position = Vector2(13444, -169)
+avatar_name = "fear"
+player_ability_unlock = 3
+unlock_color = "purple"
+
+[node name="Sprite2D" parent="Avatars/FearAvatar" index="0"]
+material = SubResource("ShaderMaterial_6nivd")
+position = Vector2(-28, -101)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("10_mwgft")
+flip_h = true
+
+[node name="CollisionShape2D" parent="Avatars/FearAvatar" index="1"]
+visible = false
+position = Vector2(-38, -61)
+shape = SubResource("CircleShape2D_uk2yf")
+
+[node name="ShameAvatar" parent="Avatars" instance=ExtResource("3_fkrx8")]
+position = Vector2(10026, -106)
+avatar_name = "shame"
+unlock_color = "green"
+
+[node name="Sprite2D" parent="Avatars/ShameAvatar" index="0"]
+material = SubResource("ShaderMaterial_al56o")
+position = Vector2(-23, -101)
+texture = ExtResource("9_adxub")
+flip_h = true
+
+[node name="CollisionShape2D" parent="Avatars/ShameAvatar" index="1"]
+visible = false
+position = Vector2(7, -69)
+shape = SubResource("CircleShape2D_adxub")
+
+[node name="RunningWiitch" parent="." instance=ExtResource("10_ff0s2")]
+position = Vector2(6152, 471)
+speed = 420.0
+
+[node name="RunningWiitchTrigger" parent="." node_paths=PackedStringArray("running_witch") instance=ExtResource("11_uk2yf")]
+position = Vector2(7700, 436)
+running_witch = NodePath("../RunningWiitch")
+direction_to_run = 1
+
+[node name="RunningWiitchTrigger2" parent="." node_paths=PackedStringArray("running_witch") instance=ExtResource("11_uk2yf")]
+position = Vector2(11074, 436)
+running_witch = NodePath("../RunningWiitch")
+direction_to_run = -1
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="Waterfall" parent="Interactables" instance=ExtResource("7_uk2yf")]
+position = Vector2(594, 234)
+action_text = "fill the bucket from the watefall"
+avatar_quest = "sadness"
+
+[node name="Spider" parent="Interactables" instance=ExtResource("7_uk2yf")]
+position = Vector2(13371, 477)
+action_text = "pick up spider"
+avatar_quest = "fear"
+
+[node name="Stick" parent="Interactables" instance=ExtResource("7_uk2yf")]
+position = Vector2(3633, 243)
+action_text = "pick up stick"
+avatar_quest = "anger"
+
+[node name="Player" parent="." instance=ExtResource("1_5fr2l")]
+position = Vector2(3246, 180)
+
+[node name="Water" parent="." instance=ExtResource("6_ff0s2")]
+position = Vector2(1069, 290)
+
+[node name="ColorGrayer" type="CanvasModulate" parent="."]
+color = Color(0.89059, 0.89059, 0.8905901, 1)
+
+[node name="WorldBoundary" type="Area2D" parent="."]
+position = Vector2(1147, 1370)
+collision_layer = 128
+script = ExtResource("9_0e4v7")
+
+[node name="DeathZone" type="CollisionShape2D" parent="WorldBoundary"]
+z_index = 21
+position = Vector2(0.5, -16.000008)
+scale = Vector2(1.0174894, 0.74670833)
+shape = SubResource("WorldBoundaryShape2D_8j58j")
+
+[node name="DarkArea" type="TextureRect" parent="."]
+z_index = 10
+custom_minimum_size = Vector2(2000, 1000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7471.0
+offset_top = -895.0
+offset_right = 9471.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_vd26p")
+
+[node name="DarkDeathZone" parent="DarkArea" instance=ExtResource("8_ondrs")]
+position = Vector2(959, 471)
+
+[node name="Barrier" parent="." instance=ExtResource("17_ondrs")]
+position = Vector2(4519, 262)
+
+[connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
+
+[editable path="Avatars/SadnessAvatar"]
+[editable path="Avatars/AnxietyAvatar"]
+[editable path="Avatars/AngerAvatar"]
+[editable path="Avatars/FearAvatar"]
+[editable path="Avatars/ShameAvatar"]

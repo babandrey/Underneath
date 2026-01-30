@@ -16,19 +16,21 @@ class_name Player extends CharacterBody2D
 @export var water_gravity = 200.0
 @export var max_water_gravity_velocity = 200.0
 
-var can_swim := false
 var is_swimming := false
 var is_talking := false
 
+var can_swim := false
 var can_run := false
 var can_go_through_dark := false
+var can_break_barriers := true
 
 @onready var respawn_position := global_position
 
 var ability_unlock_dict: Dictionary[Ability, Callable] = {
-	Ability.Swim: unlock_swim,
-	Ability.Run: unlock_run,
-	Ability.GoThroughDark: unlock_dark
+	Ability.Swim: func(): can_swim = true,
+	Ability.Run: func(): can_run = true,
+	Ability.GoThroughDark: func(): can_go_through_dark = true,
+	Ability.BreakBarriers: func(): can_break_barriers = true
 }
 
 enum Ability
@@ -36,7 +38,8 @@ enum Ability
 	None,
 	Swim,
 	Run,
-	GoThroughDark
+	GoThroughDark,
+	BreakBarriers
 }
 
 @export_group("Refs")
@@ -47,6 +50,7 @@ enum Ability
 
 var avatar_in_area: Avatar = null
 var item_in_area: Item = null
+var barrier_in_area: Barrier = null
 
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
@@ -85,6 +89,10 @@ func _physics_process(delta: float) -> void:
 			is_talking = true
 		elif item_in_area:
 			item_in_area.interact()
+			item_in_area = null
+		elif barrier_in_area:
+			barrier_in_area.break_barrier()
+			barrier_in_area = null
 		
 		interact_label.text = ""
 		# TODO: once back from talking section you can put the activate the interact label again
@@ -97,9 +105,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func unlock_swim() -> void:
-	can_swim = true
-
 func start_swim() -> void:
 	is_swimming = true
 	velocity.y = clampf(velocity.y, 0.0, velocity.y - 200.0)
@@ -107,14 +112,8 @@ func start_swim() -> void:
 func stop_swim() -> void:
 	is_swimming = false
 
-func unlock_run() -> void:
-	can_run = true
-
-func unlock_dark() -> void:
-	can_go_through_dark = true
-
 func should_run() -> bool:
-	return can_run and !is_swimming and is_on_floor() and Input.is_action_pressed("run")
+	return can_run and !is_swimming and Input.is_action_pressed("run")
 
 func respawn() -> void:
 	global_position = respawn_position
@@ -131,18 +130,35 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 	if area is Avatar:
 		var avatar: Avatar = area as Avatar
 		avatar_in_area = avatar
-		interact_label.text = "Press 'E' to talk to " + avatar.avatar_name
+		show_interact_avatar_text()
 	elif area is Item:
 		var item = area as Item
 		item_in_area = item
 		interact_label.text = area.get_interaction_text()
+	elif area is Barrier:
+		var barrier = area as Barrier
+		if barrier.barrier_active:
+			barrier_in_area = barrier
+			interact_label.text = barrier.get_interaction_text()
 
 func _on_interaction_area_area_exited(area: Area2D) -> void:
-	if area is Avatar and area == avatar_in_area:
+	if area == avatar_in_area:
 		avatar_in_area = null
+		interact_label.text = ""
+	elif area == item_in_area:
+		item_in_area = null
+		interact_label.text = ""
+	elif area == barrier_in_area:
+		barrier_in_area = null
 		interact_label.text = ""
 
 func _on_dialogue_ended() -> void:
 	is_talking = false
 	if avatar_in_area:
-		interact_label.text = "Press 'E' to talk to " + avatar_in_area.avatar_name
+		show_interact_avatar_text()
+
+func show_interact_avatar_text() -> void:
+	var avatar_name = avatar_in_area.avatar_name.to_pascal_case()
+	avatar_name = avatar_name if Dialogic.VAR.get(avatar_name).is_colored else "???"
+	interact_label.text = "Press 'E' to talk to " + avatar_name
+	
