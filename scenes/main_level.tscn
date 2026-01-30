@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://8d4wbkvyunov"]
+[gd_scene load_steps=32 format=3 uid="uid://8d4wbkvyunov"]
 
 [ext_resource type="PackedScene" uid="uid://b030j6fl17evo" path="res://scenes/player.tscn" id="1_5fr2l"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_2sb77"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://og2kiem1py8t" path="res://scenes/running_wiitch.tscn" id="10_ff0s2"]
 [ext_resource type="Texture2D" uid="uid://b0awn7kno1n0b" path="res://art/Avatars/Fear.png" id="10_mwgft"]
 [ext_resource type="PackedScene" uid="uid://dk3tnf0trie1o" path="res://scenes/running_wiitch_trigger.tscn" id="11_uk2yf"]
+[ext_resource type="PackedScene" uid="uid://dvlenlgfgsy36" path="res://scenes/barrier.tscn" id="17_ondrs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
 size = Vector2(865, 53)
@@ -702,8 +703,9 @@ position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_63km7")
 
 [node name="AngerAvatar" parent="Avatars" instance=ExtResource("3_fkrx8")]
-position = Vector2(4083, 144)
+position = Vector2(4089, 212)
 avatar_name = "anger"
+player_ability_unlock = 4
 unlock_color = "red"
 
 [node name="Sprite2D" parent="Avatars/AngerAvatar" index="0"]
@@ -774,11 +776,16 @@ avatar_quest = "sadness"
 
 [node name="Spider" parent="Interactables" instance=ExtResource("7_uk2yf")]
 position = Vector2(13371, 477)
-action_text = "pick up the spider"
+action_text = "pick up spider"
 avatar_quest = "fear"
 
+[node name="Stick" parent="Interactables" instance=ExtResource("7_uk2yf")]
+position = Vector2(3633, 243)
+action_text = "pick up stick"
+avatar_quest = "anger"
+
 [node name="Player" parent="." instance=ExtResource("1_5fr2l")]
-position = Vector2(13154, 364)
+position = Vector2(3246, 180)
 
 [node name="Water" parent="." instance=ExtResource("6_ff0s2")]
 position = Vector2(1069, 290)
@@ -813,6 +820,9 @@ texture = SubResource("GradientTexture2D_vd26p")
 
 [node name="DarkDeathZone" parent="DarkArea" instance=ExtResource("8_ondrs")]
 position = Vector2(959, 471)
+
+[node name="Barrier" parent="." instance=ExtResource("17_ondrs")]
+position = Vector2(3467, 294)
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
 

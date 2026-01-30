@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvlenlgfgsy36"]
+
+[ext_resource type="Script" uid="uid://dcp14wxbm0lfb" path="res://scripts/barrier.gd" id="1_qfl2k"]
+[ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_8ilpk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qfl2k"]
+radius = 43.0
+height = 136.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfl2k"]
+size = Vector2(62.5, 266.5)
+
+[node name="Barrier" type="Area2D" node_paths=PackedStringArray("barrier_static")]
+collision_layer = 32
+script = ExtResource("1_qfl2k")
+barrier_name = "rock"
+barrier_static = NodePath("BarrierStatic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -44)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_qfl2k")
+
+[node name="BarrierStatic" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="BarrierStatic"]
+modulate = Color(0.1148968, 0.11489681, 0.1148968, 1)
+position = Vector2(1, -134)
+scale = Vector2(0.5, 2.105)
+texture = ExtResource("2_8ilpk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BarrierStatic"]
+position = Vector2(0.75, -133.25)
+shape = SubResource("RectangleShape2D_qfl2k")
