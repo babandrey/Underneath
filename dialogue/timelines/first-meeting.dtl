@@ -1,0 +1,6 @@
+Hello [b]Wanderer[/b]...[br]\
+Welcome to... [pause=0.5] what even is this place?
+As you see.. This place has lost all of its meaning.[pause=0.5][br]There are no colors,[pause=0.5] there are no emotions.
+[b][i]We[/i][/b] have lost all of our power in this world. [pause=0.5][br]And you must help [b][i]us[/i][/b] restore the balance in nature.
+set {b_met_someone} = true
+return

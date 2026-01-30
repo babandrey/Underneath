@@ -13,9 +13,6 @@ func complete_quest() -> void:
 	assert(unlock_color, "Didn't set unlock color")
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_method(set_shader_value, 0.0, 1.0, 3.0)
-	await tween.finished
-	QuestManager.set(avatar_name + "_colored", true)
-	QuestManager.print_quest_status()
 
 func set_shader_value(value: float) -> void:
 	var param_name = unlock_color + "_anim"
@@ -27,8 +24,6 @@ func break_player_mask() -> void:
 	# TODO: await Player break mask animation
 	#await Dialogic.timeline_ended
 	player.unlock_ability(player_ability_unlock)
-	QuestManager.set(avatar_name + "_relationship", true)
-	QuestManager.print_quest_status()
 
 func talk() -> void:
-	Dialogic.start("main-timeline") # TODO: Change this to be based on avatar name
+	Dialogic.start(avatar_name + "-timeline") # TODO: Change this to be based on avatar name
