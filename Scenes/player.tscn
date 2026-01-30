@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b030j6fl17evo"]
+[gd_scene load_steps=7 format=3 uid="uid://b030j6fl17evo"]
 
 [ext_resource type="Script" uid="uid://cexoyfubv2nrc" path="res://Scripts/player.gd" id="1_6t5aa"]
 [ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://grayscale.gdshader" id="2_vgqql"]
@@ -21,12 +21,16 @@ shader_parameter/threshold = 0.25
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uh7m"]
 size = Vector2(128, 128)
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
+radius = 114.07015
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("interact_label") groups=["player"]]
 z_index = 5
 collision_mask = 14
 script = ExtResource("1_6t5aa")
 acceleration = 50.0
 deacceleration = 50.0
+interact_label = NodePath("InteractLabel")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_b0n32")
@@ -40,3 +44,20 @@ shape = SubResource("RectangleShape2D_8uh7m")
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="InteractLabel" type="Label" parent="."]
+offset_left = -57.0
+offset_top = -104.0
+offset_right = 60.0
+offset_bottom = -81.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_6t5aa")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

@@ -18,6 +18,21 @@ var is_swimming = false
 
 @onready var start_position := global_position
 
+var ability_unlock_dict: Dictionary[Ability, Callable] = {
+	Ability.Swim: unlock_swim,
+}
+
+enum Ability
+{
+	None,
+	Swim,
+	Run,
+	DoubleJump
+}
+
+@export var interact_label: Label
+var avatar_in_area: Avatar = null
+
 func _physics_process(delta: float) -> void:
 	var g = water_gravity if is_swimming else gravity
 	var acc = water_acceleration if is_swimming else acceleration
@@ -39,7 +54,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, direction * spd, acc)
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, deacc)
-
+	
+	if Input.is_action_just_pressed("interact") and avatar_in_area:
+		avatar_in_area.talk()
+		interact_label.text = ""
+	
 	move_and_slide()
 
 func unlock_swim() -> void:
@@ -54,3 +73,17 @@ func stop_swim() -> void:
 
 func respawn() -> void:
 	global_position = start_position
+
+func unlock_ability(ability: Ability) -> void:
+	ability_unlock_dict[ability].call()
+
+func _on_interaction_area_area_entered(area: Area2D) -> void:
+	if area is Avatar:
+		var avatar: Avatar = area as Avatar
+		avatar_in_area = avatar
+		interact_label.text = "Press 'E' to talk to " + avatar.avatar_name
+
+func _on_interaction_area_area_exited(area: Area2D) -> void:
+	if area is Avatar and area == avatar_in_area:
+		avatar_in_area = null
+		interact_label.text = ""

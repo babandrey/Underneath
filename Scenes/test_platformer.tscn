@@ -1,11 +1,77 @@
-[gd_scene load_steps=5 format=3 uid="uid://cumn78w0n5mp4"]
+[gd_scene load_steps=9 format=3 uid="uid://cumn78w0n5mp4"]
 
 [ext_resource type="PackedScene" uid="uid://b030j6fl17evo" path="res://Scenes/player.tscn" id="1_qqjtu"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://bplqieon6vd7b" path="res://avatar.tscn" id="3_63km7"]
 [ext_resource type="PackedScene" uid="uid://ca8cjq2maapex" path="res://Scenes/water.tscn" id="3_sv7eu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
 size = Vector2(865, 53)
+
+[sub_resource type="Shader" id="Shader_sv7eu"]
+code = "shader_type canvas_item;
+
+uniform bool red_open = false;
+uniform bool blue_open = false;
+uniform bool green_open = false;
+uniform bool purple_open = false;
+uniform bool yellow_open = false;
+
+uniform vec3 red: source_color;
+uniform vec3 blue: source_color;
+uniform vec3 green: source_color;
+uniform vec3 purple: source_color;
+uniform vec3 yellow: source_color;
+
+uniform float threshold = 0.25;
+
+void fragment() {
+    vec4 tex = texture(TEXTURE, UV);
+
+    // grayscale
+    float gray = dot(tex.rgb, vec3(0.299, 0.587, 0.114));
+    vec3 gray_color = vec3(gray);
+
+    // 1 = keep color, 0 = grayscale
+    float keep_color = 0.0;
+
+    if (red_open)
+        keep_color = max(keep_color, step(distance(tex.rgb, red), threshold));
+
+    if (blue_open)
+        keep_color = max(keep_color, step(distance(tex.rgb, blue), threshold));
+
+    if (green_open)
+        keep_color = max(keep_color, step(distance(tex.rgb, green), threshold));
+
+    if (yellow_open)
+        keep_color = max(keep_color, step(distance(tex.rgb, yellow), threshold));
+
+    if (purple_open)
+        keep_color = max(keep_color, step(distance(tex.rgb, purple), threshold));
+
+    vec3 final_color = mix(gray_color, tex.rgb, keep_color);
+    COLOR = vec4(final_color, tex.a);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_63km7"]
+resource_local_to_scene = true
+shader = SubResource("Shader_sv7eu")
+shader_parameter/red_open = false
+shader_parameter/blue_open = false
+shader_parameter/green_open = false
+shader_parameter/purple_open = false
+shader_parameter/yellow_open = false
+shader_parameter/red = Color(1, 0, 0, 1)
+shader_parameter/blue = Color(0.2784314, 0.54901963, 0.7490196, 1)
+shader_parameter/green = Color(0, 0.6117647, 0, 1)
+shader_parameter/purple = Color(0.64705884, 0.33333334, 0.92156863, 1)
+shader_parameter/yellow = Color(1, 0.95686275, 0, 1)
+shader_parameter/threshold = 0.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sv7eu"]
+radius = 185.09727
 
 [node name="TestPlatformer" type="Node2D"]
 
@@ -79,5 +145,21 @@ position = Vector2(132, -1)
 scale = Vector2(6.75, 0.421875)
 texture = ExtResource("2_8uh7m")
 
+[node name="SadnessAvatar" parent="." instance=ExtResource("3_63km7")]
+position = Vector2(-22, 131)
+avatar_name = "Sadness"
+player_ability_unlock = 1
+unlock_color = "blue"
+
+[node name="Sprite2D" parent="SadnessAvatar" index="0"]
+material = SubResource("ShaderMaterial_63km7")
+scale = Vector2(2.01, 2.01)
+texture = ExtResource("2_8uh7m")
+
+[node name="CollisionShape2D" parent="SadnessAvatar" index="1"]
+shape = SubResource("CircleShape2D_sv7eu")
+
 [node name="Water" parent="." instance=ExtResource("3_sv7eu")]
 position = Vector2(1069, 290)
+
+[editable path="SadnessAvatar"]
