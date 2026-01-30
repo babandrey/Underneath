@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ca8cjq2maapex" path="res://scenes/water.tscn" id="3_sv7eu"]
 [ext_resource type="Texture2D" uid="uid://dabsd4gm6dpfl" path="res://art/Avatars/sadness.png" id="4_jdah1"]
 [ext_resource type="PackedScene" uid="uid://bsaii60gy3ya8" path="res://scenes/item.tscn" id="6_qe2qm"]
-[ext_resource type="PackedScene" uid="uid://bp0rvix62ab4o" path="res://scenes/dark_death_zone.tscn" id="8_vd26p"]
-[ext_resource type="PackedScene" uid="uid://px7kdlrn1vm1" path="res://scenes/checkpoint.tscn" id="9_6cesl"]
+[ext_resource type="PackedScene" path="res://scenes/dark_death_zone.tscn" id="8_vd26p"]
+[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="9_6cesl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
 size = Vector2(865, 53)
