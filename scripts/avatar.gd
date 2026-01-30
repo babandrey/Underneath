@@ -9,6 +9,8 @@ class_name Avatar extends Area2D
 @onready var avatar_material: ShaderMaterial = sprite.material
 var mask_broken = false
 
+# FIRST WE BREAK AVATAR MASK, ONLY THEN WE CAN BREAK PLAYER AFTER QUEST COMPLETE
+
 func break_avatar_mask() -> void:
 	# TODO: Break mask animation
 	assert(unlock_color, "Didn't set unlock color")
@@ -21,7 +23,6 @@ func break_avatar_mask() -> void:
 func set_shader_value(value: float) -> void:
 	var param_name = unlock_color + "_anim"
 	avatar_material.set_shader_parameter(param_name, value)
-	
 
 func break_player_mask() -> void:
 	# TODO: Relationship Status ?
@@ -33,9 +34,3 @@ func break_player_mask() -> void:
 
 func talk() -> void:
 	Dialogic.start("main-timeline") # TODO: Change this to be based on avatar name
-	# TODO: Dialogue system
-	# temp just for debug
-	if not mask_broken:
-		break_avatar_mask()
-	else:
-		break_player_mask()
