@@ -13,7 +13,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if chasing_player:
-		print("hehe")
 		global_position.x += direction_to_player * speed * delta
 
 func _on_body_entered(player: Player) -> void:
