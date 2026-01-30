@@ -13,13 +13,18 @@ class_name Player extends CharacterBody2D
 @export var water_gravity = 200.0
 @export var max_water_gravity_velocity = 200.0
 
+@export var running_speed = 450.0
+
 var can_swim := false
 var is_swimming = false
+
+var can_run = false
 
 @onready var start_position := global_position
 
 var ability_unlock_dict: Dictionary[Ability, Callable] = {
 	Ability.Swim: unlock_swim,
+	Ability.Run: unlock_run,
 }
 
 enum Ability
@@ -51,6 +56,9 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("left", "right")
 	if direction:
+		if should_run():
+			spd = running_speed
+			
 		velocity.x = move_toward(velocity.x, direction * spd, acc)
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, deacc)
@@ -58,6 +66,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and avatar_in_area:
 		avatar_in_area.talk()
 		interact_label.text = ""
+		# TODO: once back from talking section you can put the activate the interact label again
 	
 	move_and_slide()
 
@@ -71,10 +80,17 @@ func start_swim() -> void:
 func stop_swim() -> void:
 	is_swimming = false
 
+func unlock_run() -> void:
+	can_run = true
+
+func should_run() -> bool:
+	return can_run and !is_swimming and is_on_floor() and Input.is_action_pressed("run")
+
 func respawn() -> void:
 	global_position = start_position
 
 func unlock_ability(ability: Ability) -> void:
+	assert(ability in ability_unlock_dict, "No ability entry in ability unlock dictionary.")
 	ability_unlock_dict[ability].call()
 
 func _on_interaction_area_area_entered(area: Area2D) -> void:

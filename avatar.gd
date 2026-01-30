@@ -14,12 +14,14 @@ func break_avatar_mask() -> void:
 	assert(unlock_color, "Didn't set unlock color")
 	avatar_material.set_shader_parameter(unlock_color + "_open", true)
 	mask_broken = true
+	prints("broke", avatar_name, "avater mask")
 
 func break_player_mask() -> void:
 	# TODO: Relationship Status ?
 	# TODO: change world shader to open color
 	# TODO: await Player break mask animation 
 	player.unlock_ability(player_ability_unlock)
+	print("broke player avater mask")
 
 func talk() -> void:
 	# TODO: Dialogue system
