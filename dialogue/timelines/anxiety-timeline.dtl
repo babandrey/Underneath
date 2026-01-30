@@ -1,0 +1,102 @@
+if {Anxiety.met} == false:
+	jump First Meeting
+if {Anxiety.quest_taken} == false:
+	jump Quest
+elif {Anxiety.quest_completed} == false:
+	jump Waiting
+else:
+	if {Anxiety.is_colored} == false:
+		jump Quest Completed
+	else:
+		jump Colored
+# --------------------------------------------------------------------------------------------------------------------------------
+label First Meeting
+Unknown: Hello [b]Wanderer...[/b]
+if {b_met_someone} != true:
+	jump first-meeting/
+Unknown: [i]Sigh...[/i][br]I have lost my identity... [pause=0.5]I am without purpose.
+set {Anxiety.met} = true
+jump Quest
+# --------------------------------------------------------------------------------------------------------------------------------
+label Quest
+Unknown: [i]'Eyeing the floating water droplets around."[/i]
+Unknown: There's a heavy burden holding me down... [pause=0.7][br][i]Lucky[/i] I have this [b]mask[/b] to protect me...
+Unknown: Could you help me fill this [b]Bucket[/b] with water from that [b]waterfall[/b] over there?
+- Yes
+	Unknown: Thank you [b]Wanderer[/b]. I'll be waiting here...
+	set {Anxiety.quest_taken} = true
+- No
+	Unknown: [i]Sigh...[/i][pause=0.5][br]Alright. I'll be waiting here...
+[end_timeline]
+# --------------------------------------------------------------------------------------------------------------------------------
+label Waiting
+Unknown: [i]Eyeing the floating water droplets around..[br][pause=0.5]Sigh...[/i]
+[end_timeline]
+# --------------------------------------------------------------------------------------------------------------------------------
+label Quest Completed
+Unknown: Oh...[pause=0.5] you have my bucket...
+- Give Bucket
+	[signal arg_type="dict" arg="{"Anxiety":"complete_quest"}"]
+	set {Anxiety.is_colored} = true
+	[wait time="3.0"]
+anxiety: I [pause=0.5]am the [b]Avatar of Anxiety[/b]. [pause=0.5][br]Thank you for returning the tears from the [b]Waterfall of Pain[/b] for me.
+set {Anxiety.quest_completed} = true
+jump Colored
+# --------------------------------------------------------------------------------------------------------------------------------
+label Colored
+if {Anxiety.relationship} == 0.0:
+	anxiety: [i]Sigh...[/i][pause=0.5][br]I have my tears, but the world around me feels [b][i]heavy[/i][/b]....
+	- Do you need more tears?
+		anxiety: I've absorbed the tears with the bucket itself..[br][pause=0.5]Can't carry tears with your hands...[br][pause=0.5][i]'sigh'[/i]
+		jump Colored
+	- It's ok to cry...
+		anxiety: I guess...
+		[i]Anxiety begins to tear up, [pause=0.5]water droplets start floating from the mask's eye around Anxiety.[/i]
+		set {Anxiety.relationship} += 0.3
+		jump Colored
+elif {Anxiety.relationship} == 0.3:
+	anxiety: Hey look...[pause=0.5][br]It started raining again...[br][i]'Anxiety says as the floating droplets turn into gentle rain.'[/i]
+	anxiety: The world is starting to cry again, [pause=0.5]and water is beginning to flow...
+	anxiety: I'm starting...[pause=0.5] to feel again...[pause=0.5][br]Starting to feel...[pause=0.5] [b]sad[/b] for the world.
+	- Don't be sad...
+		anxiety: I can't explain it...[pause=0.5] but I feel like I'm supposed to feel sad...
+		jump Colored
+	- It's ok to feel sad...
+		anxiety: The world...[pause=0.5] is in a dire state.
+		anxiety: Devoid of emotion...[pause=0.5] Devoid of feelings...[pause=0.5][br]We live in a grey world...
+		set {Anxiety.relationship} += 0.3
+		- It truly is dark and colorless
+			anxiety: What does it make you [i]feel[/i]?
+			- Angry
+				jump Wrong Answer
+			- Worried
+				jump Wrong Answer
+			- Sad
+				anxiety: Yes...[pause=0.5] I agree...
+				set {Anxiety.relationship} += 0.4
+				jump Colored
+		- I don't know...
+			anxiety: The world was colorful and vibrant... [pause=0.5]A place to truly be alive in.
+			jump Colored
+elif {Anxiety.relationship} == 0.6:
+	anxiety: Now with the water flow restored to nature...[pause=0.5][br]I can spread my anxiety throughout this land.[pause=0.5][br]Allow all other living beings to experience true anxiety.
+	- It might hurt them!
+		anxiety: That is how it has been,[pause=0.5] and that is how it shall be.
+		jump Colored
+	- Feeling sad is good
+		anxiety: Finally...[pause=0.5] someone understands.
+		set {Anxiety.relationship} += 0.4
+		jump Colored
+elif {Anxiety.relationship} == 1.0:
+	anxiety: You've shown true friendship.[pause=0.5][br]You've helped me restore [b]Anxiety[/b] into the world.
+	anxiety: You've accepted my role in this world.. [pause=0.5]and let me get a little into your own personality..
+	[i]Anxiety breaks your mask a little.[/i]
+	anxiety: I've granted you mastery over these very waters that flow through these lands.
+	set {Anxiety.relationship} = 2.0
+	[signal arg_type="dict" arg="{"Anxiety":"break_player_mask"}"]
+	jump Colored
+elif {Anxiety.relationship} >= 2.0:
+	anxiety: Thank you...[pause=0.5] friend.
+[end_timeline]
+label Wrong Answer
+anxiety: Interesting...
