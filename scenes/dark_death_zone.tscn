@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp0rvix62ab4o"]
+
+[ext_resource type="Script" uid="uid://cxuyjmsd47i7c" path="res://scripts/dark_death_zone.gd" id="1_dqcfg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knpqy"]
+size = Vector2(67.81397, 1162.4352)
+
+[node name="DarkDeathZone" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_dqcfg")
+
+[node name="DarkZone" type="CollisionShape2D" parent="."]
+z_index = 21
+position = Vector2(0.5, -16.000008)
+scale = Vector2(1.0174894, 0.74670833)
+shape = SubResource("RectangleShape2D_knpqy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cumn78w0n5mp4"]
+[gd_scene load_steps=16 format=3 uid="uid://cumn78w0n5mp4"]
 
 [ext_resource type="PackedScene" uid="uid://b030j6fl17evo" path="res://scenes/player.tscn" id="1_qqjtu"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_8uh7m"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ca8cjq2maapex" path="res://scenes/water.tscn" id="3_sv7eu"]
 [ext_resource type="Texture2D" uid="uid://dabsd4gm6dpfl" path="res://art/Avatars/sadness.png" id="4_jdah1"]
 [ext_resource type="PackedScene" uid="uid://bsaii60gy3ya8" path="res://scenes/item.tscn" id="6_qe2qm"]
+[ext_resource type="PackedScene" uid="uid://bp0rvix62ab4o" path="res://scenes/dark_death_zone.tscn" id="8_vd26p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
 size = Vector2(865, 53)
@@ -53,6 +54,16 @@ shader_parameter/edge_softness = 0.05
 [sub_resource type="CircleShape2D" id="CircleShape2D_63km7"]
 radius = 116.1
 
+[sub_resource type="Gradient" id="Gradient_qe2qm"]
+offsets = PackedFloat32Array(0, 0.18529412, 0.8264706, 1)
+colors = PackedColorArray(0.36078432, 0.36078432, 0.36078432, 0, 0.0035892325, 0.0035892325, 0.0035892325, 1, 0.029411765, 0.029411765, 0.029411765, 1, 0.29411766, 0.29411766, 0.29411766, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vd26p"]
+gradient = SubResource("Gradient_qe2qm")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
 [node name="TestPlatformer" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_qqjtu")]
@@ -80,6 +91,32 @@ position = Vector2(134.5, 0)
 shape = SubResource("RectangleShape2D_6uqi0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground2"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_8uh7m")
+
+[node name="Ground6" type="StaticBody2D" parent="."]
+position = Vector2(2802, 296)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground6"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground6"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_8uh7m")
+
+[node name="Ground7" type="StaticBody2D" parent="."]
+position = Vector2(3672, 293)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground7"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground7"]
 position = Vector2(132, -1)
 scale = Vector2(6.75, 0.421875)
 texture = ExtResource("2_8uh7m")
@@ -151,6 +188,7 @@ avatar_quest = "sadness"
 
 [node name="AnxietyAvatar" parent="." instance=ExtResource("3_63km7")]
 position = Vector2(2054, 201)
+avatar_name = "anxiety"
 player_ability_unlock = 2
 unlock_color = "green"
 
@@ -159,6 +197,26 @@ material = SubResource("ShaderMaterial_v35la")
 
 [node name="CollisionShape2D" parent="AnxietyAvatar" index="1"]
 shape = SubResource("CircleShape2D_63km7")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.89059, 0.89059, 0.8905901, 1)
+
+[node name="DarkDeathZone" parent="." instance=ExtResource("8_vd26p")]
+position = Vector2(2943, 98)
+
+[node name="DarkArea" type="TextureRect" parent="."]
+z_index = 10
+custom_minimum_size = Vector2(2000, 1000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2501.0
+offset_top = -266.0
+offset_right = 3501.0
+offset_bottom = 734.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_vd26p")
 
 [editable path="SadnessAvatar"]
 [editable path="AnxietyAvatar"]

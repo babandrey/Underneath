@@ -17,10 +17,11 @@ class_name Player extends CharacterBody2D
 @export var max_water_gravity_velocity = 200.0
 
 var can_swim := false
-var is_swimming = false
-var is_talking = false
+var is_swimming := false
+var is_talking := false
 
-var can_run = false
+var can_run := false
+var can_go_through_dark := false
 
 @onready var start_position := global_position
 
@@ -41,6 +42,7 @@ enum Ability
 @export var sprite: AnimatedSprite2D
 @export var vignette: ColorRect
 @export var interact_label: Label
+@export var camera: Camera2D
 
 var avatar_in_area: Avatar = null
 var item_in_area: Item = null
@@ -107,11 +109,18 @@ func stop_swim() -> void:
 func unlock_run() -> void:
 	can_run = true
 
+func unlock_dark() -> void:
+	can_go_through_dark = true
+
 func should_run() -> bool:
 	return can_run and !is_swimming and is_on_floor() and Input.is_action_pressed("run")
 
 func respawn() -> void:
 	global_position = start_position
+	camera.position_smoothing_enabled = false
+	camera.global_position = start_position
+	await get_tree().process_frame
+	camera.position_smoothing_enabled = true
 
 func unlock_ability(ability: Ability) -> void:
 	assert(ability in ability_unlock_dict, "No ability entry in ability unlock dictionary.")
