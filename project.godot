@@ -23,12 +23,20 @@ QuestManager="*res://scripts/autoload/quest_manager.gd"
 [dialogic]
 
 directories/dch_directory={
-"sadness": "res://dialogue/characters/sadness.dch"
+"Unknown": "res://dialogue/characters/Unknown.dch",
+"anger": "res://dialogue/characters/anger.dch",
+"anxiety": "res://dialogue/characters/anxiety.dch",
+"fear": "res://dialogue/characters/fear.dch",
+"sadness": "res://dialogue/characters/sadness.dch",
+"shame": "res://dialogue/characters/shame.dch"
 }
 directories/dtl_directory={
+"anger-timeline": "res://dialogue/timelines/anger-timeline.dtl",
+"anxiety-timeline": "res://dialogue/timelines/anxiety-timeline.dtl",
+"fear-timeline": "res://dialogue/timelines/fear-timeline.dtl",
 "first-meeting": "res://dialogue/timelines/first-meeting.dtl",
-"main-timeline": "res://dialogue/timelines/main-timeline.dtl",
-"sadness-timeline": "res://dialogue/timelines/sadness-timeline.dtl"
+"sadness-timeline": "res://dialogue/timelines/sadness-timeline.dtl",
+"shame-timeline": "res://dialogue/timelines/shame-timeline.dtl"
 }
 layout/style_directory={
 "": "res://dialogue/styles/default-style.tres",
@@ -37,9 +45,37 @@ layout/style_directory={
 layout/style_list=["res://dialogue/styles/default-style.tres"]
 layout/default_style="res://dialogue/styles/default-style.tres"
 variables={
+"Anger": {
+"is_colored": false,
+"met": false,
+"quest_completed": false,
+"quest_taken": false,
+"relationship": 0.0
+},
+"Anxiety": {
+"is_colored": false,
+"met": false,
+"quest_completed": false,
+"quest_taken": false,
+"relationship": 0.0
+},
+"Fear": {
+"is_colored": false,
+"met": false,
+"quest_completed": false,
+"quest_taken": false,
+"relationship": 0.0
+},
 "Sadness": {
 "is_colored": false,
-"met_sadness": false,
+"met": false,
+"quest_completed": false,
+"quest_taken": false,
+"relationship": 0.0
+},
+"Shame": {
+"is_colored": false,
+"met": false,
 "quest_completed": false,
 "quest_taken": false,
 "relationship": 0.0

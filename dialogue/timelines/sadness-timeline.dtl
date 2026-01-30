@@ -1,7 +1,4 @@
-if {b_met_someone} != true:
-	jump first-meeting/
-join sadness rightmost
-if {Sadness.met_sadness} == false:
+if {Sadness.met} == false:
 	jump First Meeting
 if {Sadness.quest_taken} == false:
 	jump Quest
@@ -14,28 +11,30 @@ else:
 		jump Colored
 # --------------------------------------------------------------------------------------------------------------------------------
 label First Meeting
-Hello [b]Wanderer...[/b]
-[i]Sigh...[/i][br]I have lost my identity... [pause=0.5]I am without purpose.
-set {Sadness.met_sadness} = true
+Unknown: Hello [b]Wanderer...[/b]
+if {b_met_someone} != true:
+	jump first-meeting/
+Unknown: [i]Sigh...[/i][br]I have lost my identity... [pause=0.5]I am without purpose.
+set {Sadness.met} = true
 jump Quest
 # --------------------------------------------------------------------------------------------------------------------------------
 label Quest
-[i]'Eyeing the floating water droplets around."[/i]
-There's a heavy burden holding me down... [pause=0.7][br][i]Lucky[/i] I have this [b]mask[/b] to protect me...
-Could you help me fill this [b]Bucket[/b] with water from that [b]waterfall[/b] over there?
+Unknown: [i]'Eyeing the floating water droplets around."[/i]
+Unknown: There's a heavy burden holding me down... [pause=0.7][br][i]Lucky[/i] I have this [b]mask[/b] to protect me...
+Unknown: Could you help me fill this [b]Bucket[/b] with water from that [b]waterfall[/b] over there?
 - Yes
-	Thank you [b]Wanderer[/b]. I'll be waiting here...
+	Unknown: Thank you [b]Wanderer[/b]. I'll be waiting here...
 	set {Sadness.quest_taken} = true
 - No
-	[i]Sigh...[/i][pause=0.5][br]Alright. I'll be waiting here...
+	Unknown: [i]Sigh...[/i][pause=0.5][br]Alright. I'll be waiting here...
 [end_timeline]
 # --------------------------------------------------------------------------------------------------------------------------------
 label Waiting
-[i]Eyeing the floating water droplets around..[br][pause=0.5]Sigh...[/i]
+Unknown: [i]Eyeing the floating water droplets around..[br][pause=0.5]Sigh...[/i]
 [end_timeline]
 # --------------------------------------------------------------------------------------------------------------------------------
 label Quest Completed
-Oh...[pause=0.5] you have my bucket...
+Unknown: Oh...[pause=0.5] you have my bucket...
 - Give Bucket
 	[signal arg_type="dict" arg="{"Sadness":"complete_quest"}"]
 	set {Sadness.is_colored} = true
@@ -101,4 +100,3 @@ elif {Sadness.relationship} >= 2.0:
 [end_timeline]
 label Wrong Answer
 sadness: Interesting...
-jump Colored

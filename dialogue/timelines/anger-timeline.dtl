@@ -1,0 +1,102 @@
+if {Anger.met} == false:
+	jump First Meeting
+if {Anger.quest_taken} == false:
+	jump Quest
+elif {Anger.quest_completed} == false:
+	jump Waiting
+else:
+	if {Anger.is_colored} == false:
+		jump Quest Completed
+	else:
+		jump Colored
+# --------------------------------------------------------------------------------------------------------------------------------
+label First Meeting
+Unknown: Hello [b]Wanderer...[/b]
+if {b_met_someone} != true:
+	jump first-meeting/
+Unknown: [i]Sigh...[/i][br]I have lost my identity... [pause=0.5]I am without purpose.
+set {Anger.met} = true
+jump Quest
+# --------------------------------------------------------------------------------------------------------------------------------
+label Quest
+Unknown: [i]'Eyeing the floating water droplets around."[/i]
+Unknown: There's a heavy burden holding me down... [pause=0.7][br][i]Lucky[/i] I have this [b]mask[/b] to protect me...
+Unknown: Could you help me fill this [b]Bucket[/b] with water from that [b]waterfall[/b] over there?
+- Yes
+	Unknown: Thank you [b]Wanderer[/b]. I'll be waiting here...
+	set {Anger.quest_taken} = true
+- No
+	Unknown: [i]Sigh...[/i][pause=0.5][br]Alright. I'll be waiting here...
+[end_timeline]
+# --------------------------------------------------------------------------------------------------------------------------------
+label Waiting
+Unknown: [i]Eyeing the floating water droplets around..[br][pause=0.5]Sigh...[/i]
+[end_timeline]
+# --------------------------------------------------------------------------------------------------------------------------------
+label Quest Completed
+Unknown: Oh...[pause=0.5] you have my bucket...
+- Give Bucket
+	[signal arg_type="dict" arg="{"Anger":"complete_quest"}"]
+	set {Anger.is_colored} = true
+	[wait time="3.0"]
+anger: I [pause=0.5]am the [b]Avatar of Anger[/b]. [pause=0.5][br]Thank you for returning the tears from the [b]Waterfall of Pain[/b] for me.
+set {Anger.quest_completed} = true
+jump Colored
+# --------------------------------------------------------------------------------------------------------------------------------
+label Colored
+if {Anger.relationship} == 0.0:
+	anger: [i]Sigh...[/i][pause=0.5][br]I have my tears, but the world around me feels [b][i]heavy[/i][/b]....
+	- Do you need more tears?
+		anger: I've absorbed the tears with the bucket itself..[br][pause=0.5]Can't carry tears with your hands...[br][pause=0.5][i]'sigh'[/i]
+		jump Colored
+	- It's ok to cry...
+		anger: I guess...
+		[i]Anger begins to tear up, [pause=0.5]water droplets start floating from the mask's eye around Anger.[/i]
+		set {Anger.relationship} += 0.3
+		jump Colored
+elif {Anger.relationship} == 0.3:
+	anger: Hey look...[pause=0.5][br]It started raining again...[br][i]'Anger says as the floating droplets turn into gentle rain.'[/i]
+	anger: The world is starting to cry again, [pause=0.5]and water is beginning to flow...
+	anger: I'm starting...[pause=0.5] to feel again...[pause=0.5][br]Starting to feel...[pause=0.5] [b]sad[/b] for the world.
+	- Don't be sad...
+		anger: I can't explain it...[pause=0.5] but I feel like I'm supposed to feel sad...
+		jump Colored
+	- It's ok to feel sad...
+		anger: The world...[pause=0.5] is in a dire state.
+		anger: Devoid of emotion...[pause=0.5] Devoid of feelings...[pause=0.5][br]We live in a grey world...
+		set {Anger.relationship} += 0.3
+		- It truly is dark and colorless
+			anger: What does it make you [i]feel[/i]?
+			- Angry
+				jump Wrong Answer
+			- Worried
+				jump Wrong Answer
+			- Sad
+				anger: Yes...[pause=0.5] I agree...
+				set {Anger.relationship} += 0.4
+				jump Colored
+		- I don't know...
+			anger: The world was colorful and vibrant... [pause=0.5]A place to truly be alive in.
+			jump Colored
+elif {Anger.relationship} == 0.6:
+	anger: Now with the water flow restored to nature...[pause=0.5][br]I can spread my anger throughout this land.[pause=0.5][br]Allow all other living beings to experience true anger.
+	- It might hurt them!
+		anger: That is how it has been,[pause=0.5] and that is how it shall be.
+		jump Colored
+	- Feeling sad is good
+		anger: Finally...[pause=0.5] someone understands.
+		set {Anger.relationship} += 0.4
+		jump Colored
+elif {Anger.relationship} == 1.0:
+	anger: You've shown true friendship.[pause=0.5][br]You've helped me restore [b]Anger[/b] into the world.
+	anger: You've accepted my role in this world.. [pause=0.5]and let me get a little into your own personality..
+	[i]Anger breaks your mask a little.[/i]
+	anger: I've granted you mastery over these very waters that flow through these lands.
+	set {Anger.relationship} = 2.0
+	[signal arg_type="dict" arg="{"Anger":"break_player_mask"}"]
+	jump Colored
+elif {Anger.relationship} >= 2.0:
+	anger: Thank you...[pause=0.5] friend.
+[end_timeline]
+label Wrong Answer
+anger: Interesting...
