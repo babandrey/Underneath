@@ -24,8 +24,6 @@ func break_player_mask() -> void:
 	# TODO: await Player break mask animation
 	#await Dialogic.timeline_ended
 	player.unlock_ability(player_ability_unlock)
-	QuestManager.set(avatar_name + "_relationship", true)
-	QuestManager.print_quest_status()
 
 func talk() -> void:
 	Dialogic.start(avatar_name + "-timeline") # TODO: Change this to be based on avatar name

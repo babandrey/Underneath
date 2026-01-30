@@ -10,6 +10,5 @@ func get_interaction_text() -> String:
 
 func interact() -> void:
 	if avatar_quest:
-		Dialogic.VAR.Sadness.quest_completed = true
-		QuestManager.print_quest_status()
+		Dialogic.VAR.Sadness.quest_completed = true		
 		queue_free()
