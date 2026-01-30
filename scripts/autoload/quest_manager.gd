@@ -10,4 +10,4 @@ func _on_dialogue_event(dictonary: Dictionary) -> void:
 	avatar.call(avatar_function)
 	if avatar_function == "break_player_mask":
 		var player: Player = get_tree().get_first_node_in_group("player")
-		player.show_new_ability(avatar.player_ability_unlock)
+		player.new_ability_unlocked = avatar.player_ability_unlock
