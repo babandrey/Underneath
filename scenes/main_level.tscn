@@ -822,7 +822,7 @@ texture = SubResource("GradientTexture2D_vd26p")
 position = Vector2(959, 471)
 
 [node name="Barrier" parent="." instance=ExtResource("17_ondrs")]
-position = Vector2(3467, 294)
+position = Vector2(4519, 262)
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
 

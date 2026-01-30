@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Underneath"
-run/main_scene="uid://cumn78w0n5mp4"
+run/main_scene="uid://8d4wbkvyunov"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
