@@ -800,7 +800,7 @@ action_text = "pick up crystal ball"
 avatar_quest = "anxiety"
 
 [node name="Player" parent="." instance=ExtResource("1_5fr2l")]
-position = Vector2(3246, 180)
+position = Vector2(340, 131)
 
 [node name="Water" parent="." instance=ExtResource("6_ff0s2")]
 position = Vector2(1069, 290)
