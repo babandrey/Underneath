@@ -6,7 +6,11 @@ class_name Avatar extends Area2D
 @export_enum("red", "blue", "green", "purple", "yellow") var unlock_color: String
 @export var sprite: Sprite2D
 
-@onready var avatar_material: ShaderMaterial = sprite.material
+@onready var avater_material: ShaderMaterial
+
+func _ready() -> void:
+	sprite.material = sprite.material.duplicate()
+	avater_material = sprite.material
 
 func complete_quest() -> void:
 	# TODO: Break mask animation
@@ -16,7 +20,7 @@ func complete_quest() -> void:
 
 func set_shader_value(value: float) -> void:
 	var param_name = unlock_color + "_anim"
-	avatar_material.set_shader_parameter(param_name, value)
+	avater_material.set_shader_parameter(param_name, value)
 
 func break_player_mask() -> void:
 	# TODO: Relationship Status ?
