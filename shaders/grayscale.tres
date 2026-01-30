@@ -1,18 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bwyc4afcikibs"]
 
-[ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://grayscale.gdshader" id="1_hs73y"]
+[ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://shaders/grayscale.gdshader" id="1_hs73y"]
 
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_hs73y")
-shader_parameter/red_open = false
-shader_parameter/blue_open = false
-shader_parameter/green_open = false
-shader_parameter/purple_open = false
-shader_parameter/yellow_open = false
-shader_parameter/red = Color(1, 0, 0, 1)
-shader_parameter/blue = Color(0, 0, 0.7176471, 1)
-shader_parameter/green = Color(0, 0.6117647, 0, 1)
-shader_parameter/purple = Color(0.64705884, 0.33333334, 0.92156863, 1)
-shader_parameter/yellow = Color(1, 0.95686275, 0, 1)
-shader_parameter/threshold = 0.25

@@ -1,44 +1,115 @@
-[gd_scene load_steps=7 format=3 uid="uid://b030j6fl17evo"]
+[gd_scene load_steps=21 format=3 uid="uid://b030j6fl17evo"]
 
 [ext_resource type="Script" uid="uid://cexoyfubv2nrc" path="res://scripts/player.gd" id="1_6t5aa"]
 [ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://shaders/grayscale.gdshader" id="2_vgqql"]
-[ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="3_fkybt"]
+[ext_resource type="Texture2D" uid="uid://blmg1durucn1r" path="res://art/Player/Idle Animation/Idle_01.png" id="3_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://bklm1833h4sca" path="res://art/Player/Idle Animation/Idle_02.png" id="4_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://chcuodtxyjomh" path="res://art/Player/Idle Animation/Idle_03.png" id="5_fulsm"]
+[ext_resource type="Texture2D" uid="uid://but2c6iiyyrut" path="res://art/Player/Idle Animation/Idle_04.png" id="6_4r5pv"]
+[ext_resource type="Texture2D" uid="uid://b860mdc5gebgo" path="res://art/Player/Idle Animation/Idle_05.png" id="7_60mlk"]
+[ext_resource type="Texture2D" uid="uid://du5cogelwu83" path="res://art/Player/Idle Animation/Idle_06.png" id="8_i4ail"]
+[ext_resource type="Texture2D" uid="uid://v0d1j4dp4epe" path="res://art/Player/Idle Animation/Idle_07.png" id="9_a38lo"]
+[ext_resource type="Texture2D" uid="uid://bygq2wt1l2lmk" path="res://art/Player/Idle Animation/Idle_08.png" id="10_4ni07"]
+[ext_resource type="Texture2D" uid="uid://iwyhblru1f18" path="res://art/Player/Idle Animation/Idle_09.png" id="11_l71n6"]
+[ext_resource type="Texture2D" uid="uid://bi3odtmemrf4a" path="res://art/Player/Idle Animation/Idle_10.png" id="12_ke2ow"]
+[ext_resource type="Texture2D" uid="uid://dhvmcn5e2eduy" path="res://art/Player/Idle Animation/Idle_11.png" id="13_ujl30"]
+[ext_resource type="Texture2D" uid="uid://dap0jfgci3dql" path="res://art/Player/Idle Animation/Idle_12.png" id="14_31cv2"]
+[ext_resource type="Texture2D" uid="uid://cu2kdvyxta4ey" path="res://art/Player/Idle Animation/Idle_13.png" id="15_pf23h"]
+[ext_resource type="Texture2D" uid="uid://clhs5rtd8ef1l" path="res://art/Player/Idle Animation/Idle_14.png" id="16_dt7fs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b0n32"]
 shader = ExtResource("2_vgqql")
 shader_parameter/red_open = false
-shader_parameter/blue_open = true
+shader_parameter/blue_open = false
 shader_parameter/green_open = false
 shader_parameter/purple_open = false
 shader_parameter/yellow_open = false
-shader_parameter/red = Color(0.8980392, 0.23921569, 0.32156864, 1)
-shader_parameter/blue = Color(0.21568628, 0.3137255, 0.8862745, 1)
-shader_parameter/green = Color(0, 0.8666667, 0, 1)
-shader_parameter/purple = Color(0.49009496, 0.2373046, 0.7094146, 1)
-shader_parameter/yellow = Color(0.87058824, 0.98039216, 0, 1)
+shader_parameter/red = Color(0, 0, 0, 1)
+shader_parameter/blue1 = Color(0, 0, 0, 1)
+shader_parameter/blue2 = Color(0, 0, 0, 1)
+shader_parameter/blue3 = Color(0, 0, 0, 1)
+shader_parameter/green = Color(0, 0, 0, 1)
+shader_parameter/purple = Color(0, 0, 0, 1)
+shader_parameter/yellow = Color(0, 0, 0, 1)
 shader_parameter/threshold = 0.25
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uh7m"]
-size = Vector2(128, 128)
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_a8ls1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qfm1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fulsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4r5pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_60mlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_i4ail")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a38lo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4ni07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_l71n6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ke2ow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ujl30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_31cv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pf23h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_dt7fs")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a8ls1"]
+radius = 55.0
+height = 212.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
-radius = 114.07015
+radius = 131.09538
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("interact_label") groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "interact_label") groups=["player"]]
 z_index = 5
 collision_mask = 14
 script = ExtResource("1_6t5aa")
 acceleration = 50.0
 deacceleration = 50.0
+sprite = NodePath("AnimatedSprite2D")
 interact_label = NodePath("InteractLabel")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_b0n32")
-texture = ExtResource("3_fkybt")
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_g2els")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.16971958
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("RectangleShape2D_8uh7m")
+position = Vector2(-5, -7)
+shape = SubResource("CapsuleShape2D_a8ls1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
@@ -57,6 +128,7 @@ vertical_alignment = 1
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-1, -5)
 shape = SubResource("CircleShape2D_6t5aa")
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]

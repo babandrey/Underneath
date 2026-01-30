@@ -1,19 +1,20 @@
 class_name Player extends CharacterBody2D
 
+@export_group("Normal Movement")
 @export var speed = 300.0
 @export var acceleration = 300.0
 @export var deacceleration = 300.0
 @export var jump_velocity = 400.0
 @export var gravity = 980.0
+@export var running_speed = 450.0
 
+@export_group("Water Movement")
 @export var water_speed = 170.0
 @export var water_acceleration = 10.0
 @export var water_deaccelartion = 10.0
 @export var water_jump_velocity = 250.0
 @export var water_gravity = 200.0
 @export var max_water_gravity_velocity = 200.0
-
-@export var running_speed = 450.0
 
 var can_swim := false
 var is_swimming = false
@@ -35,7 +36,10 @@ enum Ability
 	DoubleJump
 }
 
+@export_group("Refs")
+@export var sprite: AnimatedSprite2D
 @export var interact_label: Label
+
 var avatar_in_area: Avatar = null
 
 func _physics_process(delta: float) -> void:
@@ -67,6 +71,12 @@ func _physics_process(delta: float) -> void:
 		avatar_in_area.talk()
 		interact_label.text = ""
 		# TODO: once back from talking section you can put the activate the interact label again
+	
+	# Animation
+	if direction > 0:
+		sprite.flip_h = false
+	elif direction < 0:
+		sprite.flip_h = true
 	
 	move_and_slide()
 

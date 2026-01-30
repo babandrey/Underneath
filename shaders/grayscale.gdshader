@@ -7,7 +7,11 @@ uniform bool purple_open = false;
 uniform bool yellow_open = false;
 
 uniform vec3 red: source_color;
-uniform vec3 blue: source_color;
+
+uniform vec3 blue1: source_color;
+uniform vec3 blue2: source_color;
+uniform vec3 blue3: source_color;
+
 uniform vec3 green: source_color;
 uniform vec3 purple: source_color;
 uniform vec3 yellow: source_color;
@@ -28,7 +32,11 @@ void fragment() {
         keep_color = max(keep_color, step(distance(tex.rgb, red), threshold));
 
     if (blue_open)
-        keep_color = max(keep_color, step(distance(tex.rgb, blue), threshold));
+	{
+		keep_color = max(keep_color, step(distance(tex.rgb, blue1), threshold));
+		keep_color = max(keep_color, step(distance(tex.rgb, blue2), threshold));
+		keep_color = max(keep_color, step(distance(tex.rgb, blue3), threshold));
+	}
 
     if (green_open)
         keep_color = max(keep_color, step(distance(tex.rgb, green), threshold));
