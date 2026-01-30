@@ -23,7 +23,7 @@ var is_talking := false
 var can_run := false
 var can_go_through_dark := false
 
-@onready var start_position := global_position
+@onready var respawn_position := global_position
 
 var ability_unlock_dict: Dictionary[Ability, Callable] = {
 	Ability.Swim: unlock_swim,
@@ -117,9 +117,9 @@ func should_run() -> bool:
 	return can_run and !is_swimming and is_on_floor() and Input.is_action_pressed("run")
 
 func respawn() -> void:
-	global_position = start_position
+	global_position = respawn_position
 	camera.position_smoothing_enabled = false
-	camera.global_position = start_position
+	camera.global_position = global_position
 	await get_tree().process_frame
 	camera.position_smoothing_enabled = true
 
