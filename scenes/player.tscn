@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b030j6fl17evo"]
+[gd_scene load_steps=22 format=3 uid="uid://b030j6fl17evo"]
 
 [ext_resource type="Script" uid="uid://cexoyfubv2nrc" path="res://scripts/player.gd" id="1_6t5aa"]
 [ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://shaders/grayscale.gdshader" id="2_vgqql"]
@@ -16,22 +16,24 @@
 [ext_resource type="Texture2D" uid="uid://dap0jfgci3dql" path="res://art/Player/Idle Animation/Idle_12.png" id="14_31cv2"]
 [ext_resource type="Texture2D" uid="uid://cu2kdvyxta4ey" path="res://art/Player/Idle Animation/Idle_13.png" id="15_pf23h"]
 [ext_resource type="Texture2D" uid="uid://clhs5rtd8ef1l" path="res://art/Player/Idle Animation/Idle_14.png" id="16_dt7fs"]
+[ext_resource type="Material" uid="uid://bvsmc1eveglbg" path="res://shaders/vignette.tres" id="17_qfm1y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b0n32"]
 shader = ExtResource("2_vgqql")
-shader_parameter/red_open = false
-shader_parameter/blue_open = false
-shader_parameter/green_open = false
-shader_parameter/purple_open = false
-shader_parameter/yellow_open = false
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
 shader_parameter/red = Color(0, 0, 0, 1)
 shader_parameter/blue1 = Color(0, 0, 0, 1)
 shader_parameter/blue2 = Color(0, 0, 0, 1)
 shader_parameter/blue3 = Color(0, 0, 0, 1)
 shader_parameter/green = Color(0, 0, 0, 1)
-shader_parameter/purple = Color(0, 0, 0, 1)
 shader_parameter/yellow = Color(0, 0, 0, 1)
+shader_parameter/purple = Color(0, 0, 0, 1)
 shader_parameter/threshold = 0.25
+shader_parameter/edge_softness = 0.05
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
 animations = [{
@@ -90,13 +92,14 @@ height = 212.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
 radius = 131.09538
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "interact_label") groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "vignette", "interact_label") groups=["player"]]
 z_index = 5
 collision_mask = 14
 script = ExtResource("1_6t5aa")
 acceleration = 50.0
 deacceleration = 50.0
 sprite = NodePath("AnimatedSprite2D")
+vignette = NodePath("CanvasLayer/Vignette")
 interact_label = NodePath("InteractLabel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -117,19 +120,39 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="InteractLabel" type="Label" parent="."]
-offset_left = -57.0
-offset_top = -104.0
-offset_right = 60.0
-offset_bottom = -81.0
+z_index = 6
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -154.075
+offset_right = 58.5
+offset_bottom = -131.075
+grow_horizontal = 2
+grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InteractionArea" type="Area2D" parent="."]
-collision_mask = 16
+collision_mask = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(-1, -5)
 shape = SubResource("CircleShape2D_6t5aa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Vignette" type="ColorRect" parent="CanvasLayer"]
+visible = false
+material = ExtResource("17_qfm1y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionArea" to="." method="_on_interaction_area_area_exited"]

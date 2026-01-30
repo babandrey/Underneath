@@ -12,14 +12,14 @@
 },
 &"default_portrait": "Main",
 &"description": "",
-&"display_name": "Kerious",
+&"display_name": "Sadness",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
 "Main": {
 "export_overrides": {
-"image": "\"res://dialogue/babi.png\""
+"image": "\"\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

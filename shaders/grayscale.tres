@@ -5,3 +5,17 @@
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_hs73y")
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
+shader_parameter/red = Color(0, 0, 0, 1)
+shader_parameter/blue1 = Color(0, 0, 0, 1)
+shader_parameter/blue2 = Color(0, 0, 0, 1)
+shader_parameter/blue3 = Color(0, 0, 0, 1)
+shader_parameter/green = Color(0, 0, 0, 1)
+shader_parameter/yellow = Color(0, 0, 0, 1)
+shader_parameter/purple = Color(0, 0, 0, 1)
+shader_parameter/threshold = 0.15
+shader_parameter/edge_softness = 0.05
