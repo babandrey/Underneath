@@ -28,6 +28,7 @@ var can_go_through_dark := false
 var ability_unlock_dict: Dictionary[Ability, Callable] = {
 	Ability.Swim: unlock_swim,
 	Ability.Run: unlock_run,
+	Ability.GoThroughDark: unlock_dark
 }
 
 enum Ability
@@ -35,7 +36,7 @@ enum Ability
 	None,
 	Swim,
 	Run,
-	DoubleJump
+	GoThroughDark
 }
 
 @export_group("Refs")
