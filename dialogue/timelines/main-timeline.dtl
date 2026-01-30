@@ -1,0 +1,21 @@
+Welcome to Underneath!
+join kerious right
+label Start
+if {b_met_keri} == false:
+	kerious: Hello ~ Nice to meet you! I'm [b]Kerious[/b]. How are you?
+	set {b_met_keri} = true
+elif {b_is_happy} == true:
+	kerious: Oh hi again ~ Hope you are still doing well \:)
+else:
+	kerious: Oh hi again ~ Hope you are doing better..
+- Good
+	kerious: Glad to hear you're doing well!
+	set {b_is_happy} = true
+- Meh
+	kerious: [b]I'm sorry[/b].. I'm here for you <3
+	set {b_is_happy} = false
+- End Conversation
+	jump End
+jump Start
+label End
+kerious: Good bye!
