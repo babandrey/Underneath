@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cumn78w0n5mp4"]
+[gd_scene load_steps=12 format=3 uid="uid://cumn78w0n5mp4"]
 
 [ext_resource type="PackedScene" uid="uid://b030j6fl17evo" path="res://Scenes/player.tscn" id="1_qqjtu"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_8uh7m"]
+[ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://grayscale.gdshader" id="2_m1smf"]
 [ext_resource type="PackedScene" uid="uid://bplqieon6vd7b" path="res://avatar.tscn" id="3_63km7"]
 [ext_resource type="PackedScene" uid="uid://ca8cjq2maapex" path="res://Scenes/water.tscn" id="3_sv7eu"]
 
@@ -72,6 +73,24 @@ shader_parameter/threshold = 0.25
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sv7eu"]
 radius = 185.09727
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v35la"]
+resource_local_to_scene = true
+shader = ExtResource("2_m1smf")
+shader_parameter/red_open = false
+shader_parameter/blue_open = false
+shader_parameter/green_open = false
+shader_parameter/purple_open = false
+shader_parameter/yellow_open = false
+shader_parameter/red = Color(1, 0, 0, 1)
+shader_parameter/blue = Color(0, 0, 0.7176471, 1)
+shader_parameter/green = Color(0, 0.6117647, 0, 1)
+shader_parameter/purple = Color(0.64705884, 0.33333334, 0.92156863, 1)
+shader_parameter/yellow = Color(1, 0.95686275, 0, 1)
+shader_parameter/threshold = 0.25
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_63km7"]
+radius = 116.1
 
 [node name="TestPlatformer" type="Node2D"]
 
@@ -154,7 +173,6 @@ unlock_color = "blue"
 [node name="Sprite2D" parent="SadnessAvatar" index="0"]
 material = SubResource("ShaderMaterial_63km7")
 scale = Vector2(2.01, 2.01)
-texture = ExtResource("2_8uh7m")
 
 [node name="CollisionShape2D" parent="SadnessAvatar" index="1"]
 shape = SubResource("CircleShape2D_sv7eu")
@@ -162,4 +180,17 @@ shape = SubResource("CircleShape2D_sv7eu")
 [node name="Water" parent="." instance=ExtResource("3_sv7eu")]
 position = Vector2(1069, 290)
 
+[node name="AnxietyAvatar" parent="." instance=ExtResource("3_63km7")]
+position = Vector2(2054, 201)
+avatar_name = "Anxiety"
+player_ability_unlock = 2
+unlock_color = "green"
+
+[node name="Sprite2D" parent="AnxietyAvatar" index="0"]
+material = SubResource("ShaderMaterial_v35la")
+
+[node name="CollisionShape2D" parent="AnxietyAvatar" index="1"]
+shape = SubResource("CircleShape2D_63km7")
+
 [editable path="SadnessAvatar"]
+[editable path="AnxietyAvatar"]
