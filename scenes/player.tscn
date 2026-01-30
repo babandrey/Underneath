@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b030j6fl17evo"]
+[gd_scene load_steps=23 format=3 uid="uid://b030j6fl17evo"]
 
 [ext_resource type="Script" uid="uid://cexoyfubv2nrc" path="res://scripts/player.gd" id="1_6t5aa"]
 [ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://shaders/grayscale.gdshader" id="2_vgqql"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cu2kdvyxta4ey" path="res://art/Player/Idle Animation/Idle_13.png" id="15_pf23h"]
 [ext_resource type="Texture2D" uid="uid://clhs5rtd8ef1l" path="res://art/Player/Idle Animation/Idle_14.png" id="16_dt7fs"]
 [ext_resource type="Material" uid="uid://bvsmc1eveglbg" path="res://shaders/vignette.tres" id="17_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://c4vvko60ftdw7" path="res://art/light/light_texture.webp" id="18_fulsm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b0n32"]
 shader = ExtResource("2_vgqql")
@@ -92,7 +93,7 @@ height = 212.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
 radius = 131.09538
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "vignette", "interact_label") groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "vignette", "interact_label", "camera") groups=["player"]]
 z_index = 5
 collision_mask = 14
 script = ExtResource("1_6t5aa")
@@ -101,6 +102,7 @@ deacceleration = 50.0
 sprite = NodePath("AnimatedSprite2D")
 vignette = NodePath("CanvasLayer/Vignette")
 interact_label = NodePath("InteractLabel")
+camera = NodePath("Camera2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_b0n32")
@@ -111,6 +113,7 @@ autoplay = "idle"
 frame_progress = 0.16971958
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-5, -7)
 shape = SubResource("CapsuleShape2D_a8ls1")
 
@@ -118,6 +121,19 @@ shape = SubResource("CapsuleShape2D_a8ls1")
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="NormalLight" type="PointLight2D" parent="."]
+visible = false
+shadow_enabled = true
+texture = ExtResource("18_fulsm")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
+position = Vector2(-1, -5)
+shape = SubResource("CircleShape2D_6t5aa")
 
 [node name="InteractLabel" type="Label" parent="."]
 z_index = 6
@@ -134,13 +150,6 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="InteractionArea" type="Area2D" parent="."]
-collision_mask = 48
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-1, -5)
-shape = SubResource("CircleShape2D_6t5aa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -138,6 +138,7 @@ dialogic_default_action={
 2d_physics/layer_4="Checkpoint"
 2d_physics/layer_5="AvatarTalkArea"
 2d_physics/layer_6="ItemInteractArea"
+2d_physics/layer_7="DarkDeathZone"
 
 [physics]
 
