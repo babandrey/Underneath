@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://cumn78w0n5mp4"]
 
-[ext_resource type="PackedScene" uid="uid://b030j6fl17evo" path="res://Scenes/player.tscn" id="1_qqjtu"]
+[ext_resource type="PackedScene" uid="uid://b030j6fl17evo" path="res://scenes/player.tscn" id="1_qqjtu"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_8uh7m"]
-[ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://grayscale.gdshader" id="2_m1smf"]
-[ext_resource type="PackedScene" uid="uid://bplqieon6vd7b" path="res://avatar.tscn" id="3_63km7"]
-[ext_resource type="PackedScene" uid="uid://ca8cjq2maapex" path="res://Scenes/water.tscn" id="3_sv7eu"]
+[ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://shaders/grayscale.gdshader" id="2_m1smf"]
+[ext_resource type="PackedScene" uid="uid://bplqieon6vd7b" path="res://scenes/avatar.tscn" id="3_63km7"]
+[ext_resource type="PackedScene" uid="uid://ca8cjq2maapex" path="res://scenes/water.tscn" id="3_sv7eu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
 size = Vector2(865, 53)

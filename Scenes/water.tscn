@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ca8cjq2maapex"]
 
-[ext_resource type="Script" uid="uid://vtxq33altnoq" path="res://water.gd" id="1_gf5bf"]
+[ext_resource type="Script" uid="uid://vtxq33altnoq" path="res://scripts/water.gd" id="1_gf5bf"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_qq3op"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knpqy"]

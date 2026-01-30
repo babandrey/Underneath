@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b030j6fl17evo"]
 
-[ext_resource type="Script" uid="uid://cexoyfubv2nrc" path="res://Scripts/player.gd" id="1_6t5aa"]
-[ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://grayscale.gdshader" id="2_vgqql"]
+[ext_resource type="Script" uid="uid://cexoyfubv2nrc" path="res://scripts/player.gd" id="1_6t5aa"]
+[ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://shaders/grayscale.gdshader" id="2_vgqql"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="3_fkybt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b0n32"]
