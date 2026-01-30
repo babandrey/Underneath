@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bplqieon6vd7b"]
 
-[ext_resource type="Script" uid="uid://c58main60dyil" path="res://avatar.gd" id="1_702cj"]
-[ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://grayscale.tres" id="2_kn5ym"]
+[ext_resource type="Script" uid="uid://c58main60dyil" path="res://scripts/avatar.gd" id="1_702cj"]
+[ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="2_kn5ym"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="3_07tn8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kn5ym"]
