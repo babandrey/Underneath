@@ -11,4 +11,5 @@ func get_interaction_text() -> String:
 func interact() -> void:
 	if avatar_quest:
 		QuestManager.set(avatar_quest + "_quest", true)
+		QuestManager.print_quest_status()
 		queue_free()

@@ -1,15 +1,12 @@
 class_name Avatar extends Area2D
 
 @onready var player: Player = get_tree().get_first_node_in_group("player")
-@export var avatar_name: String
+@export_enum("sadness", "anxiety", "anger", "fear", "shame") var avatar_name: String
 @export var player_ability_unlock: Player.Ability
 @export_enum("red", "blue", "green", "purple", "yellow") var unlock_color: String
 @export var sprite: Sprite2D
 
 @onready var avatar_material: ShaderMaterial = sprite.material
-
-var quest_completed := false
-# FIRST WE BREAK AVATAR MASK, ONLY THEN WE CAN BREAK PLAYER AFTER QUEST COMPLETE
 
 func complete_quest() -> void:
 	# TODO: Break mask animation
@@ -17,7 +14,8 @@ func complete_quest() -> void:
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_method(set_shader_value, 0.0, 1.0, 3.0)
 	await tween.finished
-	quest_completed = true
+	QuestManager.set(avatar_name + "_colored", true)
+	QuestManager.print_quest_status()
 
 func set_shader_value(value: float) -> void:
 	var param_name = unlock_color + "_anim"
@@ -29,7 +27,8 @@ func break_player_mask() -> void:
 	# TODO: await Player break mask animation
 	#await Dialogic.timeline_ended
 	player.unlock_ability(player_ability_unlock)
-	print("broke player avater mask")
+	QuestManager.set(avatar_name + "_relationship", true)
+	QuestManager.print_quest_status()
 
 func talk() -> void:
 	Dialogic.start("main-timeline") # TODO: Change this to be based on avatar name

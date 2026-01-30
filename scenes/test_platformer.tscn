@@ -127,7 +127,7 @@ texture = ExtResource("2_8uh7m")
 
 [node name="SadnessAvatar" parent="." instance=ExtResource("3_63km7")]
 position = Vector2(-7, 127)
-avatar_name = "Sadness"
+avatar_name = "sadness"
 player_ability_unlock = 1
 unlock_color = "blue"
 
@@ -151,7 +151,6 @@ avatar_quest = "sadness"
 
 [node name="AnxietyAvatar" parent="." instance=ExtResource("3_63km7")]
 position = Vector2(2054, 201)
-avatar_name = "Anxiety"
 player_ability_unlock = 2
 unlock_color = "green"
 
