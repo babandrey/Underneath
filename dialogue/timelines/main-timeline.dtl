@@ -11,7 +11,7 @@ else:
 - Good
 	kerious: Glad to hear you're doing well!
 	set {b_is_happy} = true
-	[signal arg_type="dict" arg="{"Sadness":"break_avatar_mask"}"]
+	[signal arg_type="dict" arg="{"Sadness":"complete_quest"}"]
 - Meh
 	kerious: [b]I'm sorry[/b].. I'm here for you <3
 	set {b_is_happy} = false

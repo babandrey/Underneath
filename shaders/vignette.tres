@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bvsmc1eveglbg"]
+
+[ext_resource type="Shader" uid="uid://d1d5efhu8stdm" path="res://shaders/vignette.gdshader" id="1_gbuoh"]
+
+[resource]
+shader = ExtResource("1_gbuoh")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0

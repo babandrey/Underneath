@@ -7,18 +7,17 @@ class_name Avatar extends Area2D
 @export var sprite: Sprite2D
 
 @onready var avatar_material: ShaderMaterial = sprite.material
-var mask_broken = false
 
+var quest_completed := false
 # FIRST WE BREAK AVATAR MASK, ONLY THEN WE CAN BREAK PLAYER AFTER QUEST COMPLETE
 
-func break_avatar_mask() -> void:
+func complete_quest() -> void:
 	# TODO: Break mask animation
 	assert(unlock_color, "Didn't set unlock color")
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_method(set_shader_value, 0.0, 1.0, 3.0)
 	await tween.finished
-	mask_broken = true
-	prints("broke", avatar_name, "avater mask")
+	quest_completed = true
 
 func set_shader_value(value: float) -> void:
 	var param_name = unlock_color + "_anim"

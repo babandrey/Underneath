@@ -39,12 +39,15 @@ enum Ability
 
 @export_group("Refs")
 @export var sprite: AnimatedSprite2D
+@export var vignette: ColorRect
 @export var interact_label: Label
 
 var avatar_in_area: Avatar = null
+var item_in_area: Item = null
 
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
+	vignette.show()
 
 func _physics_process(delta: float) -> void:
 	if is_talking: return
@@ -73,9 +76,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, deacc)
 	
-	if Input.is_action_just_pressed("interact") and avatar_in_area:
-		avatar_in_area.talk()
-		is_talking = true
+	if Input.is_action_just_pressed("interact"):
+		if avatar_in_area:
+			avatar_in_area.talk()
+			is_talking = true
+		elif item_in_area:
+			item_in_area.interact()
 		
 		interact_label.text = ""
 		# TODO: once back from talking section you can put the activate the interact label again
@@ -116,6 +122,10 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 		var avatar: Avatar = area as Avatar
 		avatar_in_area = avatar
 		interact_label.text = "Press 'E' to talk to " + avatar.avatar_name
+	elif area is Item:
+		var item = area as Item
+		item_in_area = item
+		interact_label.text = area.get_interaction_text()
 
 func _on_interaction_area_area_exited(area: Area2D) -> void:
 	if area is Avatar and area == avatar_in_area:

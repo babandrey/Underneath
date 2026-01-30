@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cumn78w0n5mp4"]
+[gd_scene load_steps=13 format=3 uid="uid://cumn78w0n5mp4"]
 
 [ext_resource type="PackedScene" uid="uid://b030j6fl17evo" path="res://scenes/player.tscn" id="1_qqjtu"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_8uh7m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bplqieon6vd7b" path="res://scenes/avatar.tscn" id="3_63km7"]
 [ext_resource type="PackedScene" uid="uid://ca8cjq2maapex" path="res://scenes/water.tscn" id="3_sv7eu"]
 [ext_resource type="Texture2D" uid="uid://dabsd4gm6dpfl" path="res://art/Avatars/sadness.png" id="4_jdah1"]
+[ext_resource type="PackedScene" uid="uid://bsaii60gy3ya8" path="res://scenes/item.tscn" id="6_qe2qm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
 size = Vector2(865, 53)
@@ -142,6 +143,11 @@ shape = SubResource("CircleShape2D_sv7eu")
 
 [node name="Water" parent="." instance=ExtResource("3_sv7eu")]
 position = Vector2(1069, 290)
+
+[node name="Item" parent="." instance=ExtResource("6_qe2qm")]
+position = Vector2(594, 234)
+action_text = "fill the bucket from the watefall"
+avatar_quest = "sadness"
 
 [node name="AnxietyAvatar" parent="." instance=ExtResource("3_63km7")]
 position = Vector2(2054, 201)
