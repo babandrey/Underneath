@@ -148,7 +148,7 @@ func _on_dialogue_ended() -> void:
 		show_interact_avatar_text()
 
 func show_interact_avatar_text() -> void:
-		var avatar_name = avatar_in_area.avatar_name.to_pascal_case()
-		avatar_name = avatar_name if Dialogic.VAR.get(avatar_name).is_colored else "???"
-		interact_label.text = "Press 'E' to talk to " + avatar_name
+	var avatar_name = avatar_in_area.avatar_name.to_pascal_case()
+	avatar_name = avatar_name if Dialogic.VAR.get(avatar_name).is_colored else "???"
+	interact_label.text = "Press 'E' to talk to " + avatar_name
 	
