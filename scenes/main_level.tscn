@@ -732,21 +732,19 @@ position = Vector2(-24, -45)
 shape = SubResource("CircleShape2D_ff0s2")
 
 [node name="FearAvatar" parent="Avatars" instance=ExtResource("3_fkrx8")]
-position = Vector2(13444, -169)
+position = Vector2(13402, -244)
 avatar_name = "fear"
 player_ability_unlock = 3
 unlock_color = "purple"
 
 [node name="Sprite2D" parent="Avatars/FearAvatar" index="0"]
 material = SubResource("ShaderMaterial_6nivd")
-position = Vector2(-28, -101)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("10_mwgft")
 flip_h = true
 
 [node name="CollisionShape2D" parent="Avatars/FearAvatar" index="1"]
 visible = false
-position = Vector2(-38, -61)
 shape = SubResource("CircleShape2D_uk2yf")
 
 [node name="ShameAvatar" parent="Avatars" instance=ExtResource("3_fkrx8")]
@@ -828,7 +826,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 7471.0
-offset_top = -895.0
+offset_top = -1768.0
 offset_right = 9471.0
 offset_bottom = 105.0
 grow_horizontal = 2
