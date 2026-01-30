@@ -23,7 +23,12 @@ QuestManager="*res://scripts/autoload/quest_manager.gd"
 [dialogic]
 
 directories/dch_directory={
-"sadness": "res://dialogue/characters/sadness.dch"
+"Unknown": "res://dialogue/characters/Unknown.dch",
+"anger": "res://dialogue/characters/anger.dch",
+"anxiety": "res://dialogue/characters/anxiety.dch",
+"fear": "res://dialogue/characters/fear.dch",
+"sadness": "res://dialogue/characters/sadness.dch",
+"shame": "res://dialogue/characters/shame.dch"
 }
 directories/dtl_directory={
 "first-meeting": "res://dialogue/timelines/first-meeting.dtl",
@@ -39,7 +44,7 @@ layout/default_style="res://dialogue/styles/default-style.tres"
 variables={
 "Sadness": {
 "is_colored": false,
-"met_sadness": false,
+"met": false,
 "quest_completed": false,
 "quest_taken": false,
 "relationship": 0.0
