@@ -26,6 +26,22 @@ uniform vec3 purple[PURPLE_COLORS]: source_color;
 uniform float threshold = 0.15;
 uniform float edge_softness = 0.05;
 
+uniform bool move_wave = false;
+uniform float amplitude = 5.0;   // how far left/right (pixels)
+uniform float frequency = 4.0;   // how wavy it is
+uniform float speed = 2.0;       // how fast it moves
+
+void vertex() {
+	if(move_wave)
+	{
+		// Use Y so different heights move differently (nice wave look)
+	    float wave = sin(VERTEX.y * frequency + TIME * speed);
+
+	    // Offset X (left/right)
+	    VERTEX.x += wave * amplitude;
+	}
+}
+
 float color_mask(vec3 tex, vec3 target) {
     float d = distance(tex, target);
     return smoothstep(threshold + edge_softness, threshold, d);
