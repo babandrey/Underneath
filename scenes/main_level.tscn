@@ -36,6 +36,10 @@ shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1
 shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
 shader_parameter/threshold = 0.15
 shader_parameter/edge_softness = 0.05
+shader_parameter/move_wave = true
+shader_parameter/amplitude = 5.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sv7eu"]
 radius = 241.42
@@ -55,6 +59,10 @@ shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1
 shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
 shader_parameter/threshold = 0.15
 shader_parameter/edge_softness = 0.05
+shader_parameter/move_wave = true
+shader_parameter/amplitude = 5.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_63km7"]
 resource_local_to_scene = true
@@ -75,6 +83,10 @@ shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1
 shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
 shader_parameter/threshold = 0.15
 shader_parameter/edge_softness = 0.05
+shader_parameter/move_wave = true
+shader_parameter/amplitude = 5.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ff0s2"]
 resource_local_to_scene = true
@@ -95,6 +107,10 @@ shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1
 shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
 shader_parameter/threshold = 0.15
 shader_parameter/edge_softness = 0.05
+shader_parameter/move_wave = true
+shader_parameter/amplitude = 5.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uk2yf"]
 resource_local_to_scene = true
@@ -115,6 +131,10 @@ shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1
 shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
 shader_parameter/threshold = 0.15
 shader_parameter/edge_softness = 0.05
+shader_parameter/move_wave = true
+shader_parameter/amplitude = 5.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_adxub"]
 resource_local_to_scene = true
