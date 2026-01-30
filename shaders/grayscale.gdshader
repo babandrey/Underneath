@@ -1,52 +1,69 @@
 shader_type canvas_item;
 
-uniform bool red_open = false;
-uniform bool blue_open = false;
-uniform bool green_open = false;
-uniform bool purple_open = false;
-uniform bool yellow_open = false;
+/* Animation values (0 → 1) */
+uniform float red_anim = 0.0;
+uniform float blue_anim = 0.0;
+uniform float green_anim = 0.0;
+uniform float yellow_anim = 0.0;
+uniform float purple_anim = 0.0;
 
+/* Target colors */
 uniform vec3 red: source_color;
-
 uniform vec3 blue1: source_color;
 uniform vec3 blue2: source_color;
 uniform vec3 blue3: source_color;
-
 uniform vec3 green: source_color;
-uniform vec3 purple: source_color;
 uniform vec3 yellow: source_color;
+uniform vec3 purple: source_color;
 
-uniform float threshold = 0.25;
+uniform float threshold = 0.15;
+uniform float edge_softness = 0.05;
+
+float color_mask(vec3 tex, vec3 target) {
+    float d = distance(tex, target);
+    return smoothstep(threshold + edge_softness, threshold, d);
+}
 
 void fragment() {
     vec4 tex = texture(TEXTURE, UV);
 
-    // grayscale
+    // Grayscale base
     float gray = dot(tex.rgb, vec3(0.299, 0.587, 0.114));
     vec3 gray_color = vec3(gray);
 
-    // 1 = keep color, 0 = grayscale
     float keep_color = 0.0;
 
-    if (red_open)
-        keep_color = max(keep_color, step(distance(tex.rgb, red), threshold));
+    // Red
+    keep_color = max(keep_color,
+        color_mask(tex.rgb, red) * red_anim
+    );
 
-    if (blue_open)
-	{
-		keep_color = max(keep_color, step(distance(tex.rgb, blue1), threshold));
-		keep_color = max(keep_color, step(distance(tex.rgb, blue2), threshold));
-		keep_color = max(keep_color, step(distance(tex.rgb, blue3), threshold));
-	}
+    // Blue (multiple targets)
+    keep_color = max(keep_color,
+        color_mask(tex.rgb, blue1) * blue_anim
+    );
+    keep_color = max(keep_color,
+        color_mask(tex.rgb, blue2) * blue_anim
+    );
+    keep_color = max(keep_color,
+        color_mask(tex.rgb, blue3) * blue_anim
+    );
 
-    if (green_open)
-        keep_color = max(keep_color, step(distance(tex.rgb, green), threshold));
+    // Green
+    keep_color = max(keep_color,
+        color_mask(tex.rgb, green) * green_anim
+    );
 
-    if (yellow_open)
-        keep_color = max(keep_color, step(distance(tex.rgb, yellow), threshold));
+    // Yellow
+    keep_color = max(keep_color,
+        color_mask(tex.rgb, yellow) * yellow_anim
+    );
 
-    if (purple_open)
-        keep_color = max(keep_color, step(distance(tex.rgb, purple), threshold));
+    // Purple
+    keep_color = max(keep_color,
+        color_mask(tex.rgb, purple) * purple_anim
+    );
 
-    vec3 final_color = mix(gray_color, tex.rgb, keep_color);
+    vec3 final_color = mix(gray_color, tex.rgb, clamp(keep_color, 0.0, 1.0));
     COLOR = vec4(final_color, tex.a);
 }

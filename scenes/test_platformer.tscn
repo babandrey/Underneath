@@ -11,20 +11,22 @@
 size = Vector2(865, 53)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_63km7"]
+resource_local_to_scene = true
 shader = ExtResource("2_m1smf")
-shader_parameter/red_open = false
-shader_parameter/blue_open = false
-shader_parameter/green_open = false
-shader_parameter/purple_open = false
-shader_parameter/yellow_open = false
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
 shader_parameter/red = Color(1, 0, 0, 1)
 shader_parameter/blue1 = Color(0.08627451, 0.15686275, 0.4627451, 1)
 shader_parameter/blue2 = Color(0.08235294, 0.23137255, 0.8901961, 1)
 shader_parameter/blue3 = Color(0.24705882, 0.3882353, 1, 1)
 shader_parameter/green = Color(0, 0.6117647, 0, 1)
-shader_parameter/purple = Color(0.64705884, 0.33333334, 0.92156863, 1)
 shader_parameter/yellow = Color(1, 0.95686275, 0, 1)
-shader_parameter/threshold = 0.08
+shader_parameter/purple = Color(0.64705884, 0.33333334, 0.92156863, 1)
+shader_parameter/threshold = 0.15
+shader_parameter/edge_softness = 0.05
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sv7eu"]
 radius = 185.09727
@@ -32,19 +34,20 @@ radius = 185.09727
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v35la"]
 resource_local_to_scene = true
 shader = ExtResource("2_m1smf")
-shader_parameter/red_open = false
-shader_parameter/blue_open = false
-shader_parameter/green_open = false
-shader_parameter/purple_open = false
-shader_parameter/yellow_open = false
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
 shader_parameter/red = Color(1, 0, 0, 1)
 shader_parameter/blue1 = Color(0, 0, 0, 1)
 shader_parameter/blue2 = Color(0, 0, 0, 1)
 shader_parameter/blue3 = Color(0, 0, 0, 1)
 shader_parameter/green = Color(0, 0.6117647, 0, 1)
-shader_parameter/purple = Color(0.64705884, 0.33333334, 0.92156863, 1)
 shader_parameter/yellow = Color(1, 0.95686275, 0, 1)
+shader_parameter/purple = Color(0.64705884, 0.33333334, 0.92156863, 1)
 shader_parameter/threshold = 0.25
+shader_parameter/edge_softness = 0.05
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_63km7"]
 radius = 116.1

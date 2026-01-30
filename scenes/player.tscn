@@ -19,19 +19,20 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b0n32"]
 shader = ExtResource("2_vgqql")
-shader_parameter/red_open = false
-shader_parameter/blue_open = false
-shader_parameter/green_open = false
-shader_parameter/purple_open = false
-shader_parameter/yellow_open = false
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
 shader_parameter/red = Color(0, 0, 0, 1)
 shader_parameter/blue1 = Color(0, 0, 0, 1)
 shader_parameter/blue2 = Color(0, 0, 0, 1)
 shader_parameter/blue3 = Color(0, 0, 0, 1)
 shader_parameter/green = Color(0, 0, 0, 1)
-shader_parameter/purple = Color(0, 0, 0, 1)
 shader_parameter/yellow = Color(0, 0, 0, 1)
+shader_parameter/purple = Color(0, 0, 0, 1)
 shader_parameter/threshold = 0.25
+shader_parameter/edge_softness = 0.05
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
 animations = [{

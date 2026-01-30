@@ -18,6 +18,7 @@ class_name Player extends CharacterBody2D
 
 var can_swim := false
 var is_swimming = false
+var is_talking = false
 
 var can_run = false
 
@@ -42,7 +43,12 @@ enum Ability
 
 var avatar_in_area: Avatar = null
 
+func _ready() -> void:
+	Dialogic.timeline_ended.connect(_on_dialogue_ended)
+
 func _physics_process(delta: float) -> void:
+	if is_talking: return
+	
 	var g = water_gravity if is_swimming else gravity
 	var acc = water_acceleration if is_swimming else acceleration
 	var deacc = water_deaccelartion if is_swimming else deacceleration
@@ -69,6 +75,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("interact") and avatar_in_area:
 		avatar_in_area.talk()
+		is_talking = true
+		
 		interact_label.text = ""
 		# TODO: once back from talking section you can put the activate the interact label again
 	
@@ -113,3 +121,8 @@ func _on_interaction_area_area_exited(area: Area2D) -> void:
 	if area is Avatar and area == avatar_in_area:
 		avatar_in_area = null
 		interact_label.text = ""
+
+func _on_dialogue_ended() -> void:
+	is_talking = false
+	if avatar_in_area:
+		interact_label.text = "Press 'E' to talk to " + avatar_in_area.avatar_name
