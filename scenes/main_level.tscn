@@ -382,6 +382,33 @@ position = Vector2(132, -1)
 scale = Vector2(6.75, 0.421875)
 texture = ExtResource("2_2sb77")
 
+[node name="Ground38" type="StaticBody2D" parent="Terrain"]
+position = Vector2(14817, 187)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground38"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground38"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground39" type="StaticBody2D" parent="Terrain"]
+position = Vector2(14407, 62)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground39"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground39"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
 [node name="Ground27" type="StaticBody2D" parent="Terrain"]
 position = Vector2(14302, 324)
 collision_layer = 2
@@ -417,6 +444,19 @@ position = Vector2(134.5, 0)
 shape = SubResource("RectangleShape2D_6uqi0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground29"]
+position = Vector2(132, -1)
+scale = Vector2(6.75, 0.421875)
+texture = ExtResource("2_2sb77")
+
+[node name="Ground40" type="StaticBody2D" parent="Terrain"]
+position = Vector2(15420, 134)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground40"]
+position = Vector2(134.5, 0)
+shape = SubResource("RectangleShape2D_6uqi0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground40"]
 position = Vector2(132, -1)
 scale = Vector2(6.75, 0.421875)
 texture = ExtResource("2_2sb77")
@@ -678,7 +718,7 @@ position = Vector2(-24, -45)
 shape = SubResource("CircleShape2D_ff0s2")
 
 [node name="FearAvatar" parent="Avatars" instance=ExtResource("3_fkrx8")]
-position = Vector2(6951, -127)
+position = Vector2(13444, -169)
 avatar_name = "fear"
 player_ability_unlock = 3
 unlock_color = "purple"
@@ -696,7 +736,7 @@ position = Vector2(-38, -61)
 shape = SubResource("CircleShape2D_uk2yf")
 
 [node name="ShameAvatar" parent="Avatars" instance=ExtResource("3_fkrx8")]
-position = Vector2(10046, -15)
+position = Vector2(10026, -106)
 avatar_name = "shame"
 unlock_color = "green"
 
@@ -738,7 +778,7 @@ action_text = "pick up the spider"
 avatar_quest = "fear"
 
 [node name="Player" parent="." instance=ExtResource("1_5fr2l")]
-position = Vector2(371, 85)
+position = Vector2(13154, 364)
 
 [node name="Water" parent="." instance=ExtResource("6_ff0s2")]
 position = Vector2(1069, 290)
@@ -772,7 +812,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_vd26p")
 
 [node name="DarkDeathZone" parent="DarkArea" instance=ExtResource("8_ondrs")]
-position = Vector2(942, 364)
+position = Vector2(959, 471)
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
 
