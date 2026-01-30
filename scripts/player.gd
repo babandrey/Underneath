@@ -20,7 +20,7 @@ var can_swim := false
 var is_swimming := false
 var is_talking := false
 
-var can_run := false
+var can_run := true
 var can_go_through_dark := false
 
 @onready var respawn_position := global_position
@@ -114,7 +114,7 @@ func unlock_dark() -> void:
 	can_go_through_dark = true
 
 func should_run() -> bool:
-	return can_run and !is_swimming and is_on_floor() and Input.is_action_pressed("run")
+	return can_run and !is_swimming and Input.is_action_pressed("run")
 
 func respawn() -> void:
 	global_position = respawn_position
