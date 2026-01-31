@@ -1242,7 +1242,7 @@ texture = ExtResource("5_483gv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(-5214, -39)
-polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -1471, -26, 845, -34, 2154, -12, 5033, -31, 6672, -31, 6889, 93, 6601, 617, 6552.6777, 685.48596, 6518, 776, 7420, 776, 8310, 780, 8226, 383, 8573, 893, 6437.6226, 856.3989, 6347, 972, 6616.2964, 87.82056, -2557, 51, -5107, 824, -6364, 1045, -6385, 920, -5955, 858)
+polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -1471, -26, 845, -34, 2154, -12, 5033, -31, 6672, -31, 6889, 93, 6601, 617, 6552.6777, 685.48596, 6518, 776, 7420, 776, 8310, 780, 8226, 383, 8573, 893, 6437.6226, 856.3989, 6347, 972, 6616.2964, 87.82056, -2557, 51, -5107, 824, -6522, 1039, -6536, 926, -5955, 858)
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(-9327.5, 1012.70044)
@@ -1298,6 +1298,13 @@ texture = ExtResource("5_483gv")
 material = ExtResource("1_egpmt")
 position = Vector2(12825.766, 789.4183)
 rotation = 0.25481808
+scale = Vector2(1.012831, 1)
+texture = ExtResource("4_h285n")
+
+[node name="PlatformPiece1Small6" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-11576.999, 888.99994)
+rotation = -0.1256637
 scale = Vector2(1.012831, 1)
 texture = ExtResource("4_h285n")
 
