@@ -12,6 +12,8 @@ func _on_dialogue_event(dictonary: Dictionary) -> void:
 	var avatar: Avatar = get_tree().current_scene.find_child(avatar_name + "Avatar")
 	avatar.call(avatar_function)
 	if avatar_function == "break_player_mask":
+		AudioManager.play("break_player_mask")
+		
 		var player: Player = get_tree().get_first_node_in_group("player")
 		player.new_ability_unlocked = avatar.player_ability_unlock
 		shader_param_name = avatar.unlock_color + "_anim"
@@ -19,6 +21,8 @@ func _on_dialogue_event(dictonary: Dictionary) -> void:
 		tween.tween_method(change_color_animation, 0.0, 1.0, 5.0)
 		await tween.finished
 		shader_param_name = ""
+	elif avatar_function == "complete_quest":
+		AudioManager.play("avatar_colored")
 
 func change_color_animation(value: float) -> void:
 	world_grayscale_shader.set_shader_parameter(shader_param_name, value)

@@ -23,10 +23,8 @@ func set_shader_value(value: float) -> void:
 	avater_material.set_shader_parameter(param_name, value)
 
 func break_player_mask() -> void:
-	# TODO: Relationship Status ?
-	# TODO: change world shader to open color
-	# TODO: await Player break mask animation
-	#await Dialogic.timeline_ended
+	# TODO: await Player break mask animation (?)
+	AudioManager.play("break_player_mask")
 	player.unlock_ability(player_ability_unlock)
 
 func talk() -> void:

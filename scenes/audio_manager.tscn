@@ -15,6 +15,7 @@ stream = ExtResource("2_njtn3")
 
 [node name="ForestAmbient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kq7b2")
+volume_db = -18.384
 
 [node name="SpiderPickup" type="AudioStreamPlayer" parent="."]
 
@@ -26,6 +27,7 @@ stream = ExtResource("5_ujhup")
 
 [node name="WaterBucketPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_064dn")
+volume_db = -10.196
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="."]
 

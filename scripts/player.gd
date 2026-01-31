@@ -63,6 +63,8 @@ func _ready() -> void:
 	vignette.show()
 	new_ability_labels.show()
 	new_ability_labels.modulate.a = 0.0
+	
+	AudioManager.play_ambient()
 
 func _physics_process(delta: float) -> void:
 	var g = water_gravity if is_swimming else gravity
