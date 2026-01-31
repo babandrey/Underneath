@@ -39,7 +39,8 @@ enum Ability
 	Swim,
 	Run,
 	GoThroughDark,
-	BreakBarriers
+	BreakBarriers,
+	ShameAbility
 }
 
 @export_group("Refs")
