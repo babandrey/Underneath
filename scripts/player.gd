@@ -165,7 +165,7 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 			interact_label.text = barrier.get_interaction_text()
 	elif area is EndLocation:
 		if got_all_abilitties():
-			pass # end game
+			print("END GAME")
 
 func got_all_abilitties() -> bool:
 	return can_swim and can_break_barriers and can_go_through_dark and can_run
