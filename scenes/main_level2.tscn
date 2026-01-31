@@ -1269,12 +1269,10 @@ one_way_collision = true
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(-4546.199, 4063.3)
 polygon = PackedVector2Array(-2509, -189, -7956, -275, -9418, -855, -11069, -1576, -12153, -2209, -15156.801, -2220.3, -15190.801, -2365.3, -12517, -2365, -12053.129, -2316.7146, -11587, -2158, -11107, -1936, -9687, -1208, -8816, -752, -8458, -616, -7935, -453, -6883, -375, -4215, -327, -2499, -320)
-one_way_collision = true
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(-18234, -545.99976)
-polygon = PackedVector2Array(1067, -16, 1067, -164, 3, -145, -729, -190.00024, -699, -585.00024, -748, -729.00024, -980, -775.00024, -1090, -213.00024, -1019, -31)
-one_way_collision = true
+polygon = PackedVector2Array(1067, -16, 1067, -164, 3, -145, -720, -142.00024, -729, -190.00024, -699, -585.00024, -748, -729.00024, -980, -775.00024, -1090, -213.00024, -1019, -31)
 
 [node name="PlatformPiece1Small" type="Sprite2D" parent="Terrain/Ground"]
 material = ExtResource("1_egpmt")
@@ -1562,13 +1560,13 @@ scale = Vector2(1.38, 1.38)
 texture = ExtResource("25_j5ryu")
 
 [node name="Diary" parent="Interactables" instance=ExtResource("12_j5ryu")]
-position = Vector2(-7087.5, 3706.0002)
+position = Vector2(-7133, 3754)
+scale = Vector2(1.2, 1.2)
 item_name = "diary"
 action_text = "pick up diary"
 avatar_quest = "shame"
 
 [node name="CollisionShape2D" parent="Interactables/Diary" index="0"]
-position = Vector2(-5.5, -3.0002441)
 shape = SubResource("CircleShape2D_djfd7")
 
 [node name="Sprite2D" parent="Interactables/Diary" index="1"]
