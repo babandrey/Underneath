@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vtxq33altnoq" path="res://scripts/water.gd" id="1_gf5bf"]
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="2_p1n2c"]
-[ext_resource type="Texture2D" uid="uid://bro0oie65ub07" path="res://art/Background/Waterfall 2.png" id="2_s3811"]
+[ext_resource type="Texture2D" uid="uid://be7oojxi4wng4" path="res://art/Background/Waterfall.png" id="3_p1n2c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knpqy"]
 size = Vector2(835.3895, 2807.518)
@@ -14,8 +14,8 @@ script = ExtResource("1_gf5bf")
 
 [node name="Waterfall2" type="Sprite2D" parent="."]
 material = ExtResource("2_p1n2c")
-position = Vector2(109, 987)
-texture = ExtResource("2_s3811")
+position = Vector2(184, 988)
+texture = ExtResource("3_p1n2c")
 
 [node name="WaterZone" type="CollisionShape2D" parent="."]
 position = Vector2(162, 1040.8014)
