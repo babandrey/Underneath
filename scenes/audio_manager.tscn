@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://di4k0xufltrst"]
+[gd_scene load_steps=18 format=3 uid="uid://di4k0xufltrst"]
 
 [ext_resource type="Script" uid="uid://c7x3xfkwrwyhp" path="res://scripts/audio_manager.gd" id="1_8qd8g"]
 [ext_resource type="AudioStream" uid="uid://ly0eo2bdrxeg" path="res://audio/sfx/pickups/generic_pickup.wav" id="2_njtn3"]
 [ext_resource type="AudioStream" uid="uid://dc1nr10rqbw7q" path="res://audio/ambient/forest_ambient.wav" id="3_kq7b2"]
 [ext_resource type="AudioStream" uid="uid://ereahsq2lv40" path="res://audio/sfx/pickups/crystal_ball_pickup.wav" id="4_02gw7"]
+[ext_resource type="AudioStream" uid="uid://gjc4gvwm48oa" path="res://audio/sfx/pickups/spider_pickup.wav" id="4_2y5yn"]
 [ext_resource type="AudioStream" uid="uid://bmcsacfi0xlrw" path="res://audio/sfx/pickups/stick_pickup.wav" id="5_ujhup"]
 [ext_resource type="AudioStream" uid="uid://br6761qfyw10u" path="res://audio/sfx/pickups/water_bucket_pickup.wav" id="6_064dn"]
 [ext_resource type="AudioStream" uid="uid://8ry1hf2dp142" path="res://audio/music/intro.wav" id="7_02gw7"]
@@ -49,6 +50,7 @@ stream = ExtResource("3_kq7b2")
 volume_db = -18.384
 
 [node name="SpiderPickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2y5yn")
 
 [node name="CrystalBallPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_02gw7")
