@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bi4qbh7p0wq7s"]
+[gd_scene load_steps=65 format=3 uid="uid://bi4qbh7p0wq7s"]
 
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_egpmt"]
 [ext_resource type="PackedScene" uid="uid://px7kdlrn1vm1" path="res://scenes/checkpoint.tscn" id="2_egpmt"]
@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://cgcd084mrp1ef" path="res://art/Avatars/Fear/Peek/Fear_Peek4.png" id="31_ug036"]
 [ext_resource type="Texture2D" uid="uid://x8ip55gxk60l" path="res://art/Avatars/Fear/Peek/Fear_Peek5.png" id="32_yb3ia"]
 [ext_resource type="Texture2D" uid="uid://bljsp247tl0a2" path="res://art/Avatars/Fear/Peek/Fear_Peek6.png" id="33_egram"]
+[ext_resource type="PackedScene" uid="uid://ch06af2bw0dsj" path="res://platform.tscn" id="47_bdllo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uk2yf"]
 resource_local_to_scene = true
@@ -344,6 +345,13 @@ rotation = 0.06283186
 skew = -0.015707964
 texture = ExtResource("23_btdyd")
 
+[node name="Trees3" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-22695.582, -2192.5642)
+rotation = 0.06283186
+skew = -0.015707964
+texture = ExtResource("23_btdyd")
+
 [node name="Terrain" type="Node2D" parent="."]
 
 [node name="Ground" type="StaticBody2D" parent="Terrain"]
@@ -357,6 +365,36 @@ texture = ExtResource("16_mhh6j")
 [node name="Platform1Big" type="Sprite2D" parent="Terrain/Ground"]
 material = ExtResource("1_egpmt")
 position = Vector2(-428, -44)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big3" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-6527, -512)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big9" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-5830, -527)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big11" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-8605, -501)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big10" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-7908, -516)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big12" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-13129.584, -644.56396)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big13" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-12432.584, -659.56396)
 texture = ExtResource("17_k4ex1")
 
 [node name="Platform1Big2" type="Sprite2D" parent="Terrain/Ground"]
@@ -621,6 +659,21 @@ material = ExtResource("1_egpmt")
 position = Vector2(-3331.5, 493)
 texture = ExtResource("16_mhh6j")
 
+[node name="Platform2Big8" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(2070.5, 10)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big12" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(4148.5, 21)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big13" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(8673.084, -122.563965)
+texture = ExtResource("16_mhh6j")
+
 [node name="Platform2Big9" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
 material = ExtResource("1_egpmt")
 position = Vector2(-1356.0005, 116.00009)
@@ -801,7 +854,12 @@ polygon = PackedVector2Array(3633, -80, 4207, -167, 4707, -264, 5328, -404, 6624
 one_way_collision = true
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Terrain/Ground"]
-polygon = PackedVector2Array(-2901, -105, -4174, -363, -5493, -437, -5497, -565, -4165, -501, -3432, -356, -2772, -125)
+polygon = PackedVector2Array(-2901, -105, -4174, -363, -9598, -366, -9651, -521, -5540, -526, -4165, -501, -3432, -356, -2772, -125)
+one_way_collision = true
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Terrain/Ground"]
+position = Vector2(-13152, -534)
+polygon = PackedVector2Array(1067, -16, 1067, -164, 3, -145, -1020, -157, -1019, -31)
 one_way_collision = true
 
 [node name="PlatformPiece1Small" type="Sprite2D" parent="Terrain/Ground"]
@@ -865,6 +923,9 @@ texture = ExtResource("3_aggj8")
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("2_egpmt")]
 position = Vector2(1275, -125)
 
+[node name="Checkpoint6" parent="Checkpoints" instance=ExtResource("2_egpmt")]
+position = Vector2(-9424, -605)
+
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("2_egpmt")]
 position = Vector2(3147, -140)
 
@@ -910,7 +971,7 @@ visible = false
 shape = SubResource("CircleShape2D_63km7")
 
 [node name="AngerAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
-position = Vector2(-5188, -652)
+position = Vector2(-7198, -615)
 avatar_name = "anger"
 player_ability_unlock = 4
 unlock_color = "red"
@@ -1022,7 +1083,7 @@ scale = Vector2(1.54, 1.54)
 texture = ExtResource("22_483gv")
 
 [node name="Stick" parent="Interactables" instance=ExtResource("12_j5ryu")]
-position = Vector2(-4431, -604)
+position = Vector2(-13449.584, -767.56396)
 item_name = "stick"
 action_text = "pick up stick"
 avatar_quest = "anger"
@@ -1030,7 +1091,7 @@ avatar_quest = "anger"
 [node name="Sprite2D" parent="Interactables/Stick" index="1"]
 material = ExtResource("1_egpmt")
 rotation = -1.3962634
-scale = Vector2(1, 1)
+scale = Vector2(1.38, 1.38)
 texture = ExtResource("25_j5ryu")
 
 [node name="Player" parent="." instance=ExtResource("14_x0i0p")]
@@ -1077,6 +1138,15 @@ z_index = 21
 position = Vector2(28.5, 479)
 scale = Vector2(1.0174894, 0.74670833)
 shape = SubResource("RectangleShape2D_knpqy")
+
+[node name="Platform" parent="." instance=ExtResource("47_bdllo")]
+position = Vector2(-10185, -571)
+
+[node name="Platform2" parent="." instance=ExtResource("47_bdllo")]
+position = Vector2(-10893, -631)
+
+[node name="Platform3" parent="." instance=ExtResource("47_bdllo")]
+position = Vector2(-11570, -691)
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
 [connection signal="body_entered" from="DarkArea/DarkDeathZone" to="DarkArea/DarkDeathZone" method="_on_body_entered"]
