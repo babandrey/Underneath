@@ -130,7 +130,7 @@ func _physics_process(delta: float) -> void:
 
 func start_swim() -> void:
 	is_swimming = true
-	velocity.y = clampf(velocity.y, 0.0, velocity.y - 200.0)
+	velocity.y = 0.0
 
 func stop_swim() -> void:
 	is_swimming = false

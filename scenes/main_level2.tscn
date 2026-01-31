@@ -411,7 +411,8 @@ texture = ExtResource("17_k4ex1")
 
 [node name="Platform2Big17" type="Sprite2D" parent="Terrain/Ground"]
 material = ExtResource("1_egpmt")
-position = Vector2(-7882, 4313)
+position = Vector2(-9105.545, 2863.7422)
+rotation = 0.5078908
 texture = ExtResource("16_mhh6j")
 
 [node name="Platform1Big16" type="Sprite2D" parent="Terrain/Ground"]
@@ -421,12 +422,29 @@ texture = ExtResource("17_k4ex1")
 
 [node name="Platform2Big18" type="Sprite2D" parent="Terrain/Ground"]
 material = ExtResource("1_egpmt")
-position = Vector2(-9960, 4324)
+position = Vector2(-10927.001, 1946.0001)
+rotation = 0.38048178
 texture = ExtResource("16_mhh6j")
 
 [node name="Platform1Big17" type="Sprite2D" parent="Terrain/Ground"]
 material = ExtResource("1_egpmt")
-position = Vector2(-9263, 4309)
+position = Vector2(-10322, 2231.9995)
+rotation = 0.5078908
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big18" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-12238, 1731)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big19" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-13615, 1726)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big20" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-14995, 1716)
 texture = ExtResource("17_k4ex1")
 
 [node name="Platform2Big12" type="Sprite2D" parent="Terrain/Ground"]
@@ -738,6 +756,11 @@ material = ExtResource("1_egpmt")
 position = Vector2(761.5, 4281)
 texture = ExtResource("16_mhh6j")
 
+[node name="Platform2Big24" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2002, 4275)
+texture = ExtResource("16_mhh6j")
+
 [node name="Platform2Big15" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
 material = ExtResource("1_egpmt")
 position = Vector2(2746, 3984.9995)
@@ -757,15 +780,33 @@ texture = ExtResource("16_mhh6j")
 
 [node name="Platform2Big17" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
 material = ExtResource("1_egpmt")
-position = Vector2(3425.5, 4835)
+position = Vector2(4563, 3074.9998)
+rotation = -0.44505897
 texture = ExtResource("16_mhh6j")
 
 [node name="Platform2Big18" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
 material = ExtResource("1_egpmt")
-position = Vector2(5503.5, 4846)
+position = Vector2(6421, 2294)
+rotation = -0.12566371
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big22" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(7780, 2259)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big23" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(9160, 2249)
 texture = ExtResource("16_mhh6j")
 
 [node name="Platform2Big19" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(3353, 3700)
+rotation = -0.44505897
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big21" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
 material = ExtResource("1_egpmt")
 position = Vector2(3353, 3700)
 rotation = -0.44505897
@@ -807,6 +848,36 @@ texture = ExtResource("16_mhh6j")
 
 [node name="Platform2Big11" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
 material = ExtResource("1_egpmt")
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big8" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-7009.2334, 892.6096)
+rotation = 0.0017453292
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big9" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-5022.2915, 494.94135)
+rotation = -0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big12" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-5697.292, 592.9415)
+rotation = -0.19024089
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big13" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-6358.291, 767.94116)
+rotation = -0.31764993
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big14" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-4341.2915, 476.9414)
 texture = ExtResource("16_mhh6j")
 
 [node name="Aliya4" type="Node2D" parent="Terrain/Ground"]
@@ -922,6 +993,10 @@ texture = ExtResource("5_483gv")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Ground"]
 polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -1481, -49, 1668, -79, 1667, 33, -2557, 51, -5107, 824, -6500, 1080, -6527, 939, -5955, 858)
 
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Terrain/Ground"]
+position = Vector2(-4245.5, 1024.7)
+polygon = PackedVector2Array(-5256.5, 710.30005, -4326.5, 245.30005, -3546, 37, -2793, -64, -2608.5, -90.69995, -2557, 51, -5107, 824, -5804.5, 961.30005, -5898.5, 741.30005)
+
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Terrain/Ground"]
 polygon = PackedVector2Array(2827, -82, 3325, -71, 4329, 119, 5335, 489, 5905, 793, 6438, 1015, 7193, 1155, 7185, 1296, 6357, 1118, 5395, 711, 4616.8105, 413.8092, 3357, 68, 2872, 60)
 
@@ -938,8 +1013,8 @@ polygon = PackedVector2Array(-2901, -105, -4174, -363, -9598, -366, -9651, -521,
 one_way_collision = true
 
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Terrain/Ground"]
-position = Vector2(678, 4096)
-polygon = PackedVector2Array(-4174, -363, -9598, -366, -9651, -521, -5540, -526, -4176, -558)
+position = Vector2(678, 4094)
+polygon = PackedVector2Array(-3469, -186, -7956, -275, -9418, -855, -11069, -1576, -12153, -2209, -16014, -2265, -16025, -2396, -12517, -2365, -12053.129, -2316.7146, -11587, -2158, -11107, -1936, -9687, -1208, -8816, -752, -8458, -616, -7963, -445, -3478, -358)
 one_way_collision = true
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Terrain/Ground"]
@@ -1092,7 +1167,7 @@ unlock_color = "purple"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Avatars/FearAvatar"]
 material = SubResource("ShaderMaterial_4wbot")
 sprite_frames = SubResource("SpriteFrames_4wbot")
-animation = &"open"
+animation = &"peak_open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Avatars/FearAvatar"]
 visible = false
@@ -1100,19 +1175,15 @@ position = Vector2(0, 39)
 shape = SubResource("CircleShape2D_jg8a7")
 
 [node name="ShameAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
-position = Vector2(-6385, 673)
+position = Vector2(-13502, 1490)
 avatar_name = "shame"
 unlock_color = "green"
 
 [node name="Sprite2D" parent="Avatars/ShameAvatar" index="0"]
 material = SubResource("ShaderMaterial_al56o")
-position = Vector2(-23, -101)
 texture = ExtResource("9_483gv")
-flip_h = true
 
 [node name="CollisionShape2D" parent="Avatars/ShameAvatar" index="1"]
-visible = false
-position = Vector2(7, -69)
 shape = SubResource("CircleShape2D_adxub")
 
 [node name="RunningWiitch" parent="." instance=ExtResource("10_jg8a7")]
@@ -1189,7 +1260,7 @@ scale = Vector2(1.38, 1.38)
 texture = ExtResource("25_j5ryu")
 
 [node name="Diary" parent="Interactables" instance=ExtResource("12_j5ryu")]
-position = Vector2(-3984, 3309)
+position = Vector2(-2969, 3673)
 item_name = "diary"
 action_text = "pick up diary"
 avatar_quest = "shame"
@@ -1245,10 +1316,10 @@ custom_minimum_size = Vector2(2000, 1000)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -6067.0
-offset_top = 2139.0
-offset_right = -4067.0
-offset_bottom = 4345.0
+offset_left = -5828.0
+offset_top = 2102.0
+offset_right = -3828.0
+offset_bottom = 4308.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_vd26p")
