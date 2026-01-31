@@ -68,7 +68,7 @@ label Quest Completed
 - Open the lid and throw the Spider in
 
 [signal arg="open"]
-Unknown: [b]AAAAAAAAAAAAAAAAAAH!!!!![/b]
+Unknown: [speed=0][b]AAAAAAAAAAAAAAAAAAH!!!!![/b][/speed]
 [i]The entity emerges quickly from its urn, panting heavily...[pause=1][br]It's not like you [b]scared[/b] it or anything....[/i]
 [signal arg_type="dict" arg="{"Fear":"complete_quest"}"]
 set {Fear.is_colored} = true
@@ -129,6 +129,7 @@ elif {Fear.relationship} == 1.0:
 	[i]Fear comes out of the urn again.[/i]
 	fear: O-okay. I trust you..
 	set {Fear.relationship} += 1
+	jump Colored
 
 elif {Fear.relationship} == 2:
 	fear: S-Say,[pause=0.5] can I ask you a q-question?

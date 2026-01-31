@@ -19,7 +19,7 @@ Unknown: Oh! A guest, you seem...[pause=0.5] different.
 Unknown: You don't look like...[pause=0.5] [i]the others[/i].
 - The Others?
 Unknown: Yeah... there's a big uh... strong looking guy,[pause=0.5] he looks mean.
-Unknown: Then there's the reaaaly long one, but he seems... droopy.
+Unknown: Then there's the reaaally long one, but he seems... droopy.
 Unknown: And there's the quick one... I can never quite keep up with him.
 - Ah, I get it.
 Unknown: Oh, uhm...[pause=0.5] sorry.
@@ -71,7 +71,8 @@ Unknown: H-How about we stop here...[pause=0.5][br]I now know its mine.
 [i]"Dear Diary,[br]Today I saw Anxiety. He was using my hole to hide from that weird ghost.[br]I accidentally bumped into him and freaked him out."[/i]
 Unknown: W-Wait - Don't read that!
 - Continue Reading
-	[i]"Dear Diary,[br]Today I drank from the Waterfall of Sorrows.[br]It was a few hours later that I understood they were made from Sadness's tears...[pause=1][br]No wonder they tasted [b]salty[/b]..."[/i]
+	[i]"Dear Diary,[br]Today I drank from the Waterfall of Sorrows..."[/i]
+	[i]"...It was a few hours later that I understood they were made from Sadness's tears...[pause=1][br]No wonder they tasted [b]salty[/b]..."[/i]
 	Unknown: Ok Ok - I get it!!
 - Stop Reading
 Unknown: [i]*phew*[/i] Can you give me back my diary now...?

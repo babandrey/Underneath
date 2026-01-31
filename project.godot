@@ -125,6 +125,7 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
+text/dialog_text_prefix=""
 
 [display]
 
