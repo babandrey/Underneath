@@ -26,7 +26,19 @@ shape = SubResource("RectangleShape2D_knpqy")
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-432, -2, -263, -12, -263, 1264, 582, 1264, 582, -7, 730, -4, 772, 110, 874, 1263, 876, 1312, -112, 1320, -605, 1294, -437, 591)
+polygon = PackedVector2Array(-578, 1284, -261, 1288, -265, 1410, -592, 1410)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(1173, -35)
+polygon = PackedVector2Array(-578, 1284, -261, 1288, -265, 1410, -353.56543, 1410, -592, 1410)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(1183, -525)
+polygon = PackedVector2Array(-594, 114, -364, 118, -265, 1410, -353.56543, 1410, -592, 1410)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(39, -557)
+polygon = PackedVector2Array(-296, 1405, -296, 109, -493, 100, -544, 1405)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
