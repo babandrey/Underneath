@@ -1,5 +1,6 @@
-[gd_scene load_steps=68 format=3 uid="uid://bi4qbh7p0wq7s"]
+[gd_scene load_steps=71 format=3 uid="uid://bi4qbh7p0wq7s"]
 
+[ext_resource type="PackedScene" uid="uid://dhg873pr1eb2i" path="res://end_location.tscn" id="1_867yn"]
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_egpmt"]
 [ext_resource type="PackedScene" uid="uid://px7kdlrn1vm1" path="res://scenes/checkpoint.tscn" id="2_egpmt"]
 [ext_resource type="PackedScene" uid="uid://bplqieon6vd7b" path="res://scenes/avatar.tscn" id="3_30ub0"]
@@ -47,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://cgcd084mrp1ef" path="res://art/Avatars/Fear/Peek/Fear_Peek4.png" id="31_ug036"]
 [ext_resource type="Texture2D" uid="uid://x8ip55gxk60l" path="res://art/Avatars/Fear/Peek/Fear_Peek5.png" id="32_yb3ia"]
 [ext_resource type="Texture2D" uid="uid://bljsp247tl0a2" path="res://art/Avatars/Fear/Peek/Fear_Peek6.png" id="33_egram"]
+[ext_resource type="Texture2D" uid="uid://dy5ujtbdvvhvs" path="res://art/Background/Diary.png" id="46_djfd7"]
 [ext_resource type="PackedScene" uid="uid://ch06af2bw0dsj" path="res://platform.tscn" id="47_bdllo"]
 [ext_resource type="PackedScene" uid="uid://dvlenlgfgsy36" path="res://scenes/barrier.tscn" id="48_fyepo"]
 
@@ -289,6 +291,9 @@ radius = 153.79031
 [sub_resource type="CircleShape2D" id="CircleShape2D_483gv"]
 radius = 120.98
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_djfd7"]
+radius = 95.38
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8j58j"]
 
 [sub_resource type="Gradient" id="Gradient_qe2qm"]
@@ -360,6 +365,23 @@ material = ExtResource("1_egpmt")
 position = Vector2(15322, -337)
 texture = ExtResource("20_30ub0")
 
+[node name="Tree12" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(8315, -207)
+texture = ExtResource("20_30ub0")
+
+[node name="Tree13" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(11403, -422)
+rotation = -0.12740904
+texture = ExtResource("20_30ub0")
+
+[node name="Tree14" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(2832.999, -353)
+rotation = -0.12740904
+texture = ExtResource("20_30ub0")
+
 [node name="Tree5" type="Sprite2D" parent="Background/Trees"]
 material = ExtResource("1_egpmt")
 position = Vector2(1368, -33)
@@ -368,6 +390,40 @@ texture = ExtResource("20_30ub0")
 [node name="Tree4" type="Sprite2D" parent="Background/Trees"]
 material = ExtResource("1_egpmt")
 position = Vector2(-906, -63)
+rotation = -0.19024089
+texture = ExtResource("20_30ub0")
+
+[node name="Tree6" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-238.31152, -1534)
+texture = ExtResource("20_30ub0")
+
+[node name="Tree7" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-14192.312, -1230)
+texture = ExtResource("20_30ub0")
+
+[node name="Tree8" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-16466.314, -1260.0001)
+rotation = -0.19024089
+texture = ExtResource("20_30ub0")
+
+[node name="Tree9" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-4490.9995, -1442.9996)
+rotation = -0.19024089
+scale = Vector2(0.835, 0.835)
+texture = ExtResource("20_30ub0")
+
+[node name="Tree10" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-18624.31, -1687)
+texture = ExtResource("20_30ub0")
+
+[node name="Tree11" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-20898.314, -1717.0002)
 rotation = -0.19024089
 texture = ExtResource("20_30ub0")
 
@@ -381,15 +437,61 @@ material = ExtResource("1_egpmt")
 position = Vector2(193, -393)
 texture = ExtResource("22_xvspm")
 
+[node name="Tree15" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(9844, -583)
+texture = ExtResource("22_xvspm")
+
+[node name="Tree16" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(13327, -708.00006)
+rotation = 0.12740904
+scale = Vector2(0.925, 0.925)
+texture = ExtResource("22_xvspm")
+
 [node name="Trees" type="Sprite2D" parent="Background/Trees"]
 material = ExtResource("1_egpmt")
 position = Vector2(-2870, -2127)
+texture = ExtResource("23_btdyd")
+
+[node name="Trees4" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-12916, -1593)
 texture = ExtResource("23_btdyd")
 
 [node name="Trees2" type="Sprite2D" parent="Background/Trees"]
 material = ExtResource("1_egpmt")
 position = Vector2(-10596.999, -1569.0001)
 rotation = 0.06283186
+skew = -0.015707964
+texture = ExtResource("23_btdyd")
+
+[node name="Trees5" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-28240, 172.99988)
+rotation = 0.06283186
+skew = -0.015707964
+texture = ExtResource("23_btdyd")
+
+[node name="Trees6" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-21876, 1868.9995)
+rotation = 0.25307274
+skew = -0.015707964
+texture = ExtResource("23_btdyd")
+
+[node name="Trees7" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(2241, -2148.0002)
+rotation = -0.064577185
+skew = -0.015707964
+texture = ExtResource("23_btdyd")
+
+[node name="Trees8" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-3298, -480.99997)
+rotation = 0.25307274
+scale = Vector2(0.7, 0.7)
 skew = -0.015707964
 texture = ExtResource("23_btdyd")
 
@@ -1092,7 +1194,7 @@ texture = ExtResource("5_483gv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(-5214, -39)
-polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -1471, -26, 5033, -31, 6672, -31, 6889, 93, 6601, 617, 6552.6777, 685.48596, 6518, 776, 7420, 776, 8310, 780, 8226, 383, 8573, 893, 6437.6226, 856.3989, 6347, 972, 6616.2964, 87.82056, -2557, 51, -5107, 824, -6500, 1080, -6527, 939, -5955, 858)
+polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -1471, -26, 845, -34, 2154, -12, 5033, -31, 6672, -31, 6889, 93, 6601, 617, 6552.6777, 685.48596, 6518, 776, 7420, 776, 8310, 780, 8226, 383, 8573, 893, 6437.6226, 856.3989, 6347, 972, 6616.2964, 87.82056, -2557, 51, -5107, 824, -6364, 1045, -6385, 920, -5955, 858)
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(-9327.5, 1012.70044)
@@ -1303,6 +1405,9 @@ position = Vector2(18422, 769)
 running_witch = NodePath("../RunningWiitch")
 direction_to_run = -1
 
+[node name="EndLocation" parent="." instance=ExtResource("1_867yn")]
+position = Vector2(-2883, -192.00002)
+
 [node name="Interactables" type="Node2D" parent="."]
 
 [node name="CrystalBall" type="Area2D" parent="Interactables"]
@@ -1370,6 +1475,14 @@ position = Vector2(-7087.5, 3706.0002)
 item_name = "diary"
 action_text = "pick up diary"
 avatar_quest = "shame"
+
+[node name="CollisionShape2D" parent="Interactables/Diary" index="0"]
+position = Vector2(-5.5, -3.0002441)
+shape = SubResource("CircleShape2D_djfd7")
+
+[node name="Sprite2D" parent="Interactables/Diary" index="1"]
+scale = Vector2(0.715, 0.715)
+texture = ExtResource("46_djfd7")
 
 [node name="Player" parent="." instance=ExtResource("14_x0i0p")]
 position = Vector2(-6251, -228.99976)
@@ -1457,3 +1570,4 @@ position = Vector2(-7576.5, 3740.0002)
 [editable path="Interactables/WaterBucket"]
 [editable path="Interactables/Spider"]
 [editable path="Interactables/Stick"]
+[editable path="Interactables/Diary"]

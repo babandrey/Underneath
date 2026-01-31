@@ -18,63 +18,85 @@ radius = 46.95
 height = 118.48
 
 [node name="EndLocation" type="Area2D"]
+z_index = 4
+scale = Vector2(1.54, 1.54)
 collision_layer = 512
 script = ExtResource("1_vrfy3")
 
 [node name="AngerPillar" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 5
 material = ExtResource("2_g4pu7")
 position = Vector2(150, 0)
 texture = ExtResource("2_nr7gc")
 
 [node name="AngerMask" type="Sprite2D" parent="AngerPillar"]
 visible = false
+z_index = 1
+texture_filter = 6
 position = Vector2(1, 17.999998)
 rotation = -0.06283186
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("3_jvbrd")
 
 [node name="AnxietyPillar" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 5
 material = ExtResource("2_g4pu7")
 position = Vector2(75, 0)
 texture = ExtResource("3_g4pu7")
 
 [node name="AnxietyMask" type="Sprite2D" parent="AnxietyPillar"]
 visible = false
+z_index = 1
+texture_filter = 6
 position = Vector2(0, 13)
 rotation = 0.06283186
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_t7uki")
 
 [node name="FearPillar" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 5
 material = ExtResource("2_g4pu7")
 position = Vector2(-75, 0)
 texture = ExtResource("4_jvbrd")
 
 [node name="FearMask" type="Sprite2D" parent="FearPillar"]
 visible = false
+z_index = 1
+texture_filter = 6
 position = Vector2(1, 14.000004)
 rotation = -0.06283186
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("7_jc5rh")
 
 [node name="SadnessPillar" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 5
 material = ExtResource("2_g4pu7")
 texture = ExtResource("5_lmdgs")
 
 [node name="SadnessMask" type="Sprite2D" parent="SadnessPillar"]
 visible = false
+z_index = 1
+texture_filter = 6
 position = Vector2(1, 16)
 rotation = 0.06283186
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("9_bvfka")
 
 [node name="ShamePillar" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 5
 material = ExtResource("2_g4pu7")
 position = Vector2(-150, 0)
 texture = ExtResource("6_8skmr")
 
 [node name="ShameMask" type="Sprite2D" parent="ShamePillar"]
 visible = false
+z_index = 1
+texture_filter = 6
 position = Vector2(-0.99999994, 18)
 rotation = 0.064577185
 scale = Vector2(0.2, 0.2)
