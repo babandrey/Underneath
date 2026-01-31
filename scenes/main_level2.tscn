@@ -23,7 +23,7 @@
 [ext_resource type="Script" uid="uid://budsgn4tscss3" path="res://scenes/fear_avatar.gd" id="17_x0i0p"]
 [ext_resource type="Texture2D" uid="uid://do6vu57qqgojd" path="res://art/Avatars/Fear/Peek/Fear_Peek1.png" id="18_x0i0p"]
 [ext_resource type="Texture2D" uid="uid://crnxl0ekcwh8j" path="res://art/Avatars/Fear/Slither/Fear_InOut1.png" id="19_muema"]
-[ext_resource type="Script" uid="uid://cxuyjmsd47i7c" path="res://scripts/dark_death_zone.gd" id="19_xvspm"]
+[ext_resource type="Script" path="res://scripts/dark_death_zone.gd" id="19_xvspm"]
 [ext_resource type="Script" uid="uid://dsmyg22pnksnj" path="res://scripts/item.gd" id="20_0tvqr"]
 [ext_resource type="Texture2D" uid="uid://d0y0fn6kxc7p6" path="res://art/Background/Tree 1.png" id="20_30ub0"]
 [ext_resource type="Texture2D" uid="uid://c4hn66gqr2w6y" path="res://art/Avatars/Fear/Slither/Fear_InOut2.png" id="20_bdllo"]
@@ -46,7 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://cgcd084mrp1ef" path="res://art/Avatars/Fear/Peek/Fear_Peek4.png" id="31_ug036"]
 [ext_resource type="Texture2D" uid="uid://x8ip55gxk60l" path="res://art/Avatars/Fear/Peek/Fear_Peek5.png" id="32_yb3ia"]
 [ext_resource type="Texture2D" uid="uid://bljsp247tl0a2" path="res://art/Avatars/Fear/Peek/Fear_Peek6.png" id="33_egram"]
-[ext_resource type="PackedScene" uid="uid://ch06af2bw0dsj" path="res://platform.tscn" id="47_bdllo"]
+[ext_resource type="PackedScene" path="res://platform.tscn" id="47_bdllo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uk2yf"]
 resource_local_to_scene = true
@@ -1092,7 +1092,8 @@ unlock_color = "purple"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Avatars/FearAvatar"]
 material = SubResource("ShaderMaterial_4wbot")
 sprite_frames = SubResource("SpriteFrames_4wbot")
-animation = &"open"
+animation = &"closed"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Avatars/FearAvatar"]
 visible = false
