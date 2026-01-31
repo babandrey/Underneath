@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bi4qbh7p0wq7s"]
+[gd_scene load_steps=64 format=3 uid="uid://bi4qbh7p0wq7s"]
 
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_egpmt"]
 [ext_resource type="PackedScene" uid="uid://px7kdlrn1vm1" path="res://scenes/checkpoint.tscn" id="2_egpmt"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dabsd4gm6dpfl" path="res://art/Avatars/sadness.png" id="5_t6k3e"]
 [ext_resource type="Texture2D" uid="uid://c70j8e22csf1l" path="res://art/Avatars/Anxiety.png" id="6_xvspm"]
 [ext_resource type="Texture2D" uid="uid://dn4wljhyfmo3" path="res://art/Avatars/Anger.png" id="7_btdyd"]
-[ext_resource type="Texture2D" uid="uid://b0awn7kno1n0b" path="res://art/Avatars/Fear.png" id="8_h285n"]
 [ext_resource type="Texture2D" uid="uid://dc78tn6p45dum" path="res://art/Avatars/Shame.png" id="9_483gv"]
 [ext_resource type="PackedScene" uid="uid://og2kiem1py8t" path="res://scenes/running_wiitch.tscn" id="10_jg8a7"]
 [ext_resource type="PackedScene" uid="uid://dk3tnf0trie1o" path="res://scenes/running_wiitch_trigger.tscn" id="11_0tvqr"]
@@ -21,15 +20,32 @@
 [ext_resource type="Texture2D" uid="uid://sevfvs8qv83c" path="res://art/Background/Platform 2 - Big.png" id="16_mhh6j"]
 [ext_resource type="Script" uid="uid://cdqlvv4yr501r" path="res://scenes/death_zone.gd" id="16_q7nu1"]
 [ext_resource type="Texture2D" uid="uid://binb7br01l7t6" path="res://art/Background/Platform 1 - Big.png" id="17_k4ex1"]
+[ext_resource type="Script" uid="uid://budsgn4tscss3" path="res://scenes/fear_avatar.gd" id="17_x0i0p"]
+[ext_resource type="Texture2D" uid="uid://do6vu57qqgojd" path="res://art/Avatars/Fear/Peek/Fear_Peek1.png" id="18_x0i0p"]
+[ext_resource type="Texture2D" uid="uid://crnxl0ekcwh8j" path="res://art/Avatars/Fear/Slither/Fear_InOut1.png" id="19_muema"]
 [ext_resource type="Script" uid="uid://cxuyjmsd47i7c" path="res://scripts/dark_death_zone.gd" id="19_xvspm"]
 [ext_resource type="Script" uid="uid://dsmyg22pnksnj" path="res://scripts/item.gd" id="20_0tvqr"]
 [ext_resource type="Texture2D" uid="uid://d0y0fn6kxc7p6" path="res://art/Background/Tree 1.png" id="20_30ub0"]
+[ext_resource type="Texture2D" uid="uid://c4hn66gqr2w6y" path="res://art/Avatars/Fear/Slither/Fear_InOut2.png" id="20_bdllo"]
 [ext_resource type="Texture2D" uid="uid://x14515wu256k" path="res://art/Background/Crystalball.png" id="21_0tvqr"]
 [ext_resource type="Texture2D" uid="uid://b0750g2f6lyu0" path="res://art/Background/Tree 2.png" id="21_2wl28"]
+[ext_resource type="Texture2D" uid="uid://dl1syxtakca2t" path="res://art/Avatars/Fear/Slither/Fear_InOut3.png" id="21_fyepo"]
 [ext_resource type="Texture2D" uid="uid://cpelgy1wmy1lj" path="res://art/Background/spider.png" id="22_483gv"]
+[ext_resource type="Texture2D" uid="uid://duqvsfbholsmv" path="res://art/Avatars/Fear/Slither/Fear_InOut4.png" id="22_prrny"]
 [ext_resource type="Texture2D" uid="uid://c5xh2ty7m1gff" path="res://art/Background/Tree 3.png" id="22_xvspm"]
+[ext_resource type="Texture2D" uid="uid://bt410k15pwtsm" path="res://art/Avatars/Fear/Slither/Fear_InOut5.png" id="23_867yn"]
 [ext_resource type="Texture2D" uid="uid://c7r4cbcpxpk1g" path="res://art/Background/Trees.png" id="23_btdyd"]
+[ext_resource type="Texture2D" uid="uid://c3bugu4qxvugy" path="res://art/Avatars/Fear/Slither/Fear_InOut6.png" id="24_djfd7"]
 [ext_resource type="Texture2D" uid="uid://0psuqgm7pyrv" path="res://art/Background/Stick.png" id="25_j5ryu"]
+[ext_resource type="Texture2D" uid="uid://ov0of1cfoc42" path="res://art/Avatars/Fear/Slither/Fear_InOut7.png" id="25_shl5i"]
+[ext_resource type="Texture2D" uid="uid://dii5152tfbxpu" path="res://art/Avatars/Fear/Slither/Fear_InOut8.png" id="26_lxqsh"]
+[ext_resource type="Texture2D" uid="uid://ccrhmgmbtygka" path="res://art/Avatars/Fear/Slither/Fear_InOut9.png" id="27_6pyq2"]
+[ext_resource type="Texture2D" uid="uid://c5quvxi0oiq3q" path="res://art/Avatars/Fear/Slither/Fear_InOut10.png" id="28_7pvrp"]
+[ext_resource type="Texture2D" uid="uid://crkycatcpqeo1" path="res://art/Avatars/Fear/Peek/Fear_Peek2.png" id="29_l3t38"]
+[ext_resource type="Texture2D" uid="uid://cl3d67lo4es6t" path="res://art/Avatars/Fear/Peek/Fear_Peek3.png" id="30_61ona"]
+[ext_resource type="Texture2D" uid="uid://cgcd084mrp1ef" path="res://art/Avatars/Fear/Peek/Fear_Peek4.png" id="31_ug036"]
+[ext_resource type="Texture2D" uid="uid://x8ip55gxk60l" path="res://art/Avatars/Fear/Peek/Fear_Peek5.png" id="32_yb3ia"]
+[ext_resource type="Texture2D" uid="uid://bljsp247tl0a2" path="res://art/Avatars/Fear/Peek/Fear_Peek6.png" id="33_egram"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uk2yf"]
 resource_local_to_scene = true
@@ -102,8 +118,7 @@ shader_parameter/speed = 1.0
 resource_local_to_scene = true
 radius = 232.00862
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6nivd"]
-resource_local_to_scene = true
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4wbot"]
 shader = ExtResource("4_2wl28")
 shader_parameter/red_anim = 0.0
 shader_parameter/blue_anim = 0.0
@@ -117,14 +132,126 @@ shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1
 shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
 shader_parameter/threshold = 0.15
 shader_parameter/edge_softness = 0.05
-shader_parameter/move_wave = true
+shader_parameter/move_wave = false
 shader_parameter/amplitude = 5.0
 shader_parameter/frequency = 1.0
 shader_parameter/speed = 1.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_4wbot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_7pvrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_6pyq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_lxqsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_shl5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_djfd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_867yn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_prrny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_fyepo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_bdllo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_muema")
+}],
+"loop": false,
+"name": &"close",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_x0i0p")
+}],
+"loop": false,
+"name": &"closed",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_muema")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_bdllo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_fyepo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_prrny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_867yn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_djfd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_shl5i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_lxqsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_6pyq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_7pvrp")
+}],
+"loop": false,
+"name": &"open",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_61ona")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_l3t38")
+}],
+"loop": false,
+"name": &"peak_closed",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_l3t38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ug036")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_61ona")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_yb3ia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_egram")
+}],
+"loop": false,
+"name": &"peak_open",
+"speed": 12.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_jg8a7"]
 resource_local_to_scene = true
-radius = 259.49374
+radius = 341.00586
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_al56o"]
 resource_local_to_scene = true
@@ -798,21 +925,23 @@ texture = ExtResource("7_btdyd")
 position = Vector2(-28, -76)
 shape = SubResource("CircleShape2D_ff0s2")
 
-[node name="FearAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
+[node name="FearAvatar" type="Area2D" parent="Avatars" node_paths=PackedStringArray("animated_sprite")]
 position = Vector2(7562, -840)
+collision_layer = 16
+script = ExtResource("17_x0i0p")
+animated_sprite = NodePath("AnimatedSprite2D")
 avatar_name = "fear"
 player_ability_unlock = 3
 unlock_color = "purple"
 
-[node name="Sprite2D" parent="Avatars/FearAvatar" index="0"]
-material = SubResource("ShaderMaterial_6nivd")
-position = Vector2(-51, 14)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("8_h285n")
-flip_h = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Avatars/FearAvatar"]
+material = SubResource("ShaderMaterial_4wbot")
+sprite_frames = SubResource("SpriteFrames_4wbot")
+animation = &"open"
 
-[node name="CollisionShape2D" parent="Avatars/FearAvatar" index="1"]
-position = Vector2(-51, 37)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Avatars/FearAvatar"]
+visible = false
+position = Vector2(0, 39)
 shape = SubResource("CircleShape2D_jg8a7")
 
 [node name="ShameAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
@@ -956,7 +1085,6 @@ shape = SubResource("RectangleShape2D_knpqy")
 [editable path="Avatars/SadnessAvatar"]
 [editable path="Avatars/AnxietyAvatar"]
 [editable path="Avatars/AngerAvatar"]
-[editable path="Avatars/FearAvatar"]
 [editable path="Avatars/ShameAvatar"]
 [editable path="Interactables/WaterBucket"]
 [editable path="Interactables/Spider"]
