@@ -1367,7 +1367,7 @@ texture = ExtResource("3_aggj8")
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("2_egpmt")]
-position = Vector2(1284, -263)
+position = Vector2(1098, -268)
 
 [node name="Checkpoint6" parent="Checkpoints" instance=ExtResource("2_egpmt")]
 position = Vector2(-14506, -735)
