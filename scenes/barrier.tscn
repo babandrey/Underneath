@@ -8,7 +8,7 @@ radius = 43.0
 height = 136.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfl2k"]
-size = Vector2(62.5, 266.5)
+size = Vector2(62.5, 595)
 
 [node name="Barrier" type="Area2D" node_paths=PackedStringArray("barrier_static")]
 collision_layer = 32
@@ -26,10 +26,10 @@ collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="BarrierStatic"]
 modulate = Color(0.1148968, 0.11489681, 0.1148968, 1)
-position = Vector2(1, -134)
-scale = Vector2(0.5, 2.105)
+position = Vector2(1, -300.13998)
+scale = Vector2(0.5, 4.7009373)
 texture = ExtResource("2_8ilpk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BarrierStatic"]
-position = Vector2(0.75, -133.25)
+position = Vector2(0.75, -297.5)
 shape = SubResource("RectangleShape2D_qfl2k")
