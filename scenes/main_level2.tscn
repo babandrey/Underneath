@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bi4qbh7p0wq7s"]
+[gd_scene load_steps=75 format=3 uid="uid://bi4qbh7p0wq7s"]
 
 [ext_resource type="PackedScene" uid="uid://dhg873pr1eb2i" path="res://end_location.tscn" id="1_867yn"]
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_egpmt"]
@@ -15,8 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://og2kiem1py8t" path="res://scenes/running_wiitch.tscn" id="10_jg8a7"]
 [ext_resource type="Texture2D" uid="uid://c8h0325lnjfh0" path="res://art/Background/BG4.png" id="10_prrny"]
 [ext_resource type="PackedScene" uid="uid://dk3tnf0trie1o" path="res://scenes/running_wiitch_trigger.tscn" id="11_0tvqr"]
+[ext_resource type="Texture2D" uid="uid://llryp8yu51o0" path="res://art/Background/Rock1.png" id="11_7pvrp"]
 [ext_resource type="PackedScene" uid="uid://bsaii60gy3ya8" path="res://scenes/item.tscn" id="12_j5ryu"]
+[ext_resource type="Texture2D" uid="uid://c58hrf42n775e" path="res://art/Background/Rock2.png" id="12_l3t38"]
 [ext_resource type="Texture2D" uid="uid://bs6gea2ls41b5" path="res://art/Background/Bucket.png" id="13_4wbot"]
+[ext_resource type="Texture2D" uid="uid://du2qc5ch3ycfc" path="res://art/Background/Rock3.png" id="13_61ona"]
+[ext_resource type="Texture2D" uid="uid://djprqkx0h4xxk" path="res://art/Background/Rock4.png" id="14_ug036"]
 [ext_resource type="PackedScene" uid="uid://b030j6fl17evo" path="res://scenes/player.tscn" id="14_x0i0p"]
 [ext_resource type="PackedScene" uid="uid://ca8cjq2maapex" path="res://scenes/water.tscn" id="15_lq2b6"]
 [ext_resource type="Texture2D" uid="uid://sevfvs8qv83c" path="res://art/Background/Platform 2 - Big.png" id="16_mhh6j"]
@@ -872,6 +876,16 @@ material = ExtResource("1_egpmt")
 position = Vector2(19023, 1409)
 texture = ExtResource("16_mhh6j")
 
+[node name="Platform2Big21" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(19023, 1409)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big22" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(19713, 1399)
+texture = ExtResource("16_mhh6j")
+
 [node name="Platform1Big16" type="Sprite2D" parent="Terrain/Ground/Aliya"]
 material = ExtResource("1_egpmt")
 position = Vector2(16962.914, 1404.0071)
@@ -1205,10 +1219,10 @@ polygon = PackedVector2Array(2616, -111, 2911.8276, -80.12634, 2946.3472, -79.36
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(9734, 1224)
-polygon = PackedVector2Array(-2551, -65, -1387, -64, 1039, -161, 2380, -472, 2665, -506, 3173, -442, 3686, -339, 4191, -267, 5570, -263, 6032, -260, 9739.101, -301.26465, 10474.052, -390.57178, 11071, -530, 11369, -621, 11841, -634, 12573, -478, 13152, -431, 13731, -401, 14829, -404, 16012, -415, 16010, -271, 13638, -304, 12202.868, -409.37476, 11752, -463, 11167, -404, 9902, -74, -2557, 51)
+polygon = PackedVector2Array(-2551, -65, -1387, -64, 1039, -161, 2380, -472, 2665, -506, 3173, -442, 3686, -339, 4191, -267, 5570, -263, 6032, -260, 9739.101, -301.26465, 10474.052, -390.57178, 11071, -530, 11369, -621, 11841, -634, 12573, -478, 13152, -431, 13731, -401, 14829, -404, 15662, -428, 15769, -1001, 16018, -952, 16012, -415, 16010, -271, 13638, -304, 12202.868, -409.37476, 11752, -463, 11167, -404, 9902, -74, -2557, 51)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Terrain/Ground"]
-polygon = PackedVector2Array(3633, -80, 4207, -167, 4707, -264, 5328, -404, 6624.962, -452.4496, 12006, -478, 12006, -649, 6727, -604, 5306, -545, 4455, -330, 4000, -197, 3410, -115)
+polygon = PackedVector2Array(3633, -80, 4207, -167, 4707, -264, 5328, -404, 6624.962, -452.4496, 12006, -478, 12006, -649, 12071, -1017, 11912, -1800, 11743, -1742, 11756, -989, 11697.605, -646.3712, 6727, -604, 5306, -545, 4455, -330, 4000, -197, 3410, -115)
 one_way_collision = true
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Terrain/Ground"]
@@ -1223,7 +1237,7 @@ one_way_collision = true
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(-18234, -545.99976)
-polygon = PackedVector2Array(1067, -16, 1067, -164, 3, -145, -1020, -157, -1019, -31)
+polygon = PackedVector2Array(1067, -16, 1067, -164, 3, -145, -729, -190.00024, -699, -585.00024, -748, -729.00024, -980, -775.00024, -1090, -213.00024, -1019, -31)
 one_way_collision = true
 
 [node name="PlatformPiece1Small" type="Sprite2D" parent="Terrain/Ground"]
@@ -1275,6 +1289,30 @@ position = Vector2(13856.654, 963.7837)
 rotation = 0.064577185
 scale = Vector2(1.0171047, 1)
 texture = ExtResource("5_483gv")
+
+[node name="Rock1" type="Sprite2D" parent="Terrain/Ground"]
+position = Vector2(25595, 528)
+texture = ExtResource("11_7pvrp")
+
+[node name="Rock5" type="Sprite2D" parent="Terrain/Ground"]
+position = Vector2(11877.5, -888)
+texture = ExtResource("11_7pvrp")
+
+[node name="Rock6" type="Sprite2D" parent="Terrain/Ground"]
+position = Vector2(11885.5, -1285)
+texture = ExtResource("12_l3t38")
+
+[node name="Rock7" type="Sprite2D" parent="Terrain/Ground"]
+position = Vector2(11839.5, -1469)
+texture = ExtResource("13_61ona")
+
+[node name="Rock8" type="Sprite2D" parent="Terrain/Ground"]
+position = Vector2(11835.5, -1678)
+texture = ExtResource("14_ug036")
+
+[node name="Rock9" type="Sprite2D" parent="Terrain/Ground"]
+position = Vector2(-19111.5, -1018)
+texture = ExtResource("11_7pvrp")
 
 [node name="Platform" parent="Terrain" instance=ExtResource("47_bdllo")]
 position = Vector2(-15267, -582.99976)

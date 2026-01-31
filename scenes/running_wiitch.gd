@@ -26,6 +26,7 @@ func _on_body_entered(player: Player) -> void:
 func show_behind_player(player: Player, direction_x) -> void:
 	chasing_player = true
 	direction_to_player = direction_x
+	$Sprite2D.flip_h = direction_to_player == -1
 	global_position.x = player.global_position.x - direction_to_player * intial_distance_to_player
 	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "modulate:a", 1.0, 2.0)

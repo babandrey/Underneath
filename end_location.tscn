@@ -20,7 +20,7 @@ height = 118.48
 [node name="EndLocation" type="Area2D"]
 z_index = 4
 scale = Vector2(1.54, 1.54)
-collision_layer = 512
+collision_layer = 1024
 script = ExtResource("1_vrfy3")
 
 [node name="AngerPillar" type="Sprite2D" parent="."]

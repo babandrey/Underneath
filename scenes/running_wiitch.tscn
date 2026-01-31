@@ -8,6 +8,7 @@ radius = 142.0
 height = 388.0
 
 [node name="RunningWiitch" type="Area2D"]
+scale = Vector2(0.745, 0.745)
 collision_layer = 256
 script = ExtResource("1_5wjkq")
 

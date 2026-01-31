@@ -189,6 +189,7 @@ continue={
 2d_physics/layer_7="DarkDeathZone"
 2d_physics/layer_8="WorldBoundary"
 2d_physics/layer_9="RunningWitch"
+2d_physics/layer_10="EndGameLocation"
 
 [physics]
 
