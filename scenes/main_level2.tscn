@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c3y33arvt3a40"]
+[gd_scene load_steps=37 format=3 uid="uid://c3y33arvt3a40"]
 
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_egpmt"]
 [ext_resource type="PackedScene" uid="uid://bplqieon6vd7b" path="res://scenes/avatar.tscn" id="3_30ub0"]
@@ -19,6 +19,10 @@
 [ext_resource type="Script" uid="uid://cdqlvv4yr501r" path="res://scenes/death_zone.gd" id="16_q7nu1"]
 [ext_resource type="PackedScene" uid="uid://bp0rvix62ab4o" path="res://scenes/dark_death_zone.tscn" id="17_11kja"]
 [ext_resource type="Texture2D" uid="uid://binb7br01l7t6" path="res://art/Background/Platform 1 - Big.png" id="17_k4ex1"]
+[ext_resource type="Texture2D" uid="uid://d0y0fn6kxc7p6" path="res://art/Background/Tree 1.png" id="20_30ub0"]
+[ext_resource type="Texture2D" uid="uid://b0750g2f6lyu0" path="res://art/Background/Tree 2.png" id="21_2wl28"]
+[ext_resource type="Texture2D" uid="uid://c5xh2ty7m1gff" path="res://art/Background/Tree 3.png" id="22_xvspm"]
+[ext_resource type="Texture2D" uid="uid://c7r4cbcpxpk1g" path="res://art/Background/Trees.png" id="23_btdyd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uk2yf"]
 resource_local_to_scene = true
@@ -186,6 +190,36 @@ texture = ExtResource("17_k4ex1")
 [node name="Platform2Big3" type="Sprite2D" parent="Terrain/Ground"]
 material = ExtResource("1_egpmt")
 position = Vector2(1655.5, -60)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big7" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(7509.5, 1171)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big6" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(8206.5, 1156)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big7" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(9595.5, 1144)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big9" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(8899.5, 1156)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big8" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(10986, 1128)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big10" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(10290, 1140)
 texture = ExtResource("16_mhh6j")
 
 [node name="Platform1Big4" type="Sprite2D" parent="Terrain/Ground"]
@@ -377,6 +411,10 @@ texture = ExtResource("16_mhh6j")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Ground"]
 polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -1481, -49, 3374.4849, -63.143677, 4329, 119, 5335, 489, 5905, 793, 6438, 1015, 7193, 1155, 7185, 1296, 6357, 1118, 5395, 711, 4616.8105, 413.8092, 3359.4917, 61.327393, -2557, 51, -5107, 824, -6500, 1080, -6527, 939, -5955, 858)
 
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Terrain/Ground"]
+position = Vector2(9742, 1226)
+polygon = PackedVector2Array(-2551, -65, -1387, -64, 1591, -92, 1609, 37, -2557, 51)
+
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Terrain/Ground"]
 polygon = PackedVector2Array(3633, -80, 4207, -167, 4707, -264, 5328, -404, 6720, -456, 6727, -604, 5306, -545, 4455, -330, 4000, -197, 3410, -115)
 one_way_collision = true
@@ -418,6 +456,7 @@ unlock_color = "yellow"
 
 [node name="Sprite2D" parent="Avatars/AnxietyAvatar" index="0"]
 material = SubResource("ShaderMaterial_ondrs")
+position = Vector2(6735, 874)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_xvspm")
 
@@ -544,16 +583,55 @@ custom_minimum_size = Vector2(2000, 1000)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 7471.0
-offset_top = -1768.0
-offset_right = 9471.0
-offset_bottom = 105.0
+offset_left = 8389.0
+offset_top = -3184.0
+offset_right = 10389.0
+offset_bottom = -1311.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_vd26p")
 
 [node name="DarkDeathZone" parent="DarkArea" instance=ExtResource("17_11kja")]
 position = Vector2(959, 471)
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -5
+position = Vector2(9099, 289)
+
+[node name="Trees" type="Node2D" parent="Background"]
+
+[node name="Tree1" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(1368, -33)
+texture = ExtResource("20_30ub0")
+
+[node name="Tree4" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-906, -63)
+rotation = -0.19024089
+texture = ExtResource("20_30ub0")
+
+[node name="Tree2" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-1933, -91)
+texture = ExtResource("21_2wl28")
+
+[node name="Tree3" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(193, -393)
+texture = ExtResource("22_xvspm")
+
+[node name="Trees" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2870, -2127)
+texture = ExtResource("23_btdyd")
+
+[node name="Trees2" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-10597, -1598)
+rotation = 0.06283186
+skew = -0.015707964
+texture = ExtResource("23_btdyd")
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
 
