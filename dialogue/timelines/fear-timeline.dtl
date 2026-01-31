@@ -20,6 +20,7 @@ label First Meeting
 	[end_timeline]
 
 set {Fear.met} = true
+[signal arg="open"]
 [i]The lid of the urn starts lifting slowly...[pause=0.5][br]As a large form slithers from inside it.[/i]
 
 Unknown: Y-Ye[i]sss[/i]?
@@ -39,11 +40,12 @@ if {Fear.times_nudged} == 0:
 	- Are you not claustrophobic?
 	Unknown: No...[pause=0.5] It's actually pretty comforting inside..
 	- What if the urn would break?
-	Unknown: I don't know...[pause=0.5] I didn't really think about it. 
+	Unknown: I don't know...[pause=0.5] I didn't really think about it.
 	- Is there anything else inside?
-	Unknown: I [i]sss[/i]ure hope not... 
+	Unknown: I [i]sss[/i]ure hope not...
 	Unknown: I'm going back inssside...[pause=0.5][br]Good luck out there.
 	
+	[signal arg="close"]
 	[i]The massive form slowly slides back inside the urn, as the lid fits back on top of it...[pause=0.5][br]Almost too perfectly.[/i]
 	set {Fear.times_nudged} += 1
 	[end_timeline]
@@ -65,6 +67,7 @@ label Quest Completed
 [i]There it is...[pause=0.5] The [b]Suspicious Urn[/b][pause=0.5].[pause=0.5].[pause=0.5].[pause=1][/i]
 - Open the lid and throw the Spider in
 
+[signal arg="open"]
 Unknown: [b]AAAAAAAAAAAAAAAAAAH!!!!![/b]
 [i]The entity emerges quickly from its urn, panting heavily...[pause=1][br]It's not like you [b]scared[/b] it or anything....[/i]
 [signal arg_type="dict" arg="{"Fear":"complete_quest"}"]
@@ -98,17 +101,19 @@ if {Fear.relationship} == 0:
 	- Restoring color to the world
 		fear: Y-you...[pause=0.5] are right.[br]I did lose myself.
 		fear: Now that [b]fear[/b] is restored, everyone can be careful of real danger.
-		set {Fear.relationship} +=1
+		set {Fear.relationship} += 1
 		jump Colored
-
+	
 	- Just for fun
 		fear: M-Mean....
+		[signal arg="close"]
 		[i]Fear slides back into his urn. Fearful you might do something scary again.[/i]
 		[end_timeline]
-		
+
 elif {Fear.relationship} == 1.0:
 	[i]...[/i]
 	- Knock on the Urn
+	[signal arg="peak_open"]
 	[i]Fear opens the lid slightly, just enough so fear can peek outside.[/i]
 	fear: H-Huh?
 	- I'm sorry
@@ -117,8 +122,10 @@ elif {Fear.relationship} == 1.0:
 		[i]Fear looks around nervously...[/i]
 		- Yes, I promise
 		- It's your call...
+			[signal arg="peak_closed"]
 			[i]The lid closes as Fear retracts back into his urn.[/i]
 			[end_timeline]
+	[signal arg="open"]
 	[i]Fear comes out of the urn again.[/i]
 	fear: O-okay. I trust you..
 	set {Fear.relationship} += 1
@@ -132,7 +139,7 @@ elif {Fear.relationship} == 2:
 			fear: Lucky there are no oceans here...
 		- Snakes
 			fear: [color=#a963a7][b]Ophidiophobia[/b][/color].[pause=1][br]Snakes are excellent at [b]camouflage[/b]. Can [b]Strike out of nowhere[/b]. And let's not talk about the [b]Venom[/b].
-			fear: Waaait a minute[pause=0.5].[pause=0.5].[pause=0.5]D-Do I scare you?? 
+			fear: Waaait a minute[pause=0.5].[pause=0.5].[pause=0.5]D-Do I scare you??
 			- Yes
 				fear: I'm s-sorry.[pause=0.5] I mean you no harm.
 			- No
@@ -162,16 +169,19 @@ elif {Fear.relationship} == 3:
 	[i]Fear pulls out a small hammer from the urn and very swiftly...[pause=0.5][br][b]taps your mask with it[/b]..[pause=0.5] Cracking it slightly.[/i]
 	
 	fear: I've granted you my [b]Night Vision[/b].[pause=0.5] So you will feel safe, even in the darkest of places.
+	[signal arg="close"]
 	[i]Fear slides back into the urn, the lid closing it behind again.[/i]
 	set {Fear.relationship} = -1
 	[signal arg_type="dict" arg="{"Fear":"break_player_mask"}"]
 	[end_timeline]
 elif {Fear.relationship} == -1:
+	[signal arg="peak_open"]
 	[i]The lid opens just enough for Fear to peek outside.[/i]
 	fear: H-Huh?
 	- Talk about fears again
 		jump Fears
 	- End Conversation
+		[signal arg="peak_closed"]
 		[end_timeline]
 
 # --------------------------------------------------------------------------------------------------------------------------------
@@ -184,7 +194,7 @@ fear: Are you afraid of anything?
 	jump Fears
 - Snakes
 	fear: [color=#a963a7][b]Ophidiophobia[/b][/color].[pause=1][br]Snakes are excellent at [b]camouflage[/b]. Can [b]Strike out of nowhere[/b]. And let's not talk about the [b]Venom[/b].
-	fear: Waaait a minute[pause=0.5].[pause=0.5].[pause=0.5]D-Do I scare you?? 
+	fear: Waaait a minute[pause=0.5].[pause=0.5].[pause=0.5]D-Do I scare you??
 	- Yes
 		fear: I'm s-sorry.[pause=0.5] I mean you no harm.
 	- No
@@ -204,4 +214,4 @@ fear: Are you afraid of anything?
 	fear: Maybe you are [b][i]scared[/i][/b] to admit it...
 	jump Fears
 - End Conversation
-	return
+	jump Colored

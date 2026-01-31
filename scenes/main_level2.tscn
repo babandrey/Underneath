@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bi4qbh7p0wq7s"]
+[gd_scene load_steps=66 format=3 uid="uid://bi4qbh7p0wq7s"]
 
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_egpmt"]
 [ext_resource type="PackedScene" uid="uid://px7kdlrn1vm1" path="res://scenes/checkpoint.tscn" id="2_egpmt"]
@@ -48,11 +48,6 @@
 [ext_resource type="Texture2D" uid="uid://bljsp247tl0a2" path="res://art/Avatars/Fear/Peek/Fear_Peek6.png" id="33_egram"]
 [ext_resource type="PackedScene" uid="uid://ch06af2bw0dsj" path="res://platform.tscn" id="47_bdllo"]
 [ext_resource type="PackedScene" uid="uid://dvlenlgfgsy36" path="res://scenes/barrier.tscn" id="48_fyepo"]
-[ext_resource type="Texture2D" uid="uid://dhxlqq6jqktab" path="res://art/Background/SadnessMask.png" id="49_prrny"]
-[ext_resource type="Texture2D" uid="uid://bsb4q0mf1usji" path="res://art/Background/AngerMask.png" id="50_867yn"]
-[ext_resource type="Texture2D" uid="uid://djmltwoxcj3t0" path="res://art/Background/FearMask.png" id="50_djfd7"]
-[ext_resource type="Texture2D" uid="uid://bhiinj6sqfnbp" path="res://art/Background/ShameMask.png" id="50_lxqsh"]
-[ext_resource type="Texture2D" uid="uid://cbqe2uj3m5goq" path="res://art/Background/AnxietyMask.png" id="51_shl5i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uk2yf"]
 resource_local_to_scene = true
@@ -1178,7 +1173,8 @@ unlock_color = "purple"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Avatars/FearAvatar"]
 material = SubResource("ShaderMaterial_4wbot")
 sprite_frames = SubResource("SpriteFrames_4wbot")
-animation = &"peak_open"
+animation = &"closed"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Avatars/FearAvatar"]
 visible = false
@@ -1348,28 +1344,6 @@ shape = SubResource("RectangleShape2D_knpqy")
 
 [node name="Barrier" parent="." instance=ExtResource("48_fyepo")]
 position = Vector2(-2494.5, 3752)
-
-[node name="MasksTree" type="Node2D" parent="."]
-position = Vector2(-1760, -657)
-
-[node name="SadnessMask" type="Sprite2D" parent="MasksTree"]
-position = Vector2(305, -111)
-texture = ExtResource("49_prrny")
-
-[node name="ShameMask" type="Sprite2D" parent="MasksTree"]
-position = Vector2(151, 131)
-texture = ExtResource("50_lxqsh")
-
-[node name="FearMask" type="Sprite2D" parent="MasksTree"]
-position = Vector2(34, 308)
-texture = ExtResource("50_djfd7")
-
-[node name="AnxietyMask" type="Sprite2D" parent="MasksTree"]
-texture = ExtResource("51_shl5i")
-
-[node name="AngerMask" type="Sprite2D" parent="MasksTree"]
-position = Vector2(-26, -240)
-texture = ExtResource("50_867yn")
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
 [connection signal="body_entered" from="DarkArea/DarkDeathZone" to="DarkArea/DarkDeathZone" method="_on_body_entered"]

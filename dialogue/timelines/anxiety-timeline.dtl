@@ -60,35 +60,35 @@ if {Anxiety.relationship} == 0:
 	[i]Anxiety seems to be pacing around nervously.
 	- Anything I can do to help?
 		anxiety: Too many things can happen, the possibilities are endless!!
-		anxiety: [speed=2]How can you be ready for everything??
-		anxiety: [speed=2]What if a tree falls?
-		anxiety: [speed=2]What if that spider I saw earlier comes to bite me?
-		anxiety: [speed=2]And what if its venomous??!
+		anxiety: [speed=0.5]How can you be ready for everything??
+		anxiety: [speed=0.5]What if a tree falls?
+		anxiety: [speed=0.5]What if that spider I saw earlier comes to bite me?
+		anxiety: [speed=0.5]And what if its venomous??!
 		- Hey hey, calm down
 		anxiety: No.
 	- (Stare at him)
 		[i]Anxiety notices you staring...[/i]
-		anxiety: [speed=2]What?
+		anxiety: [speed=0.5]What?
 		- ...
-		anxiety: [speed=2]What are you doing?
+		anxiety: [speed=0.5]What are you doing?
 		- ...
-		anxiety: [speed=2]Helllooo?!?
+		anxiety: [speed=0.5]Helllooo?!?
 		- ...
-		anxiety: [speed=2]Why are you staring??
+		anxiety: [speed=0.5]Why are you staring??
 		- Will you speak to me? Or pace around in circles?
-		anxiety: [speed=2]Fine! I've seen some things in the crystal ball.[br]How can anyone be ready for things to come?
+		anxiety: [speed=0.5]Fine! I've seen some things in the crystal ball.[br]How can anyone be ready for things to come?
 		- You let them unfold and deal with them
 		anxiety: Whaaaat?!
-	{Anxiety.relationship} += 1
+	set {Anxiety.relationship} += 1
 	[end_timeline]
 elif {Anxiety.relationship} == 1:
 	[i]You return to Anxiety, still pacing around.[/i]
 	- Do you want me to take the crystal ball?
 	anxiety: What?! No.
 	- But it makes you anxious
-	anxiety: I am more anxious when [speed=2]I DON'T know whats coming.
+	anxiety: I am more anxious when [speed=0.5]I DON'T know whats coming.
 	- Is the color restored in the future?
-	anxiety: Yes.. [speed=2]Why?
+	anxiety: Yes.. [speed=0.5]Why?
 	- I'm trying to restore this world
 	anxiety: So that's why you're talking to me
 	- Yes
@@ -137,7 +137,7 @@ elif {Anxiety.relationship} == 3:
 	anxiety: I've granted you the ability to run faster than anything in these lands.
 	set {Anxiety.relationship} = -1
 	[signal arg_type="dict" arg="{"Anxiety":"break_player_mask"}"]
-	jump Colored
+	[end_timeline]
 elif {Anxiety.relationship} == -1:
 	[i]Anxiety is too busy looking at the crystal ball...[/i]
 [end_timeline]
