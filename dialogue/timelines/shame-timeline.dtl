@@ -9,94 +9,129 @@ else:
 		jump Quest Completed
 	else:
 		jump Colored
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label First Meeting
-Unknown: Hello [b]Wanderer...[/b]
-if {b_met_someone} != true:
-	jump first-meeting/
-Unknown: [i]Sigh...[/i][br]I have lost my identity... [pause=0.5]I am without purpose.
+[i]You approach this giant entity slowly.. [pause=0.5][br]They seem to be talking to themselves.[/i]
+Unknown: Strange...[pause=0.5] I don't remember why, but I feel...[pause=0.5] wrong.
+Unknown: Oh! A guest, you seem...[pause=0.5] different.
+- Different.. how?
+Unknown: You don't look like...[pause=0.5] [i]the others[/i].
+- The Others?
+Unknown: Yeah... there's a big uh... strong looking guy,[pause=0.5] he looks mean.
+Unknown: Then there's the reaaaly long one, but he seems... droopy.
+Unknown: And there's the quick one... I can never quite keep up with him.
+- Ah, I get it.
+Unknown: Oh, uhm...[pause=0.5] sorry.
 set {Shame.met} = true
 jump Quest
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label Quest
-Unknown: [i]'Eyeing the floating water droplets around."[/i]
-Unknown: There's a heavy burden holding me down... [pause=0.7][br][i]Lucky[/i] I have this [b]mask[/b] to protect me...
-Unknown: Could you help me fill this [b]Bucket[/b] with water from that [b]waterfall[/b] over there?
-- Yes
-	Unknown: Thank you [b]Wanderer[/b]. I'll be waiting here...
+Unknown: Say....[pause=0.5] It's kinda weird to ask.
+- ...?
+Unknown: Can you help me remember something?
+Unknown: I feel like it's something important.[pause=0.5] Something I ought to never forget..[pause=1][br]But...
+- You forgot.. didn't you?
+[i]The odd entity recoils to the words you just said..[/i]
+Unknown: Y-Yeah... I did...
+Unknown: Have you seen a thing someone writes their thoughts and memories in?[pause=1][br]Like a diary?
+Unknown: I found a quill in my burrow,[pause=0.5] maybe I left the diary somewhere...
+
+- I can look for it
+	Unknown: Thank you. Stay safe.
 	set {Shame.quest_taken} = true
-- No
-	Unknown: [i]Sigh...[/i][pause=0.5][br]Alright. I'll be waiting here...
+- You're on your own with that...
+	Unknown: Oh... ok..
 [end_timeline]
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label Waiting
-Unknown: [i]Eyeing the floating water droplets around..[br][pause=0.5]Sigh...[/i]
+Unknown: Oh hi again![pause=0.5] Did you manage to find it?
+- Not yet, still looking
+Unknown: Good luck!
 [end_timeline]
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label Quest Completed
-Unknown: Oh...[pause=0.5] you have my bucket...
-- Give Bucket
+Unknown: What's that book you are holding?? [pause=1]Is that mine?
+- Probably
+Unknown: Well... what does it say?
+[i]You flip the pages until you open a random page..[/i]
+[i]The penship is...[pause=1] alright.[/i]
+[i]You start reading it aloud:[/i]
+[i]"Dear Diary,[br]Today I tried to show off in front of Anger..."[/i]
+Unknown: W-Wait. Oh No....
+[i]"...he's so cool..."[/i]
+[i]The entity turns pale as it realizes what's to come.[/i]
+[i]"but I accidentally caused him to fall into one of my holes."
+Unknown: H-How about we stop here...[pause=0.5][br]I now know its mine.
+- Well.. this is awkward
+[i]You flip to another page..[/i]
+[i]"Dear Diary,[br]Today I saw Anxiety. He was using my hole to hide from that weird ghost.[br]I accidentally bumped into him and freaked him out."[/i]
+Unknown: W-Wait - Don't read that!
+- Continue Reading
+	[i]"Dear Diary,[br]Today I drank from the Waterfall of Sorrows.[br]It was a few hours later that I understood they were made from Sadness's tears...[pause=1][br]No wonder they tasted [b]salty[/b]..."[/i]
+	Unknown: Ok Ok - I get it!!
+- Stop Reading
+Unknown: [i]*phew*[/i] Can you give me back my diary now...?
+- Give Diary
+	[i]The entity flips through the pages, reading a few lines here and there...[/i]
+	[i]The contents of that diary clearly did something... the entity's color is returning...[br][pause=1]Or is it just sick?[/i]
 	[signal arg_type="dict" arg="{"Shame":"complete_quest"}"]
 	set {Shame.is_colored} = true
 	[wait time="3.0"]
-shame: I [pause=0.5]am the [b]Avatar of Shame[/b]. [pause=0.5][br]Thank you for returning the tears from the [b]Waterfall of Pain[/b] for me.
+shame: Ugh...[br]I, [pause=0.5]am the [b][color=#2c9474]Avatar of Shame[/color][/b]. [pause=0.5][br]Reading those pages aloud clearly made me feel [color=#2c9474]ashamed[/color] of my self...[pause=0.5] Thanks..I guess.
 set {Shame.quest_completed} = true
-jump Colored
+[end_timeline]
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label Colored
-if {Shame.relationship} == 0.0:
-	shame: [i]Sigh...[/i][pause=0.5][br]I have my tears, but the world around me feels [b][i]heavy[/i][/b]....
-	- Do you need more tears?
-		shame: I've absorbed the tears with the bucket itself..[br][pause=0.5]Can't carry tears with your hands...[br][pause=0.5][i]'sigh'[/i]
+if {Shame.relationship} == 0:
+	[i]Shame seems to be ignoring you...[pause=0.5][br]Now that you know some of her secrets.[/i]
+	- I'm sorry Shame...
+		shame: [i]*Sigh*[/i][pause=0.5][br]How can I talk to you,[pause=0.7] knowing that you know what I wrote?
+		- You don't need to worry..
+		shame: Easy for you to say...
+		- We only just met.
+		shame: You might have a point...
+		set {Shame.relationship} += 1
 		jump Colored
-	- It's ok to cry...
-		shame: I guess...
-		[i]Shame begins to tear up, [pause=0.5]water droplets start floating from the mask's eye around Shame.[/i]
-		set {Shame.relationship} += 0.3
-		jump Colored
-elif {Shame.relationship} == 0.3:
-	shame: Hey look...[pause=0.5][br]It started raining again...[br][i]'Shame says as the floating droplets turn into gentle rain.'[/i]
-	shame: The world is starting to cry again, [pause=0.5]and water is beginning to flow...
-	shame: I'm starting...[pause=0.5] to feel again...[pause=0.5][br]Starting to feel...[pause=0.5] [b]sad[/b] for the world.
-	- Don't be sad...
-		shame: I can't explain it...[pause=0.5] but I feel like I'm supposed to feel sad...
-		jump Colored
-	- It's ok to feel sad...
-		shame: The world...[pause=0.5] is in a dire state.
-		shame: Devoid of emotion...[pause=0.5] Devoid of feelings...[pause=0.5][br]We live in a grey world...
-		set {Shame.relationship} += 0.3
-		- It truly is dark and colorless
-			shame: What does it make you [i]feel[/i]?
-			- Angry
-				jump Wrong Answer
-			- Worried
-				jump Wrong Answer
-			- Sad
-				shame: Yes...[pause=0.5] I agree...
-				set {Shame.relationship} += 0.4
-				jump Colored
-		- I don't know...
-			shame: The world was colorful and vibrant... [pause=0.5]A place to truly be alive in.
-			jump Colored
-elif {Shame.relationship} == 0.6:
-	shame: Now with the water flow restored to nature...[pause=0.5][br]I can spread my shame throughout this land.[pause=0.5][br]Allow all other living beings to experience true shame.
-	- It might hurt them!
-		shame: That is how it has been,[pause=0.5] and that is how it shall be.
-		jump Colored
-	- Feeling sad is good
-		shame: Finally...[pause=0.5] someone understands.
-		set {Shame.relationship} += 0.4
-		jump Colored
-elif {Shame.relationship} == 1.0:
-	shame: You've shown true friendship.[pause=0.5][br]You've helped me restore [b]Shame[/b] into the world.
-	shame: You've accepted my role in this world.. [pause=0.5]and let me get a little into your own personality..
-	[i]Shame breaks your mask a little.[/i]
-	shame: I've granted you mastery over these very waters that flow through these lands.
-	set {Shame.relationship} = 2.0
+	- *shrug*
+		[end_timeline]
+elif {Shame.relationship} == 1:
+	[i]You can still sense that Shame is reluctant to speak with you...[/i]
+	- Look, I told you- It's ok!
+	shame: You don't know how ashamed I feel![br]Nobody needs to know what I wrote here.
+	- There's nothing to be ashamed of..
+	shame: Oh yeah? Like you know how it feels...
+	- Actually.. I do.
+	shame: Oh?
+	- Everyone has shameful secrets
+	shame: Like what...?
+	- Once...
+	[i]You lean towards Shame,[pause=1] read to tell her your shameful stories.[/i]
+	- *whisper whisper*
+	shame: [b]*GASP*[/b]
+	- *more whispering*
+	shame: No WAY....
+	- *****
+	shame: And I thought I was bad....
+	- ... And I can never return there again
+	shame: Wow...[pause=0.5] I don't know what to say...
+	shame: Maybe you should be the [b][color=#2c9474]Avatar of Shame[/color][/b]... haha
+	- Not really
+	shame: Haha, you're right.
+	set {Shame.relationship} += 1
+elif {Shame.relationship} == 2:
+	shame: Thanks for sharing your [i]juicy[/i] stories.
+	shame: [pause=0.5][br]You've helped me restore [b]Shame[/b] into the world.
+	shame: [pause=0.5]You let me see that Shame is a part your own personality..
+	[i]Shame takes out a small hammer, and clinks it gently. Cracking your [b]mask[/b] a little.[/i]
+	shame: I've granted you passage into my burrows.[pause=0.5] If you ever need to get somewhere else in this world..[br]Just hop into one of my holes.
+	set {Shame.relationship} = -1
 	[signal arg_type="dict" arg="{"Shame":"break_player_mask"}"]
-	jump Colored
-elif {Shame.relationship} >= 2.0:
+	[end_timeline]
+elif {Shame.relationship} == -1:
 	shame: Thank you...[pause=0.5] friend.
 [end_timeline]
-label Wrong Answer
-shame: Interesting...
