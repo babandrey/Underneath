@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bi4qbh7p0wq7s"]
+[gd_scene load_steps=76 format=3 uid="uid://bi4qbh7p0wq7s"]
 
 [ext_resource type="PackedScene" uid="uid://dhg873pr1eb2i" path="res://end_location.tscn" id="1_867yn"]
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_egpmt"]
@@ -52,6 +52,7 @@
 [ext_resource type="Texture2D" uid="uid://cgcd084mrp1ef" path="res://art/Avatars/Fear/Peek/Fear_Peek4.png" id="31_ug036"]
 [ext_resource type="Texture2D" uid="uid://x8ip55gxk60l" path="res://art/Avatars/Fear/Peek/Fear_Peek5.png" id="32_yb3ia"]
 [ext_resource type="Texture2D" uid="uid://bljsp247tl0a2" path="res://art/Avatars/Fear/Peek/Fear_Peek6.png" id="33_egram"]
+[ext_resource type="Texture2D" uid="uid://bl2go66a2xvk1" path="res://art/Background/Hole.png" id="41_l3t38"]
 [ext_resource type="Texture2D" uid="uid://dy5ujtbdvvhvs" path="res://art/Background/Diary.png" id="46_djfd7"]
 [ext_resource type="PackedScene" uid="uid://ch06af2bw0dsj" path="res://platform.tscn" id="47_bdllo"]
 [ext_resource type="PackedScene" uid="uid://dvlenlgfgsy36" path="res://scenes/barrier.tscn" id="48_fyepo"]
@@ -485,7 +486,7 @@ texture = ExtResource("23_btdyd")
 
 [node name="Trees6" type="Sprite2D" parent="Background/Trees"]
 material = ExtResource("1_egpmt")
-position = Vector2(-21876, 1868.9995)
+position = Vector2(-21904, 1923)
 rotation = 0.25307274
 skew = -0.015707964
 texture = ExtResource("23_btdyd")
@@ -1464,6 +1465,7 @@ shape = SubResource("CircleShape2D_jg8a7")
 [node name="ShameAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
 position = Vector2(-18584, 1478.0002)
 avatar_name = "shame"
+player_ability_unlock = 5
 unlock_color = "green"
 
 [node name="Sprite2D" parent="Avatars/ShameAvatar" index="0"]
@@ -1472,6 +1474,13 @@ texture = ExtResource("9_483gv")
 
 [node name="CollisionShape2D" parent="Avatars/ShameAvatar" index="1"]
 shape = SubResource("CircleShape2D_adxub")
+
+[node name="Hole" type="Sprite2D" parent="Avatars"]
+position = Vector2(-863, -37)
+texture = ExtResource("41_l3t38")
+
+[node name="TelporterPosition" type="Marker2D" parent="Avatars/Hole"]
+position = Vector2(-11, -195)
 
 [node name="RunningWiitch" parent="." instance=ExtResource("10_jg8a7")]
 position = Vector2(14468, 773)
@@ -1567,8 +1576,9 @@ material = ExtResource("1_egpmt")
 scale = Vector2(0.715, 0.715)
 texture = ExtResource("46_djfd7")
 
-[node name="Player" parent="." instance=ExtResource("14_x0i0p")]
+[node name="Player" parent="." node_paths=PackedStringArray("teleporter") instance=ExtResource("14_x0i0p")]
 position = Vector2(-4580, -194)
+teleporter = NodePath("../Avatars/Hole/TelporterPosition")
 
 [node name="WaterFall" parent="." instance=ExtResource("15_lq2b6")]
 position = Vector2(2032, -1361)
@@ -1594,9 +1604,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8779.0
-offset_top = -2443.0
+offset_top = -2300.0
 offset_right = 10779.0
-offset_bottom = -237.0
+offset_bottom = -94.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_vd26p")
