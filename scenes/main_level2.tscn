@@ -387,6 +387,48 @@ material = ExtResource("1_egpmt")
 position = Vector2(-7908, -516)
 texture = ExtResource("17_k4ex1")
 
+[node name="Platform2Big15" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-5218, 3759)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big14" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-4521, 3744)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big16" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-7243.999, 3655.9998)
+rotation = 0.19024089
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big15" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-6592, 3719.9995)
+rotation = 0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big17" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-7882, 4313)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big16" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-7185, 4298)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big18" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-9960, 4324)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big17" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-9263, 4309)
+texture = ExtResource("17_k4ex1")
+
 [node name="Platform2Big12" type="Sprite2D" parent="Terrain/Ground"]
 material = ExtResource("1_egpmt")
 position = Vector2(-13129.584, -644.56396)
@@ -691,6 +733,44 @@ texture = ExtResource("16_mhh6j")
 material = ExtResource("1_egpmt")
 texture = ExtResource("16_mhh6j")
 
+[node name="Platform2Big14" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(761.5, 4281)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big15" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(2746, 3984.9995)
+rotation = -0.38048178
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big20" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(2746, 3984.9995)
+rotation = -0.38048178
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big16" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(-1309, 4271)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big17" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(3425.5, 4835)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big18" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(5503.5, 4846)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big19" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(3353, 3700)
+rotation = -0.44505897
+texture = ExtResource("16_mhh6j")
+
 [node name="Aliya3" type="Node2D" parent="Terrain/Ground"]
 position = Vector2(-2943, -38.000015)
 rotation = -0.12740904
@@ -857,6 +937,11 @@ one_way_collision = true
 polygon = PackedVector2Array(-2901, -105, -4174, -363, -9598, -366, -9651, -521, -5540, -526, -4165, -501, -3432, -356, -2772, -125)
 one_way_collision = true
 
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Terrain/Ground"]
+position = Vector2(678, 4096)
+polygon = PackedVector2Array(-4174, -363, -9598, -366, -9651, -521, -5540, -526, -4176, -558)
+one_way_collision = true
+
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(-13152, -534)
 polygon = PackedVector2Array(1067, -16, 1067, -164, 3, -145, -1020, -157, -1019, -31)
@@ -911,6 +996,15 @@ position = Vector2(13856.654, 963.7837)
 rotation = 0.064577185
 scale = Vector2(1.0171047, 1)
 texture = ExtResource("5_483gv")
+
+[node name="Platform" parent="Terrain" instance=ExtResource("47_bdllo")]
+position = Vector2(-10185, -571)
+
+[node name="Platform2" parent="Terrain" instance=ExtResource("47_bdllo")]
+position = Vector2(-10893, -631)
+
+[node name="Platform3" parent="Terrain" instance=ExtResource("47_bdllo")]
+position = Vector2(-11570, -691)
 
 [node name="WaterFountain" type="Sprite2D" parent="."]
 material = ExtResource("1_egpmt")
@@ -1094,6 +1188,12 @@ rotation = -1.3962634
 scale = Vector2(1.38, 1.38)
 texture = ExtResource("25_j5ryu")
 
+[node name="Diary" parent="Interactables" instance=ExtResource("12_j5ryu")]
+position = Vector2(-3984, 3309)
+item_name = "diary"
+action_text = "pick up diary"
+avatar_quest = "shame"
+
 [node name="Player" parent="." instance=ExtResource("14_x0i0p")]
 position = Vector2(-1144, -217)
 
@@ -1139,18 +1239,36 @@ position = Vector2(28.5, 479)
 scale = Vector2(1.0174894, 0.74670833)
 shape = SubResource("RectangleShape2D_knpqy")
 
-[node name="Platform" parent="." instance=ExtResource("47_bdllo")]
-position = Vector2(-10185, -571)
+[node name="DarkArea2" type="TextureRect" parent="."]
+z_index = 10
+custom_minimum_size = Vector2(2000, 1000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6067.0
+offset_top = 2139.0
+offset_right = -4067.0
+offset_bottom = 4345.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_vd26p")
 
-[node name="Platform2" parent="." instance=ExtResource("47_bdllo")]
-position = Vector2(-10893, -631)
+[node name="DarkDeathZone" type="Area2D" parent="DarkArea2"]
+position = Vector2(959, 471)
+collision_layer = 64
+script = ExtResource("19_xvspm")
 
-[node name="Platform3" parent="." instance=ExtResource("47_bdllo")]
-position = Vector2(-11570, -691)
+[node name="DarkZone" type="CollisionShape2D" parent="DarkArea2/DarkDeathZone"]
+z_index = 21
+position = Vector2(28.5, 479)
+scale = Vector2(1.0174894, 0.74670833)
+shape = SubResource("RectangleShape2D_knpqy")
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
 [connection signal="body_entered" from="DarkArea/DarkDeathZone" to="DarkArea/DarkDeathZone" method="_on_body_entered"]
 [connection signal="body_exited" from="DarkArea/DarkDeathZone" to="DarkArea/DarkDeathZone" method="_on_body_exited"]
+[connection signal="body_entered" from="DarkArea2/DarkDeathZone" to="DarkArea2/DarkDeathZone" method="_on_body_entered"]
+[connection signal="body_exited" from="DarkArea2/DarkDeathZone" to="DarkArea2/DarkDeathZone" method="_on_body_exited"]
 
 [editable path="Avatars/SadnessAvatar"]
 [editable path="Avatars/AnxietyAvatar"]
