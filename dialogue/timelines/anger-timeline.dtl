@@ -9,94 +9,104 @@ else:
 		jump Quest Completed
 	else:
 		jump Colored
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label First Meeting
-Unknown: Hello [b]Wanderer...[/b]
-if {b_met_someone} != true:
-	jump first-meeting/
-Unknown: [i]Sigh...[/i][br]I have lost my identity... [pause=0.5]I am without purpose.
+if {Anger.times_nudged} == 0:
+	[i]What or whoever it is, seems to be actively ignoring your presence.[/i]
+	set {Anger.times_nudged} = 1
+	[end_timeline]
+
 set {Anger.met} = true
-jump Quest
+set {Anger.times_nudged} = 0
+Unknown: What?
+- Who are you?
+	Unknown: I don't know.[br][pause=0.5]And even if I did, I wouldn't just go around and tell it.
+- What is this place?
+	Unknown: If you don't know, maybe you don't belong here in the first place.
+[end_timeline]
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label Quest
-Unknown: [i]'Eyeing the floating water droplets around."[/i]
-Unknown: There's a heavy burden holding me down... [pause=0.7][br][i]Lucky[/i] I have this [b]mask[/b] to protect me...
-Unknown: Could you help me fill this [b]Bucket[/b] with water from that [b]waterfall[/b] over there?
+Unknown: Listen, I don't know anything.[pause=0.5][br]So please stop bothering me.
+Unknown: I feel like I'm [b]about to explode[/b], and your continued pestering ain't helping.
+Unknown: Could you please leave me alone until I manage to figure things out??
 - Yes
-	Unknown: Thank you [b]Wanderer[/b]. I'll be waiting here...
+	Unknown: Pfft...
 	set {Anger.quest_taken} = true
 - No
-	Unknown: [i]Sigh...[/i][pause=0.5][br]Alright. I'll be waiting here...
+	Unknown: Fine.
 [end_timeline]
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label Waiting
-Unknown: [i]Eyeing the floating water droplets around..[br][pause=0.5]Sigh...[/i]
+[i]What or whoever this rude entity is, it's actively ignoring you.[/i][br][pause=0.5][i]Until it figures itself out...[pause=0.5] maybe you could [b]'assist'[/b] it in finding out...[/i]
 [end_timeline]
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label Quest Completed
-Unknown: Oh...[pause=0.5] you have my bucket...
-- Give Bucket
-	[signal arg_type="dict" arg="{"Anger":"complete_quest"}"]
-	set {Anger.is_colored} = true
-	[wait time="3.0"]
-anger: I [pause=0.5]am the [b]Avatar of Anger[/b]. [pause=0.5][br]Thank you for returning the tears from the [b]Waterfall of Pain[/b] for me.
+[i]You slowly raise the stick you found..[/i]
+- Poke ??? with the stick.. gently.
+	[i] You poke ??? with the stick gently... [pause=0.5]It seems to be unphased.[/i]
+	- Poke ??? with the stick.. again.
+		[i] You poke ??? with the stick again... [pause=0.5]It sighs dominantely,[pause=0.5] still ignoring your presence.[/i]
+		- Poke ??? with the stick.. repeatedly.
+			[i] After a couple more prods.. the entity grabs the stick from your hand and...[br][pause=0.5]breaks it into pieces.[br]He then proceeds to turn red out of [b]Anger[pause=0.2].[pause=0.2].[pause=0.2].[/b]
+[signal arg_type="dict" arg="{"Anger":"complete_quest"}"]
+set {Anger.is_colored} = true
+[wait time="3.0"]
+anger: You!	
+anger: I, [pause=0.5]am the [b][color=#c54511]Avatar of Anger[/color][/b]. [pause=0.5][br]How dare you disturb me needlessly!
+- I helped restore your emotion!!
+	anger: Fine. I'll let it slide...[pause=0.5] This time.
 set {Anger.quest_completed} = true
-jump Colored
+[end_timeline]
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label Colored
-if {Anger.relationship} == 0.0:
-	anger: [i]Sigh...[/i][pause=0.5][br]I have my tears, but the world around me feels [b][i]heavy[/i][/b]....
-	- Do you need more tears?
-		anger: I've absorbed the tears with the bucket itself..[br][pause=0.5]Can't carry tears with your hands...[br][pause=0.5][i]'sigh'[/i]
-		jump Colored
-	- It's ok to cry...
-		anger: I guess...
-		[i]Anger begins to tear up, [pause=0.5]water droplets start floating from the mask's eye around Anger.[/i]
-		set {Anger.relationship} += 0.3
-		jump Colored
-elif {Anger.relationship} == 0.3:
-	anger: Hey look...[pause=0.5][br]It started raining again...[br][i]'Anger says as the floating droplets turn into gentle rain.'[/i]
-	anger: The world is starting to cry again, [pause=0.5]and water is beginning to flow...
-	anger: I'm starting...[pause=0.5] to feel again...[pause=0.5][br]Starting to feel...[pause=0.5] [b]sad[/b] for the world.
-	- Don't be sad...
-		anger: I can't explain it...[pause=0.5] but I feel like I'm supposed to feel sad...
-		jump Colored
-	- It's ok to feel sad...
-		anger: The world...[pause=0.5] is in a dire state.
-		anger: Devoid of emotion...[pause=0.5] Devoid of feelings...[pause=0.5][br]We live in a grey world...
-		set {Anger.relationship} += 0.3
-		- It truly is dark and colorless
-			anger: What does it make you [i]feel[/i]?
-			- Angry
-				jump Wrong Answer
-			- Worried
-				jump Wrong Answer
-			- Sad
-				anger: Yes...[pause=0.5] I agree...
-				set {Anger.relationship} += 0.4
-				jump Colored
-		- I don't know...
-			anger: The world was colorful and vibrant... [pause=0.5]A place to truly be alive in.
-			jump Colored
-elif {Anger.relationship} == 0.6:
-	anger: Now with the water flow restored to nature...[pause=0.5][br]I can spread my anger throughout this land.[pause=0.5][br]Allow all other living beings to experience true anger.
-	- It might hurt them!
-		anger: That is how it has been,[pause=0.5] and that is how it shall be.
-		jump Colored
-	- Feeling sad is good
-		anger: Finally...[pause=0.5] someone understands.
-		set {Anger.relationship} += 0.4
-		jump Colored
-elif {Anger.relationship} == 1.0:
-	anger: You've shown true friendship.[pause=0.5][br]You've helped me restore [b]Anger[/b] into the world.
-	anger: You've accepted my role in this world.. [pause=0.5]and let me get a little into your own personality..
-	[i]Anger breaks your mask a little.[/i]
-	anger: I've granted you mastery over these very waters that flow through these lands.
-	set {Anger.relationship} = 2.0
+if {Anger.relationship} == 0:
+	[i]Anger rolls his eyes the moment he sees you approaching him...[/i]
+	anger: What is it... this time? Who even are you??
+	if {player_name} == "":
+		[text_input text="Enter your name:" var="player_name"]
+	else:
+		- {player_name}
+	anger: And what is it that you want, "[color=#c54511]{player_name}[/color]"?
+	- We need to spread Anger into the world.
+		anger: "We",[pause=0.5] don't need to spread anything.
+	- I have some more questions.
+		anger: Good luck finding the answers.
+	set {Anger.relationship} += 1
+	[end_timeline]
+elif {Anger.relationship} == 1:
+	anger: Again...[pause=0.5] Stop.[pause=0.5] Bothering.[pause=0.5] Me.
+	- I'm just trying to restore this place.
+		anger: Well so am I. Now leave me alone.
+	set {Anger.relationship} += 1
+	[end_timeline]
+elif {Anger.relationship} == 2:
+	anger: Why,[pause=0.5] out of all places...[pause=0.5] and out of all the times possible..[pause=0.5][br]Must you pester me now? 
+	anger: I am NOT going to answer your questions!
+	anger: I am NOT part of any "team"!
+	anger: And I do NOT need your help!
+	anger: Just leave me alone already!
+	set {Anger.relationship} += 1
+	[end_timeline]
+elif {Anger.relationship} == 3:
+	[i]Anger stares at you with disbelief.[/i]
+	- Hey! I am trying to help here!
+		[i]You can see the rage...[pause=0.5] building slowly up inside him as you finish your sentence.[/i]
+		- I COME HERE, to an UNKNOWN location
+			- And I am stuck here, same as you!
+				- I have done NOTHING
+					- HELP ME, and I will leave this place!
+	[i]Anger exhales loudly...[/i]
+	anger: Fine. [pause=0.5]I will let you experience pure [b]Anger[/b].[br]I will allow you to incoporate [b]anger[/b] into your [b]personality[/b].
+	[i]Anger pulls out a small hammer and swiftly...[pause=0.5][br][b]taps your mask with it[/b]..[pause=0.5] Cracking it slightly.[/i]
+	anger: I've granted you the ability to possess incredible strength when angry.[br][pause=0.5]Use it to break anything blocking your path.
+	set {Anger.relationship} = -1
 	[signal arg_type="dict" arg="{"Anger":"break_player_mask"}"]
-	jump Colored
-elif {Anger.relationship} >= 2.0:
-	anger: Thank you...[pause=0.5] friend.
+	[end_timeline]
+elif {Anger.relationship} == -1:
+	anger: Yes?
 [end_timeline]
-label Wrong Answer
-anger: Interesting...

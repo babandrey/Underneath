@@ -14,8 +14,11 @@ else:
 label First Meeting
 Unknown: Oh...[pause=0.5] I'm sorry...[br]I've been too focused..[pause=0.5] I haven't noticed you..
 Unknown: W-Who...[pause=0.5] are you?
-[text_input var="player_name"]
-Unknown: [color=cyan]{player_name}[/color], huh...[pause=0.5] H-How did you get here?
+if {player_name} == "":
+	[text_input text="Enter your name:" var="player_name"]
+else:
+	- {player_name}
+Unknown: [color=cornflower_blue]{player_name}[/color], huh...[pause=0.5] H-How did you get here?
 - Where is Here?
 	jump Where is Here
 	- Who are you?
@@ -29,7 +32,7 @@ jump Quest
 
 # ---------------------------------------------------------------------------
 label Where is Here
-Unknown: Oh dear...[pause=0.5] You are not from around here?
+Unknown: Oh dear...[pause=0.5] You are not from around here, are you?
 Unknown: This used to be our home...[pause=0.5][br]A vibrant and beautiful world...[pause=0.5] Full of color.
 Unknown: But now it's completely empty, grey and cold... lifeless.
 return
@@ -64,7 +67,7 @@ Unknown: Oh...[pause=0.5] you brought the bucket of [b]tears[/b]...
 	[signal arg_type="dict" arg="{"Sadness":"complete_quest"}"]
 	set {Sadness.is_colored} = true
 	[wait time="3.0"]
-sadness: I... [pause=0.5]am the [b]Avatar of Sadness[/b]. [pause=0.5][br]T-Thank you for returning back my tears...[pause=0.5] from the [b]Waterfal of Sorrows[/b].
+sadness: I... [pause=0.5]am the [b][color=#3f63ff]Avatar of Sadness[/color][/b]. [pause=0.5][br]T-Thank you for returning back my tears...[pause=0.5] from the [b]Waterfal of Sorrows[/b].
 set {Sadness.quest_completed} = true
 jump Colored
 
@@ -119,15 +122,15 @@ elif {Sadness.relationship} == 2:
 		jump Colored
 	- Feeling sad makes you appreciative..
 		sadness: Finally...[pause=0.5] someone understands.
-		set {Sadness.relationship} += 3
+		set {Sadness.relationship} = 3
 		jump Colored
 elif {Sadness.relationship} == 3:
 	sadness: Y-You've shown true friendship...[pause=0.5][br]You've helped me restore [b]Sadness[/b] into the world.
 	sadness: You've accepted m-my role in this world...[pause=0.5][br]You've let yourself experience [b]Sadness[/b] for this world...[pause=0.5][br]Thus letting me be part of your...[pause=0.5] [b]personality[/b].
-	[i]Sadness pulls out a small hammer and gently...[pause=0.5][br][b]Taps your mask with[/b]..[pause=0.5] Cracking it slightly.[/i]
+	[i]Sadness pulls out a small hammer and gently...[pause=0.5][br][b]taps your mask with it[/b]..[pause=0.5] Cracking it slightly.[/i]
+	[signal arg_type="dict" arg="{"Sadness":"break_player_mask"}"]
 	sadness: I've granted you mastery over these very waters that flow through these lands.
 	set {Sadness.relationship} = -1
-	[signal arg_type="dict" arg="{"Sadness":"break_player_mask"}"]
 	jump Colored
 elif {Sadness.relationship} == -1:
 	sadness: T-Thank you...[pause=0.5] friend.
