@@ -864,7 +864,7 @@ scale = Vector2(1.775, 1.775)
 texture = ExtResource("21_0tvqr")
 
 [node name="WaterBucket" parent="Interactables" instance=ExtResource("12_j5ryu")]
-position = Vector2(1374, -148)
+position = Vector2(1357, -127)
 action_text = "fill the bucket from the watefall"
 avatar_quest = "sadness"
 
