@@ -1476,7 +1476,7 @@ texture = ExtResource("9_483gv")
 shape = SubResource("CircleShape2D_adxub")
 
 [node name="Hole" type="Sprite2D" parent="Avatars"]
-position = Vector2(-863, -37)
+position = Vector2(-868, -72)
 texture = ExtResource("41_l3t38")
 
 [node name="TelporterPosition" type="Marker2D" parent="Avatars/Hole"]
