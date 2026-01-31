@@ -130,7 +130,7 @@ func _physics_process(delta: float) -> void:
 
 func start_swim() -> void:
 	is_swimming = true
-	velocity.y = clampf(velocity.y, 0.0, velocity.y - 200.0)
+	velocity.y = 0.0
 
 func stop_swim() -> void:
 	is_swimming = false
@@ -163,6 +163,12 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 		if barrier.barrier_active:
 			barrier_in_area = barrier
 			interact_label.text = barrier.get_interaction_text()
+	elif area is EndLocation:
+		if got_all_abilitties():
+			pass # end game
+
+func got_all_abilitties() -> bool:
+	return can_swim and can_break_barriers and can_go_through_dark and can_run
 
 func _on_interaction_area_area_exited(area: Area2D) -> void:
 	if area == avatar_in_area:

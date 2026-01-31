@@ -1,21 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://og2kiem1py8t"]
 
 [ext_resource type="Script" uid="uid://dn81ebhmejhfw" path="res://scenes/running_wiitch.gd" id="1_5wjkq"]
-[ext_resource type="Texture2D" uid="uid://bd3rtpopacga5" path="res://art/Avatars/Girl.png" id="1_5wuxu"]
+[ext_resource type="Texture2D" uid="uid://buxfqtubvyrv5" path="res://art/Avatars/Ghost.png" id="2_5wjkq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wuxu"]
-radius = 47.0
-height = 244.0
+radius = 142.0
+height = 388.0
 
 [node name="RunningWiitch" type="Area2D"]
 collision_layer = 256
 script = ExtResource("1_5wjkq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_5wuxu")
+texture = ExtResource("2_5wjkq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(11.000002, -11.999999)
+rotation = 0.32637656
 shape = SubResource("CapsuleShape2D_5wuxu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
