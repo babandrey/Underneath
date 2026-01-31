@@ -58,6 +58,7 @@ var new_ability_unlocked := Ability.None
 var avatar_in_area: Avatar = null
 var item_in_area: Item = null
 var barrier_in_area: Barrier = null
+var in_end_location = true
 
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
@@ -110,6 +111,8 @@ func _physics_process(delta: float) -> void:
 		elif barrier_in_area:
 			barrier_in_area.break_barrier()
 			barrier_in_area = null
+		elif in_end_location:
+			print("GAME OVER")
 		
 		interact_label.text = ""
 		# TODO: once back from talking section you can put the activate the interact label again
@@ -165,7 +168,8 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 			interact_label.text = barrier.get_interaction_text()
 	elif area is EndLocation:
 		if got_all_abilitties():
-			print("END GAME")
+			interact_label.text = "Press 'E' to end the game."
+			
 
 func got_all_abilitties() -> bool:
 	return can_swim and can_break_barriers and can_go_through_dark and can_run
@@ -179,6 +183,8 @@ func _on_interaction_area_area_exited(area: Area2D) -> void:
 		interact_label.text = ""
 	elif area == barrier_in_area:
 		barrier_in_area = null
+		interact_label.text = ""
+	elif area is EndLocation:
 		interact_label.text = ""
 
 func _on_dialogue_ended() -> void:
