@@ -71,3 +71,5 @@ stream = SubResource("AudioStreamSynchronized_2y2jw")
 [node name="BreakPlayerMask" type="AudioStreamPlayer" parent="."]
 
 [node name="AvatarColored" type="AudioStreamPlayer" parent="."]
+
+[node name="TransitionTimer" type="Timer" parent="."]

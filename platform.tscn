@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ch06af2bw0dsj"]
+[gd_scene load_steps=3 format=3 uid="uid://ch06af2bw0dsj"]
 
 [ext_resource type="Texture2D" uid="uid://fb03hk23o848" path="res://art/Background/Floating platform.png" id="1_mi635"]
+[ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_s8bxr"]
 
 [node name="Platform" type="StaticBody2D"]
 collision_layer = 2
@@ -11,5 +12,6 @@ polygon = PackedVector2Array(-19, 16, 530, 22, 531, 36, 522, 61, 510, 71, 490, 7
 one_way_collision = true
 
 [node name="FloatingPlatform" type="Sprite2D" parent="."]
+material = ExtResource("1_s8bxr")
 position = Vector2(1, -18)
 texture = ExtResource("1_mi635")
