@@ -23,6 +23,7 @@ func _on_dialogue_event(dictonary: Dictionary) -> void:
 		shader_param_name = ""
 	elif avatar_function == "complete_quest":
 		AudioManager.play("avatar_colored")
+		AudioManager.add_music_layer(avatar.player_ability_unlock)
 
 func change_color_animation(value: float) -> void:
 	world_grayscale_shader.set_shader_parameter(shader_param_name, value)

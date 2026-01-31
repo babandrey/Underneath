@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://di4k0xufltrst"]
+[gd_scene load_steps=8 format=3 uid="uid://di4k0xufltrst"]
 
 [ext_resource type="Script" uid="uid://c7x3xfkwrwyhp" path="res://scripts/audio_manager.gd" id="1_8qd8g"]
 [ext_resource type="AudioStream" uid="uid://ly0eo2bdrxeg" path="res://audio/sfx/pickups/generic_pickup.wav" id="2_njtn3"]
@@ -6,6 +6,14 @@
 [ext_resource type="AudioStream" uid="uid://ereahsq2lv40" path="res://audio/sfx/pickups/crystal_ball_pickup.wav" id="4_02gw7"]
 [ext_resource type="AudioStream" uid="uid://bmcsacfi0xlrw" path="res://audio/sfx/pickups/stick_pickup.wav" id="5_ujhup"]
 [ext_resource type="AudioStream" uid="uid://br6761qfyw10u" path="res://audio/sfx/pickups/water_bucket_pickup.wav" id="6_064dn"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_njtn3"]
+stream_count = 5
+stream_0/volume = 0.0
+stream_1/volume = -60.0
+stream_2/volume = -60.0
+stream_3/volume = -60.0
+stream_4/volume = -60.0
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_8qd8g")
@@ -30,6 +38,7 @@ stream = ExtResource("6_064dn")
 volume_db = -10.196
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_njtn3")
 
 [node name="BreakPlayerMask" type="AudioStreamPlayer" parent="."]
 
