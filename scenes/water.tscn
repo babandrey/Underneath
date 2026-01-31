@@ -28,10 +28,6 @@ collision_layer = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-578, 1284, -261, 1288, -265, 1410, -592, 1410)
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2(1173, -35)
-polygon = PackedVector2Array(-578, 1284, -261, 1288, -265, 1410, -353.56543, 1410, -592, 1410)
-
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(1183, -525)
 polygon = PackedVector2Array(-612, 80, -522, 63, -456, 449, -265, 1410, -488, 1400, -594, 1281)
