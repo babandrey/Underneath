@@ -68,6 +68,8 @@ func _ready() -> void:
 	AudioManager.play_ambient()
 
 func _physics_process(delta: float) -> void:
+	var last_vel = velocity
+	
 	var g = water_gravity if is_swimming else gravity
 	var acc = water_acceleration if is_swimming else acceleration
 	var deacc = water_deaccelartion if is_swimming else deacceleration
@@ -100,6 +102,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if avatar_in_area:
 			avatar_in_area.talk()
+			sprite.play("idle")
 			is_talking = true
 		elif item_in_area:
 			item_in_area.interact()
@@ -112,10 +115,16 @@ func _physics_process(delta: float) -> void:
 		# TODO: once back from talking section you can put the activate the interact label again
 	
 	# Animation
-	if direction > 0:
-		sprite.flip_h = false
-	elif direction < 0:
-		sprite.flip_h = true
+	if direction != 0:
+		if last_vel.x == 0: # start running
+			sprite.play("walk_start")
+		
+		if direction > 0:
+			sprite.flip_h = false
+		elif direction < 0:
+			sprite.flip_h = true
+	else:
+		sprite.play(&"idle")
 	
 	move_and_slide()
 
@@ -201,3 +210,7 @@ func show_new_ability(new_ability: Ability) -> void:
 	
 func vignette_change_alpha(value: float) -> void:
 	vignette_material.set_shader_parameter("alpha", value)
+
+func _on_animated_sprite_animation_finished() -> void:
+	if sprite.animation == "walk_start":
+		sprite.play("walk_loop")

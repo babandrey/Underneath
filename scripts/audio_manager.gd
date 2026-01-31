@@ -11,6 +11,8 @@ extends Node2D
 @onready var intro_music: AudioStreamPlayer = $IntroMusic
 @onready var intro_music_stream: AudioStreamSynchronized = intro_music.stream
 
+@onready var transition_timer: Timer = $TransitionTimer
+
 @onready var main_music: AudioStreamPlayer = $MainMusic
 @onready var music_audio_stream: AudioStreamSynchronized = main_music.stream
 
@@ -36,7 +38,8 @@ func _ready() -> void:
 	play_intro_music()
 
 func _on_dialogue_event(dictonary: Dictionary) -> void:
-	if not in_main_music:
+	var avatar_function = dictonary.values()[0]
+	if not in_main_music and avatar_function == "complete_quest":
 		var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 		current_stream_index = 1
 		tween.tween_method(lerp_current_volume_thingy, -60.0, 0.0, 5.0)
@@ -54,11 +57,14 @@ func play_intro_music() -> void:
 	tween.tween_method(lerp_current_volume_thingy, -60.0, 0.0, 5.0)
 	intro_music.play()
 	var time = intro_music_stream.get_sync_stream(0).get_length()
-	get_tree().create_timer(time).timeout.connect(func():
-		transition_to_main_music.emit()
-	)
+	transition_timer.wait_time = time
+	transition_timer.timeout.connect(wait_func)
+	transition_timer.start()
 	await tween.finished
 	current_stream_index = -1
+
+func wait_func() -> void:
+	transition_to_main_music.emit()
 
 func play_main_music() -> void:
 	main_music.play()
