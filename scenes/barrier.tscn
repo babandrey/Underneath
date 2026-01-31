@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvlenlgfgsy36"]
+[gd_scene load_steps=7 format=3 uid="uid://dvlenlgfgsy36"]
 
 [ext_resource type="Script" uid="uid://dcp14wxbm0lfb" path="res://scripts/barrier.gd" id="1_qfl2k"]
-[ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_8ilpk"]
+[ext_resource type="Texture2D" uid="uid://c58hrf42n775e" path="res://art/Background/Rock2.png" id="2_1iay1"]
+[ext_resource type="Texture2D" uid="uid://du2qc5ch3ycfc" path="res://art/Background/Rock3.png" id="3_y605k"]
+[ext_resource type="Texture2D" uid="uid://djprqkx0h4xxk" path="res://art/Background/Rock4.png" id="4_gj4tk"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qfl2k"]
-radius = 43.0
-height = 136.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_1iay1"]
+radius = 363.65
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfl2k"]
-size = Vector2(62.5, 595)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1iay1"]
+friction = 0.0
+bounce = 0.35
 
 [node name="Barrier" type="Area2D" node_paths=PackedStringArray("barrier_static")]
 collision_layer = 32
@@ -17,19 +19,53 @@ barrier_name = "rock"
 barrier_static = NodePath("BarrierStatic")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -44)
+position = Vector2(-56, -162)
 rotation = -1.5707964
-shape = SubResource("CapsuleShape2D_qfl2k")
+shape = SubResource("CircleShape2D_1iay1")
 
 [node name="BarrierStatic" type="StaticBody2D" parent="."]
 collision_layer = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="BarrierStatic"]
-modulate = Color(0.1148968, 0.11489681, 0.1148968, 1)
-position = Vector2(1, -300.13998)
-scale = Vector2(0.5, 4.7009373)
-texture = ExtResource("2_8ilpk")
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BarrierStatic"]
+polygon = PackedVector2Array(-243, -12, -250, -216, -226, -355, -179, -475, -112, -546, -67, -539, -72, -554, 1, -565, 44, -531, 111, -426, 160, -126, 145, -36, -44, -72, -110, -18)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BarrierStatic"]
-position = Vector2(0.75, -297.5)
-shape = SubResource("RectangleShape2D_qfl2k")
+[node name="RocksRigidbodies" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="RocksRigidbodies"]
+position = Vector2(-43, -425)
+collision_layer = 4096
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_1iay1")
+freeze = true
+
+[node name="Rock2" type="Sprite2D" parent="RocksRigidbodies/RigidBody2D"]
+texture = ExtResource("2_1iay1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RocksRigidbodies/RigidBody2D"]
+polygon = PackedVector2Array(-162, 151, -145, -22, -108, -72, -82, -140, 25, -144, 104, -48, 143, 117, 55, 134, -14, 171, -78, 157)
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="RocksRigidbodies"]
+collision_layer = 4096
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_1iay1")
+freeze = true
+
+[node name="Rock3" type="Sprite2D" parent="RocksRigidbodies/RigidBody2D2"]
+position = Vector2(49, -148)
+texture = ExtResource("3_y605k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RocksRigidbodies/RigidBody2D2"]
+polygon = PackedVector2Array(-46, -106, -59, -186, -20, -274, 136, -265, 151, -149, 117, -51, 27, -3, -52, -8, -57, -56)
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="RocksRigidbodies"]
+position = Vector2(-154, -129)
+collision_layer = 4096
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_1iay1")
+freeze = true
+
+[node name="Rock4" type="Sprite2D" parent="RocksRigidbodies/RigidBody2D3"]
+texture = ExtResource("4_gj4tk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RocksRigidbodies/RigidBody2D3"]
+polygon = PackedVector2Array(-102, -69, 10, -140, 52, -116, 86, -80, 91, -31, 106, 18, 82, 113, -40, 113, -91, 96)

@@ -327,36 +327,42 @@ offset_bottom = 11666.0
 color = Color(0.03137255, 0.047058824, 0.09019608, 1)
 
 [node name="Bg5" type="Sprite2D" parent="Background"]
+z_index = -330
 material = ExtResource("1_egpmt")
 position = Vector2(-11708, -244)
 scale = Vector2(2, 2)
 texture = ExtResource("10_prrny")
 
 [node name="Bg10" type="Sprite2D" parent="Background"]
+z_index = -330
 material = ExtResource("1_egpmt")
 position = Vector2(-23224, -240)
 scale = Vector2(2, 2)
 texture = ExtResource("10_prrny")
 
 [node name="Bg6" type="Sprite2D" parent="Background"]
+z_index = -330
 material = ExtResource("1_egpmt")
 position = Vector2(-188, -243.15)
 scale = Vector2(2, 2)
 texture = ExtResource("10_prrny")
 
 [node name="Bg7" type="Sprite2D" parent="Background"]
+z_index = -330
 material = ExtResource("1_egpmt")
 position = Vector2(-188, -243.15)
 scale = Vector2(2, 2)
 texture = ExtResource("10_prrny")
 
 [node name="Bg8" type="Sprite2D" parent="Background"]
+z_index = -330
 material = ExtResource("1_egpmt")
 position = Vector2(11316, -235)
 scale = Vector2(2, 2)
 texture = ExtResource("10_prrny")
 
 [node name="Bg9" type="Sprite2D" parent="Background"]
+z_index = -330
 material = ExtResource("1_egpmt")
 position = Vector2(22836, -234.1499)
 scale = Vector2(2, 2)
@@ -376,7 +382,7 @@ texture = ExtResource("20_30ub0")
 
 [node name="Tree13" type="Sprite2D" parent="Background/Trees"]
 material = ExtResource("1_egpmt")
-position = Vector2(11403, -422)
+position = Vector2(11405, -402.99988)
 rotation = -0.12740904
 texture = ExtResource("20_30ub0")
 
@@ -393,7 +399,7 @@ texture = ExtResource("20_30ub0")
 
 [node name="Tree4" type="Sprite2D" parent="Background/Trees"]
 material = ExtResource("1_egpmt")
-position = Vector2(-906, -63)
+position = Vector2(-909, -35)
 rotation = -0.19024089
 texture = ExtResource("20_30ub0")
 
@@ -665,6 +671,16 @@ texture = ExtResource("16_mhh6j")
 [node name="Platform2Big7" type="Sprite2D" parent="Terrain/Ground"]
 material = ExtResource("1_egpmt")
 position = Vector2(7509.5, 1171)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big24" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(7509.5, 1171)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big25" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(8901, 1156)
 texture = ExtResource("16_mhh6j")
 
 [node name="Platform1Big6" type="Sprite2D" parent="Terrain/Ground"]
@@ -1066,6 +1082,12 @@ position = Vector2(-7009.2334, 892.6096)
 rotation = 0.0017453292
 texture = ExtResource("17_k4ex1")
 
+[node name="Platform1Big10" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-8126.708, 825.0704)
+rotation = 0.12915437
+texture = ExtResource("17_k4ex1")
+
 [node name="Platform1Big9" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
 material = ExtResource("1_egpmt")
 position = Vector2(-5022.2915, 494.94135)
@@ -1083,6 +1105,18 @@ texture = ExtResource("16_mhh6j")
 material = ExtResource("1_egpmt")
 position = Vector2(-6358.291, 767.94116)
 rotation = -0.31764993
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big15" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-7699.226, 887.8975)
+rotation = 0.06283186
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big16" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-7699.226, 887.8975)
+rotation = 0.06283186
 texture = ExtResource("16_mhh6j")
 
 [node name="Platform2Big14" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
@@ -1212,14 +1246,15 @@ polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -147
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(-9327.5, 1012.70044)
-polygon = PackedVector2Array(-5256.5, 710.30005, -4326.5, 245.30005, -3546, 37, -2793, -64, -2608.5, -90.69995, -2557, 51, -5107, 824, -5804.5, 961.30005, -5898.5, 741.30005)
+polygon = PackedVector2Array(-5256.5, 710.30005, -4326.5, 245.30005, -3546, 37, -2793, -64, -2608.5, -90.69995, -2557, 51, -5107, 824, -6761.5, 839.29956, -6868.5, 780.29956)
+one_way_collision = true
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Terrain/Ground"]
 polygon = PackedVector2Array(2616, -111, 2911.8276, -80.12634, 2946.3472, -79.36386, 3325, -71, 4329, 119, 5335, 489, 5905, 793, 6438, 1015, 7193, 1155, 7185, 1296, 6357, 1118, 5395, 711, 4616.8105, 413.8092, 3357, 68, 2927, 57, 3098, 764, 2836, 273, 2697, 32)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(9734, 1224)
-polygon = PackedVector2Array(-2551, -65, -1387, -64, 1039, -161, 2380, -472, 2665, -506, 3173, -442, 3686, -339, 4191, -267, 5570, -263, 6032, -260, 9739.101, -301.26465, 10474.052, -390.57178, 11071, -530, 11369, -621, 11841, -634, 12573, -478, 13152, -431, 13731, -401, 14829, -404, 15662, -428, 15769, -1001, 16018, -952, 16012, -415, 16010, -271, 13638, -304, 12202.868, -409.37476, 11752, -463, 11167, -404, 9902, -74, -2557, 51)
+polygon = PackedVector2Array(-2551, -65, -1965.5679, -64.49701, -1387, -64, 1039, -161, 2380, -472, 2665, -506, 3173, -442, 3686, -339, 4191, -267, 5570, -263, 6032, -260, 9739.101, -301.26465, 10474.052, -390.57178, 11071, -530, 11369, -621, 11841, -634, 12573, -478, 13152, -431, 13731, -401, 14829, -404, 15662, -428, 15769, -1001, 16018, -952, 16012, -415, 16010, -271, 13638, -304, 12202.868, -409.37476, 11752, -463, 11167, -404, 9902, -74, -2557, 51)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Terrain/Ground"]
 polygon = PackedVector2Array(3633, -80, 4207, -167, 4707, -264, 5328, -404, 6624.962, -452.4496, 12006, -478, 12006, -649, 12071, -1017, 11912, -1800, 11743, -1742, 11756, -989, 11697.605, -646.3712, 6727, -604, 5306, -545, 4455, -330, 4000, -197, 3410, -115)
@@ -1332,22 +1367,22 @@ texture = ExtResource("3_aggj8")
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("2_egpmt")]
-position = Vector2(1275, -125)
+position = Vector2(1284, -263)
 
 [node name="Checkpoint6" parent="Checkpoints" instance=ExtResource("2_egpmt")]
-position = Vector2(-14509, -697)
+position = Vector2(-14506, -735)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("2_egpmt")]
-position = Vector2(3147, -140)
+position = Vector2(3145, -237)
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("2_egpmt")]
-position = Vector2(12376, 660)
+position = Vector2(12383, 582)
 
 [node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("2_egpmt")]
-position = Vector2(21399, 529)
+position = Vector2(21397, 425)
 
 [node name="Checkpoint5" parent="Checkpoints" instance=ExtResource("2_egpmt")]
-position = Vector2(8761, -607)
+position = Vector2(8768, -791)
 
 [node name="Avatars" type="Node2D" parent="."]
 
@@ -1367,7 +1402,7 @@ visible = false
 shape = SubResource("CircleShape2D_sv7eu")
 
 [node name="AnxietyAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
-z_index = -80
+z_index = -25
 position = Vector2(9197, 895)
 avatar_name = "anxiety"
 player_ability_unlock = 2
@@ -1408,6 +1443,8 @@ unlock_color = "purple"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Avatars/FearAvatar"]
 material = SubResource("ShaderMaterial_4wbot")
+position = Vector2(28, 5)
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_4wbot")
 animation = &"closed"
 flip_h = true
@@ -1519,11 +1556,12 @@ position = Vector2(-5.5, -3.0002441)
 shape = SubResource("CircleShape2D_djfd7")
 
 [node name="Sprite2D" parent="Interactables/Diary" index="1"]
+material = ExtResource("1_egpmt")
 scale = Vector2(0.715, 0.715)
 texture = ExtResource("46_djfd7")
 
 [node name="Player" parent="." instance=ExtResource("14_x0i0p")]
-position = Vector2(-6251, -228.99976)
+position = Vector2(-4580, -194)
 
 [node name="WaterFall" parent="." instance=ExtResource("15_lq2b6")]
 position = Vector2(2032, -1361)
@@ -1593,7 +1631,7 @@ scale = Vector2(1.0174894, 0.74670833)
 shape = SubResource("RectangleShape2D_knpqy")
 
 [node name="Barrier" parent="." instance=ExtResource("48_fyepo")]
-position = Vector2(-7576.5, 3740.0002)
+position = Vector2(-7574, 3738)
 
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
 [connection signal="body_entered" from="DarkArea/DarkDeathZone" to="DarkArea/DarkDeathZone" method="_on_body_entered"]
