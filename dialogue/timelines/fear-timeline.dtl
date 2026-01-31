@@ -9,94 +9,199 @@ else:
 		jump Quest Completed
 	else:
 		jump Colored
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label First Meeting
-Unknown: Hello [b]Wanderer...[/b]
-if {b_met_someone} != true:
-	jump first-meeting/
-Unknown: [i]Sigh...[/i][br]I have lost my identity... [pause=0.5]I am without purpose.
+
+[i]You notice an [b]oddly suspicious urn[/b]...[pause=0.5][br]Just standing there..[pause=0.5] menacingly.[/i]
+[i]On closer inspection... it seems to be shaking just ever so slightly...[/i]
+- Knock on the Suspicious Urn
+- Ignore it
+	[end_timeline]
+
 set {Fear.met} = true
+[i]The lid of the urn starts lifting slowly...[pause=0.5][br]As a large form slithers from inside it.[/i]
+
+Unknown: Y-Ye[i]sss[/i]?
+- Why are you in this urn?
+Unknown: I don't know...[pause=0.5] It used to give me...[pause=0.5] [b]sssafety[/b]..[pause=0.5]\
+Gave me [b]comfort[/b]...[pause=0.5] I guess.
+Unknown: Now the only thing I have is this [b]mask[/b].
 jump Quest
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label Quest
-Unknown: [i]'Eyeing the floating water droplets around."[/i]
-Unknown: There's a heavy burden holding me down... [pause=0.7][br][i]Lucky[/i] I have this [b]mask[/b] to protect me...
-Unknown: Could you help me fill this [b]Bucket[/b] with water from that [b]waterfall[/b] over there?
-- Yes
-	Unknown: Thank you [b]Wanderer[/b]. I'll be waiting here...
-	set {Fear.quest_taken} = true
-- No
-	Unknown: [i]Sigh...[/i][pause=0.5][br]Alright. I'll be waiting here...
+
+if {Fear.times_nudged} == 0:
+	Unknown: It's better being in this [b]urn[/b] than walking outside.[br][pause=0.5]You can never know what might happen outside..
+	- Isn't it dark in there?
+	Unknown: Not realllly..[pause=0.5] Spending so much time inside, gave me excellent [b]night vision[/b].
+	- Are you not claustrophobic?
+	Unknown: No...[pause=0.5] It's actually pretty comforting inside..
+	- What if the urn would break?
+	Unknown: I don't know...[pause=0.5] I didn't really think about it. 
+	- Is there anything else inside?
+	Unknown: I [i]sss[/i]ure hope not... 
+	Unknown: I'm going back inssside...[pause=0.5][br]Good luck out there.
+	
+	[i]The massive form slowly slides back inside the urn, as the lid fits back on top of it...[pause=0.5][br]Almost too perfectly.[/i]
+	set {Fear.times_nudged} += 1
+	[end_timeline]
+
+[i] There it is...[pause=0.5] the [b]Suspicious Urn[/b],[pause=0.5] still moving slightly to the movements of whoever is inside it.[/i]
+- Knock on the Suspicious Urn
+[i] You wonder if it will ever leave the safety of it's urn again...[/i]
+[i] Maybe there's something you can do to [b]elicit[/b] such a response..[/i]
+set {Fear.quest_taken} = true
 [end_timeline]
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label Waiting
-Unknown: [i]Eyeing the floating water droplets around..[br][pause=0.5]Sigh...[/i]
+[i]What could ever get[pause=0.5] whoever is inside this [b]Suspcious Urn[/b][pause=0.5] to come out again?[/i]
 [end_timeline]
+
 # --------------------------------------------------------------------------------------------------------------------------------
 label Quest Completed
-Unknown: Oh...[pause=0.5] you have my bucket...
-- Give Bucket
-	[signal arg_type="dict" arg="{"Fear":"complete_quest"}"]
-	set {Fear.is_colored} = true
-	[wait time="3.0"]
-fear: I [pause=0.5]am the [b]Avatar of Fear[/b]. [pause=0.5][br]Thank you for returning the tears from the [b]Waterfall of Pain[/b] for me.
+[i]There it is...[pause=0.5] The [b]Suspicious Urn[/b][pause=0.5].[pause=0.5].[pause=0.5].[pause=1][/i]
+- Open the lid and throw the Spider in
+
+Unknown: [b]AAAAAAAAAAAAAAAAAAH!!!!![/b]
+[i]The entity emerges quickly from its urn, panting heavily...[pause=1][br]It's not like you [b]scared[/b] it or anything....[/i]
+[signal arg_type="dict" arg="{"Fear":"complete_quest"}"]
+set {Fear.is_colored} = true
+[wait time="3.0"]
+Unknown: WHY would you do this????
+- Calm down, it's ok!
+Unknown: No it's NOT!!
+- The spider went away! You're safe
+Unknown: A-Are you s-sure??
+[i]The entity looks around nervously,[pause=0.5] searching for the spider.[/i]
+fear: I, [pause=0.5]am the [b][color=#a963a7]Avatar of Fear[/color][/b]. [pause=0.5][br]You sure did scare the hell out of me... [pause=0.5] scared the color right back into me.
 set {Fear.quest_completed} = true
+
 jump Colored
 # --------------------------------------------------------------------------------------------------------------------------------
 label Colored
-if {Fear.relationship} == 0.0:
-	fear: [i]Sigh...[/i][pause=0.5][br]I have my tears, but the world around me feels [b][i]heavy[/i][/b]....
-	- Do you need more tears?
-		fear: I've absorbed the tears with the bucket itself..[br][pause=0.5]Can't carry tears with your hands...[br][pause=0.5][i]'sigh'[/i]
+
+if {Fear.relationship} == 0:
+	fear: W-Who a-are you?
+	if {player_name} == "":
+		[text_input text="Enter your name:" var="player_name"]
+	else:
+		- {player_name}
+	fear: W-What are you doing h-here, [color=#a963a7]{player_name}[/color]?
+	- Just wandering around..
+	- Just trying to help..
+	- I'm lost..
+	set {Fear.relationship} += 1
+	fear: Then w-why would you scare me??
+	- Restoring color to the world
+		fear: Y-you...[pause=0.5] are right.[br]I did lose myself.
+		fear: Now that [b]fear[/b] is restored, everyone can be careful of real danger.
+		set {Fear.relationship} +=1
 		jump Colored
-	- It's ok to cry...
-		fear: I guess...
-		[i]Fear begins to tear up, [pause=0.5]water droplets start floating from the mask's eye around Fear.[/i]
-		set {Fear.relationship} += 0.3
-		jump Colored
-elif {Fear.relationship} == 0.3:
-	fear: Hey look...[pause=0.5][br]It started raining again...[br][i]'Fear says as the floating droplets turn into gentle rain.'[/i]
-	fear: The world is starting to cry again, [pause=0.5]and water is beginning to flow...
-	fear: I'm starting...[pause=0.5] to feel again...[pause=0.5][br]Starting to feel...[pause=0.5] [b]sad[/b] for the world.
-	- Don't be sad...
-		fear: I can't explain it...[pause=0.5] but I feel like I'm supposed to feel sad...
-		jump Colored
-	- It's ok to feel sad...
-		fear: The world...[pause=0.5] is in a dire state.
-		fear: Devoid of emotion...[pause=0.5] Devoid of feelings...[pause=0.5][br]We live in a grey world...
-		set {Fear.relationship} += 0.3
-		- It truly is dark and colorless
-			fear: What does it make you [i]feel[/i]?
-			- Angry
-				jump Wrong Answer
-			- Worried
-				jump Wrong Answer
-			- Sad
-				fear: Yes...[pause=0.5] I agree...
-				set {Fear.relationship} += 0.4
-				jump Colored
-		- I don't know...
-			fear: The world was colorful and vibrant... [pause=0.5]A place to truly be alive in.
-			jump Colored
-elif {Fear.relationship} == 0.6:
-	fear: Now with the water flow restored to nature...[pause=0.5][br]I can spread my fear throughout this land.[pause=0.5][br]Allow all other living beings to experience true fear.
-	- It might hurt them!
-		fear: That is how it has been,[pause=0.5] and that is how it shall be.
-		jump Colored
-	- Feeling sad is good
-		fear: Finally...[pause=0.5] someone understands.
-		set {Fear.relationship} += 0.4
-		jump Colored
+
+	- Just for fun
+		fear: M-Mean....
+		[i]Fear slides back into his urn. Fearful you might do something scary again.[/i]
+		[end_timeline]
+		
 elif {Fear.relationship} == 1.0:
-	fear: You've shown true friendship.[pause=0.5][br]You've helped me restore [b]Fear[/b] into the world.
-	fear: You've accepted my role in this world.. [pause=0.5]and let me get a little into your own personality..
-	[i]Fear breaks your mask a little.[/i]
-	fear: I've granted you mastery over these very waters that flow through these lands.
-	set {Fear.relationship} = 2.0
-	[signal arg_type="dict" arg="{"Fear":"break_player_mask"}"]
+	[i]...[/i]
+	- Knock on the Urn
+	[i]Fear opens the lid slightly, just enough so fear can peek outside.[/i]
+	fear: H-Huh?
+	- I'm sorry
+	- Don't worry, I'm not here to scare you..
+		fear: A-Are you s-sure??
+		[i]Fear looks around nervously...[/i]
+		- Yes, I promise
+		- It's your call...
+			[i]The lid closes as Fear retracts back into his urn.[/i]
+			[end_timeline]
+	[i]Fear comes out of the urn again.[/i]
+	fear: O-okay. I trust you..
+	set {Fear.relationship} += 1
+
+elif {Fear.relationship} == 2:
+	fear: S-Say,[pause=0.5] can I ask you a q-question?
+	- Yes
+		fear: Are you afraid of anything?
+		- The Ocean
+			fear: [color=#a963a7][b]Thalassophobia[/b][/color].[pause=1][br][b]D-Drowning[/b], [b]The Abyss[/b] and [b]Giant Underwater Monsters[/b].[pause=1] Very scary.
+			fear: Lucky there are no oceans here...
+		- Snakes
+			fear: [color=#a963a7][b]Ophidiophobia[/b][/color].[pause=1][br]Snakes are excellent at [b]camouflage[/b]. Can [b]Strike out of nowhere[/b]. And let's not talk about the [b]Venom[/b].
+			fear: Waaait a minute[pause=0.5].[pause=0.5].[pause=0.5]D-Do I scare you?? 
+			- Yes
+				fear: I'm s-sorry.[pause=0.5] I mean you no harm.
+			- No
+				fear: [i]*phew*[/i] Glad to hear that.
+		- Spiders
+			fear: [color=#a963a7][b]Arachnophobia[/b][/color].[pause=1][br]The skittering creature. You can always find one,[pause=0.5] no matter where you are.
+			fear: Hheeeeeyyyy...[pause=1] How did you bring that spider then?!
+			- I did it for you
+				fear: O-Okay.. Free exposure therapy then.
+			- Spider? WHERE?!
+				fear: No no! There are no spiders! Calm down!
+				- *phew* Ok...
+		- The Dark
+			fear: [color=#a963a7][b]Nyctophobia[/b][/color].[pause=1][br]Scary things can hide in the shadows...[pause=0.5][br]Lucky I can [b]see in the dark[/b]..
+		- I'm not afraid
+			fear: Odd...[pause=0.5] Must be something you're afraid of...
+			fear: Maybe you are [b][i]scared[/i][/b] to admit it...
+	- No
+		fear: Oh...
+		[end_timeline]
+	
+	set {Fear.relationship} += 1
 	jump Colored
-elif {Fear.relationship} >= 2.0:
-	fear: Thank you...[pause=0.5] friend.
-[end_timeline]
-label Wrong Answer
-fear: Interesting...
+elif {Fear.relationship} == 3:
+	fear: Thanks for not [b]scaring[/b] me again.
+	fear: It's been nice talking about our [b]fears[/b].
+	[i]Fear pulls out a small hammer from the urn and very swiftly...[pause=0.5][br][b]taps your mask with it[/b]..[pause=0.5] Cracking it slightly.[/i]
+	
+	fear: I've granted you my [b]Night Vision[/b].[pause=0.5] So you will feel safe, even in the darkest of places.
+	[i]Fear slides back into the urn, the lid closing it behind again.[/i]
+	set {Fear.relationship} = -1
+	[signal arg_type="dict" arg="{"Fear":"break_player_mask"}"]
+	[end_timeline]
+elif {Fear.relationship} == -1:
+	[i]The lid opens just enough for Fear to peek outside.[/i]
+	fear: H-Huh?
+	- Talk about fears again
+		jump Fears
+	- End Conversation
+		[end_timeline]
+
+# --------------------------------------------------------------------------------------------------------------------------------
+label Fears
+
+fear: Are you afraid of anything?
+- The Ocean
+	fear: [color=#a963a7][b]Thalassophobia[/b][/color].[pause=1][br][b]D-Drowning[/b], [b]The Abyss[/b] and [b]Giant Underwater Monsters[/b].[pause=1] Very scary.
+	fear: Lucky there are no oceans here...
+	jump Fears
+- Snakes
+	fear: [color=#a963a7][b]Ophidiophobia[/b][/color].[pause=1][br]Snakes are excellent at [b]camouflage[/b]. Can [b]Strike out of nowhere[/b]. And let's not talk about the [b]Venom[/b].
+	fear: Waaait a minute[pause=0.5].[pause=0.5].[pause=0.5]D-Do I scare you?? 
+	- Yes
+		fear: I'm s-sorry.[pause=0.5] I mean you no harm.
+	- No
+		fear: [i]*phew*[/i] Glad to hear that.
+	jump Fears
+- Spiders
+	fear: [color=#a963a7][b]Arachnophobia[/b][/color].[pause=1][br]The skittering creature. You can always find one,[pause=0.5] no matter where you are.
+	fear: Hheeeeeyyyy...[pause=1] How did you bring that spider then?!
+	- I did it for you
+		fear: O-Okay.. Free exposure therapy then.
+	- Spider? WHERE?!
+		fear: No no! There are no spiders! Calm down!
+		- *phew* Ok...
+	jump Fears
+- I'm not afraid
+	fear: Odd...[pause=0.5] Must be something you're afraid of...
+	fear: Maybe you are [b][i]scared[/i][/b] to admit it...
+	jump Fears
+- End Conversation
+	return

@@ -2,7 +2,7 @@
 "@path": "res://addons/dialogic/Resources/character.gd",
 "@subpath": NodePath(""),
 &"_translation_id": "",
-&"color": Color(0.9453125, 0.80337715, 0.03692627, 1),
+&"color": Color(0.75686276, 0.54509807, 0.3019608, 1),
 &"custom_info": {
 "prefix": "",
 "sound_mood_default": "",
@@ -19,7 +19,7 @@
 &"portraits": {
 "default": {
 "export_overrides": {
-"image": ""
+"image": "\"res://art/Avatars/Anxiety.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

@@ -95,7 +95,7 @@ elif {Anger.relationship} == 2:
 elif {Anger.relationship} == 3:
 	[i]Anger stares at you with disbelief.[/i]
 	- Hey! I am trying to help here!
-		[i]You can see the rage...[pause=0.5] building slowly up inside him as you finish your sentence.[/i]
+		[i]You can see the rage...[pause=0.5] his [b]mask[/b][pause=0.5] barely able to contain it...[/i]
 		- I COME HERE, to an UNKNOWN location
 			- And I am stuck here, same as you!
 				- I have done NOTHING
