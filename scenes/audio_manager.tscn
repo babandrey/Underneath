@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://di4k0xufltrst"]
+[gd_scene load_steps=17 format=3 uid="uid://di4k0xufltrst"]
 
 [ext_resource type="Script" uid="uid://c7x3xfkwrwyhp" path="res://scripts/audio_manager.gd" id="1_8qd8g"]
 [ext_resource type="AudioStream" uid="uid://ly0eo2bdrxeg" path="res://audio/sfx/pickups/generic_pickup.wav" id="2_njtn3"]
@@ -7,7 +7,13 @@
 [ext_resource type="AudioStream" uid="uid://bmcsacfi0xlrw" path="res://audio/sfx/pickups/stick_pickup.wav" id="5_ujhup"]
 [ext_resource type="AudioStream" uid="uid://br6761qfyw10u" path="res://audio/sfx/pickups/water_bucket_pickup.wav" id="6_064dn"]
 [ext_resource type="AudioStream" uid="uid://8ry1hf2dp142" path="res://audio/music/intro.wav" id="7_02gw7"]
+[ext_resource type="AudioStream" uid="uid://c724jed6fnd1i" path="res://audio/music/base_layer.wav" id="7_ujhup"]
+[ext_resource type="AudioStream" uid="uid://bby0n62j6773f" path="res://audio/music/anxiety_layer.wav" id="8_064dn"]
+[ext_resource type="AudioStream" uid="uid://ch0jxa0xcm1dv" path="res://audio/music/sadness_layer.wav" id="8_ic5jq"]
 [ext_resource type="AudioStream" uid="uid://da8tjmnwj62ou" path="res://audio/music/intro_transition.wav" id="8_ujhup"]
+[ext_resource type="AudioStream" uid="uid://cew52i30msu4n" path="res://audio/music/angry_layer.wav" id="9_ic5jq"]
+[ext_resource type="AudioStream" uid="uid://bglo05loklni5" path="res://audio/music/fear_layer.wav" id="10_if78k"]
+[ext_resource type="AudioStream" uid="uid://c1uhq4joki7an" path="res://audio/music/shame_layer.wav" id="12_if78k"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_njtn3"]
 stream_count = 2
@@ -16,11 +22,27 @@ stream_0/volume = -60.0
 stream_1/stream = ExtResource("8_ujhup")
 stream_1/volume = -60.0
 
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_2y2jw"]
+stream_count = 6
+stream_0/stream = ExtResource("7_ujhup")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("8_ic5jq")
+stream_1/volume = -60.0
+stream_2/stream = ExtResource("8_064dn")
+stream_2/volume = -60.0
+stream_3/stream = ExtResource("10_if78k")
+stream_3/volume = -60.0
+stream_4/stream = ExtResource("9_ic5jq")
+stream_4/volume = -60.0
+stream_5/stream = ExtResource("12_if78k")
+stream_5/volume = -60.0
+
 [node name="AudioManager" type="Node2D"]
 script = ExtResource("1_8qd8g")
 
 [node name="GenericPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_njtn3")
+volume_db = -10.0
 
 [node name="ForestAmbient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kq7b2")
@@ -36,13 +58,13 @@ stream = ExtResource("5_ujhup")
 
 [node name="WaterBucketPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_064dn")
-volume_db = -10.196
+volume_db = -19.882
 
 [node name="IntroMusic" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamSynchronized_njtn3")
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamSynchronized_njtn3")
+stream = SubResource("AudioStreamSynchronized_2y2jw")
 
 [node name="BreakPlayerMask" type="AudioStreamPlayer" parent="."]
 

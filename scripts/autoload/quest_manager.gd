@@ -13,7 +13,7 @@ func _on_dialogue_event(dictonary: Dictionary) -> void:
 	avatar.call(avatar_function)
 	if avatar_function == "break_player_mask":
 		AudioManager.play("break_player_mask")
-		
+		AudioManager.add_music_layer(avatar.player_ability_unlock)
 		var player: Player = get_tree().get_first_node_in_group("player")
 		player.new_ability_unlocked = avatar.player_ability_unlock
 		shader_param_name = avatar.unlock_color + "_anim"
@@ -23,7 +23,6 @@ func _on_dialogue_event(dictonary: Dictionary) -> void:
 		shader_param_name = ""
 	elif avatar_function == "complete_quest":
 		AudioManager.play("avatar_colored")
-		AudioManager.add_music_layer(avatar.player_ability_unlock)
 
 func change_color_animation(value: float) -> void:
 	world_grayscale_shader.set_shader_parameter(shader_param_name, value)

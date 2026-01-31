@@ -27,26 +27,54 @@ extends Node2D
 @onready var forest_ambient: AudioStreamPlayer = $ForestAmbient
 @onready var forest_volume := forest_ambient.volume_linear
 
+var in_main_music = false
+var current_stream_index = -1
+signal transition_to_main_music
+
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogue_event)
+	play_intro_music()
 
 func _on_dialogue_event(dictonary: Dictionary) -> void:
-	var avatar_name = dictonary.keys()[0]
-	var avatar_function = dictonary.values()[0]
-	var avatar: Avatar = get_tree().current_scene.find_child(avatar_name + "Avatar")
-	
+	if not in_main_music:
+		var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+		current_stream_index = 1
+		tween.tween_method(lerp_current_volume_thingy, -60.0, 0.0, 5.0)
+		print("INTRO MUSIC WAITING")
+		await transition_to_main_music
+		print("INTRO MUSIC FINISHED")
+		current_stream_index = -1
+		intro_music.stop()
+		play_main_music()
+		in_main_music = true
 
 func play_intro_music() -> void:
 	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tween.tween_method(music_audio_stream.set_sync_stream_volume.bind(0), -60.0, 0.0, 5.0)
+	current_stream_index = 0
+	tween.tween_method(lerp_current_volume_thingy, -60.0, 0.0, 5.0)
 	intro_music.play()
+	var time = intro_music_stream.get_sync_stream(0).get_length()
+	get_tree().create_timer(time).timeout.connect(func():
+		transition_to_main_music.emit()
+	)
+	await tween.finished
+	current_stream_index = -1
 
 func play_main_music() -> void:
 	main_music.play()
 
+func lerp_current_volume_thingy(value: float) -> void:
+	if in_main_music:
+		music_audio_stream.set_sync_stream_volume(current_stream_index, value)
+	else:
+		intro_music_stream.set_sync_stream_volume(current_stream_index, value)
+
 func add_music_layer(layer: Player.Ability) -> void:
 	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	tween.tween_method(music_audio_stream.set_sync_stream_volume.bind(layer), -60.0, 0.0, 5.0)
+	current_stream_index = layer
+	tween.tween_method(lerp_current_volume_thingy, -60.0, 0.0, 5.0)
+	await tween.finished
+	current_stream_index = -1
 
 func play(sound_name: String) -> void:
 	sounds[sound_name].play()
