@@ -9,94 +9,129 @@ else:
 		jump Quest Completed
 	else:
 		jump Colored
-# --------------------------------------------------------------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
 label First Meeting
-Unknown: Hello [b]Wanderer...[/b]
-if {b_met_someone} != true:
-	jump first-meeting/
-Unknown: [i]Sigh...[/i][br]I have lost my identity... [pause=0.5]I am without purpose.
+Unknown: Oh...[pause=0.5] I'm sorry...[br]I've been too focused..[pause=0.5] I haven't noticed you..
+Unknown: W-Who...[pause=0.5] are you?
+[text_input var="player_name"]
+Unknown: [color=cyan]{player_name}[/color], huh...[pause=0.5] H-How did you get here?
+- Where is Here?
+	jump Where is Here
+	- Who are you?
+		jump Who are you
+- Who are you?
+	jump Who are you
+	- Where is Here?
+		jump Where is Here
 set {Sadness.met} = true
 jump Quest
-# --------------------------------------------------------------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+label Where is Here
+Unknown: Oh dear...[pause=0.5] You are not from around here?
+Unknown: This used to be our home...[pause=0.5][br]A vibrant and beautiful world...[pause=0.5] Full of color.
+Unknown: But now it's completely empty, grey and cold... lifeless.
+return
+
+# ---------------------------------------------------------------------------
+label Who are you
+Unknown: [i]Sigh...[/i][pause=0.5][br]I have lost my identity... [pause=0.5]I am without purpose.
+Unknown: All I seem to do...[pause=0.5] Is stare at those weird water droplets floating around me...
+return
+
+# ---------------------------------------------------------------------------
 label Quest
-Unknown: [i]'Eyeing the floating water droplets around."[/i]
-Unknown: There's a heavy burden holding me down... [pause=0.7][br][i]Lucky[/i] I have this [b]mask[/b] to protect me...
-Unknown: Could you help me fill this [b]Bucket[/b] with water from that [b]waterfall[/b] over there?
+Unknown: T-There's a heavy burden holding me down... [pause=0.7][br][i]Lucky[/i] I have this [b]mask[/b] to protect me...
+Unknown: I'm sorry to ask...[pause=0.5] but could I trouble you for some help...?
 - Yes
-	Unknown: Thank you [b]Wanderer[/b]. I'll be waiting here...
+	Unknown: T-Thank you...[pause=0.5][br]Could you help me fill this [b]Bucket[/b] with water from that [b]waterfall[/b] over there?[br][pause=0.5]Sorry for burdening you...
 	set {Sadness.quest_taken} = true
 - No
-	Unknown: [i]Sigh...[/i][pause=0.5][br]Alright. I'll be waiting here...
+	Unknown: Oh ok...[pause=0.5] I'm sorry for bothering you...[pause=0.5] I'll be waiting here...
 [end_timeline]
-# --------------------------------------------------------------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
 label Waiting
-Unknown: [i]Eyeing the floating water droplets around..[br][pause=0.5]Sigh...[/i]
+[i]??? sighs[/i]
+Unknown: H-Hi...[br]Hope the task isn't too bothersome...
 [end_timeline]
-# --------------------------------------------------------------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
 label Quest Completed
-Unknown: Oh...[pause=0.5] you have my bucket...
+Unknown: Oh...[pause=0.5] you brought the bucket of [b]tears[/b]...
 - Give Bucket
 	[signal arg_type="dict" arg="{"Sadness":"complete_quest"}"]
 	set {Sadness.is_colored} = true
 	[wait time="3.0"]
-sadness: I [pause=0.5]am the [b]Avatar of Sadness[/b]. [pause=0.5][br]Thank you for returning the tears from the [b]Waterfall of Pain[/b] for me.
+sadness: I... [pause=0.5]am the [b]Avatar of Sadness[/b]. [pause=0.5][br]T-Thank you for returning back my tears...[pause=0.5] from the [b]Waterfal of Sorrows[/b].
 set {Sadness.quest_completed} = true
 jump Colored
-# --------------------------------------------------------------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
 label Colored
-if {Sadness.relationship} == 0.0:
-	sadness: [i]Sigh...[/i][pause=0.5][br]I have my tears, but the world around me feels [b][i]heavy[/i][/b]....
-	- Do you need more tears?
-		sadness: I've absorbed the tears with the bucket itself..[br][pause=0.5]Can't carry tears with your hands...[br][pause=0.5][i]'sigh'[/i]
+if {Sadness.relationship} == 0:
+	sadness: [i]Sigh...[/i][pause=0.5][br]I have my tears...[pause=0.5] but the world still feels...[pause=0.5] [b][i]heavy[/i][/b]....
+	- Can I get you more tears?
+		sadness: I-I...[pause=0.5] consumed the bucket with the tears...[pause=0.5][br]I guess you c-can't carry tears with your hands...[br][i]sigh...[/i]
 		jump Colored
-	- It's ok to cry...
-		sadness: I guess...
-		[i]Sadness begins to tear up, [pause=0.5]water droplets start floating from the mask's eye around Sadness.[/i]
-		set {Sadness.relationship} += 0.3
+	- Maybe it's not the world that's heavy...
+		sadness: W-What do you...[pause=0.5] mean?
+		- Maybe you need to let go...
+			sadness: Y-You are right...
+			[i]Sadness sighs deeply.[br]Tears start exiting through the eyes of the mask...[br]Slowly beginning to float around Sadness himself.[/i]
+		set {Sadness.relationship} += 1
 		jump Colored
-elif {Sadness.relationship} == 0.3:
-	sadness: Hey look...[pause=0.5][br]It started raining again...[br][i]'Sadness says as the floating droplets turn into gentle rain.'[/i]
-	sadness: The world is starting to cry again, [pause=0.5]and water is beginning to flow...
-	sadness: I'm starting...[pause=0.5] to feel again...[pause=0.5][br]Starting to feel...[pause=0.5] [b]sad[/b] for the world.
-	- Don't be sad...
+elif {Sadness.relationship} == 1:
+	[i]Sadness is looking at the floating tear drops.[/i]
+	sadness: H-Hey look...[pause=0.5] Now I know w-what these strange...[pause=0.5] water droplets are...
+	sadness: N-Now I remember my role...[pause=0.5] I must return the [b]water[/b] to these lands.
+	[i]As soon as Sadness closed his eyes.. the floating tear drops transform into a gentle rain.[/i]
+	sadness: T-There...[pause=0.5] The world is c-crying again...[pause=0.5][br]And water is beginning to flow...
+	sadness: I'm starting to feel again...[pause=0.5][br]Starting to feel...[pause=0.5] sad for the world.
+	- Don't feel sad...
 		sadness: I can't explain it...[pause=0.5] but I feel like I'm supposed to feel sad...
 		jump Colored
 	- It's ok to feel sad...
 		sadness: The world...[pause=0.5] is in a dire state.
 		sadness: Devoid of emotion...[pause=0.5] Devoid of feelings...[pause=0.5][br]We live in a grey world...
-		set {Sadness.relationship} += 0.3
-		- It truly is dark and colorless
-			sadness: What does it make you [i]feel[/i]?
+		set {Sadness.relationship} += 1
+		- It really is sad...
+			sadness: D-Do you mind if I ask...[pause=0.5][br]H-How does it make you feel?
 			- Angry
 				jump Wrong Answer
 			- Worried
 				jump Wrong Answer
 			- Sad
-				sadness: Yes...[pause=0.5] I agree...
-				set {Sadness.relationship} += 0.4
+				sadness: Yes..[pause=0.5] F-Finally someone understands...
+				set {Sadness.relationship} = 3
 				jump Colored
+			- I don't feel anything..
+				jump Wrong Answer
 		- I don't know...
 			sadness: The world was colorful and vibrant... [pause=0.5]A place to truly be alive in.
 			jump Colored
-elif {Sadness.relationship} == 0.6:
-	sadness: Now with the water flow restored to nature...[pause=0.5][br]I can spread my sadness throughout this land.[pause=0.5][br]Allow all other living beings to experience true sadness.
-	- It might hurt them!
+elif {Sadness.relationship} == 2:
+	[i]Sadness stares quietly at the rain.[/i]
+	sadness: Now with the water flow restored to nature...[pause=0.5][br]I can spread my sadness throughout this land.[pause=0.5][br]Allow all other living beings to experience true [b]sadness[/b].
+	- Can't it hurt them?
 		sadness: That is how it has been,[pause=0.5] and that is how it shall be.
 		jump Colored
-	- Feeling sad is good
+	- Feeling sad makes you appreciative..
 		sadness: Finally...[pause=0.5] someone understands.
-		set {Sadness.relationship} += 0.4
+		set {Sadness.relationship} += 3
 		jump Colored
-elif {Sadness.relationship} == 1.0:
-	sadness: You've shown true friendship.[pause=0.5][br]You've helped me restore [b]Sadness[/b] into the world.
-	sadness: You've accepted my role in this world.. [pause=0.5]and let me get a little into your own personality..
-	[i]Sadness breaks your mask a little.[/i]
+elif {Sadness.relationship} == 3:
+	sadness: Y-You've shown true friendship...[pause=0.5][br]You've helped me restore [b]Sadness[/b] into the world.
+	sadness: You've accepted m-my role in this world...[pause=0.5][br]You've let yourself experience [b]Sadness[/b] for this world...[pause=0.5][br]Thus letting me be part of your...[pause=0.5] [b]personality[/b].
+	[i]Sadness pulls out a small hammer and gently...[pause=0.5][br][b]Taps your mask with[/b]..[pause=0.5] Cracking it slightly.[/i]
 	sadness: I've granted you mastery over these very waters that flow through these lands.
-	set {Sadness.relationship} = 2.0
+	set {Sadness.relationship} = -1
 	[signal arg_type="dict" arg="{"Sadness":"break_player_mask"}"]
 	jump Colored
-elif {Sadness.relationship} >= 2.0:
-	sadness: Thank you...[pause=0.5] friend.
+elif {Sadness.relationship} == -1:
+	sadness: T-Thank you...[pause=0.5] friend.
 [end_timeline]
 label Wrong Answer
-sadness: Interesting...
+sadness: [i]Sigh...[/i][br]Interesting...
+return
