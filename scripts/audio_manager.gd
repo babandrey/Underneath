@@ -5,6 +5,7 @@ extends Node2D
 @onready var crystal_ball_pickup: AudioStreamPlayer = $CrystalBallPickup
 @onready var stick_pickup: AudioStreamPlayer = $StickPickup
 @onready var water_bucket_pickup: AudioStreamPlayer = $WaterBucketPickup
+@onready var diary_pickup: AudioStreamPlayer = $DiaryPickup
 @onready var break_player_mask: AudioStreamPlayer = $BreakPlayerMask
 @onready var avatar_colored: AudioStreamPlayer = $AvatarColored
 
@@ -22,6 +23,7 @@ extends Node2D
 	"crystal_ball": crystal_ball_pickup,
 	"water_bucket": water_bucket_pickup,
 	"stick": stick_pickup,
+	"diary": diary_pickup,
 	"avatar_colored": avatar_colored,
 	"break_player_mask": break_player_mask
 }

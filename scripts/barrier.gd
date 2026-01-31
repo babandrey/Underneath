@@ -16,4 +16,8 @@ func get_interaction_text() -> String:
 
 func break_barrier() -> void:
 	barrier_static.queue_free()
+	var tween = create_tween().set_parallel()
+	for body: RigidBody2D in $RocksRigidbodies.get_children():
+		body.freeze = false
+		tween.tween_property(body, "modulate:addd", 0.0, 3.0)
 	barrier_active = false
