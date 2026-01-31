@@ -129,10 +129,14 @@ elif {Shame.relationship} == 2:
 	shame: [pause=0.5][br]You've helped me restore [b]Shame[/b] into the world.
 	shame: [pause=0.5]You let me see that Shame is a part your own personality..
 	[i]Shame takes out a small hammer, and clinks it gently. Cracking your [b]mask[/b] a little.[/i]
-	shame: I've granted you passage into my burrows.[pause=0.5] If you ever need to get somewhere else in this world..[br]Just hop into one of my holes.
+	shame: I've granted you passage into my burrows.[pause=0.5] I can get you back to where you started.
 	set {Shame.relationship} = -1
 	[signal arg_type="dict" arg="{"Shame":"break_player_mask"}"]
-	[end_timeline]
+	jump Colored
 elif {Shame.relationship} == -1:
-	shame: Thank you...[pause=0.5] friend.
-[end_timeline]
+	shame: Would you like to return back up?
+	- Yes 
+		[signal arg="teleport_to_start_location"]
+		shame: Safe travels.
+	- No
+	[end_timeline]

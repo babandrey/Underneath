@@ -61,6 +61,7 @@ var avatar_in_area: Avatar = null
 var item_in_area: Item = null
 var barrier_in_area: Barrier = null
 var in_end_location = false
+var buffer_teleport = false
 
 func _ready() -> void:
 	assert(teleporter)
@@ -70,6 +71,15 @@ func _ready() -> void:
 	new_ability_labels.modulate.a = 0.0
 	
 	AudioManager.play_ambient()
+	Dialogic.signal_event.connect(func(args):
+		if args is String:
+			if args == "teleport_to_start_location":
+				buffer_teleport = true
+	)
+	Dialogic.timeline_ended.connect(func():
+		if buffer_teleport:
+			teleport_to_start_location()
+		)
 
 func _physics_process(delta: float) -> void:
 	var last_vel = velocity
@@ -253,3 +263,4 @@ func teleport_to_start_location() -> void:
 	camera.position_smoothing_enabled = true
 	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(%FadeScreen, "color:a", 0.0, 2.0)
+	buffer_teleport = false
