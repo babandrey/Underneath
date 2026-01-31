@@ -30,7 +30,8 @@ var ability_unlock_dict: Dictionary[Ability, Callable] = {
 	Ability.Swim: func(): can_swim = true,
 	Ability.Run: func(): can_run = true,
 	Ability.GoThroughDark: func(): can_go_through_dark = true,
-	Ability.BreakBarriers: func(): can_break_barriers = true
+	Ability.BreakBarriers: func(): can_break_barriers = true,
+	Ability.ShameAbility: func(): pass
 }
 
 enum Ability
@@ -50,6 +51,7 @@ enum Ability
 @export var new_ability_label_description: RichTextLabel
 @export var camera: Camera2D
 @onready var new_ability_labels: MarginContainer = %NewAbilityLabels
+@export var teleporter: Marker2D
 
 var new_ability_unlocked := Ability.None
 
@@ -59,14 +61,25 @@ var avatar_in_area: Avatar = null
 var item_in_area: Item = null
 var barrier_in_area: Barrier = null
 var in_end_location = false
+var buffer_teleport = false
 
 func _ready() -> void:
+	assert(teleporter)
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	vignette.show()
 	new_ability_labels.show()
 	new_ability_labels.modulate.a = 0.0
 	
 	AudioManager.play_ambient()
+	Dialogic.signal_event.connect(func(args):
+		if args is String:
+			if args == "teleport_to_start_location":
+				buffer_teleport = true
+	)
+	Dialogic.timeline_ended.connect(func():
+		if buffer_teleport:
+			teleport_to_start_location()
+		)
 
 func _physics_process(delta: float) -> void:
 	var last_vel = velocity
@@ -211,6 +224,8 @@ func show_interact_avatar_text() -> void:
 	interact_label.text = "Press 'E' to talk to " + avatar_name
 
 func show_new_ability(new_ability: Ability) -> void:
+	if new_ability == Ability.ShameAbility: return
+	
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).set_parallel()
 	tween.tween_method(vignette_change_alpha, 0.4, 1.0, 1.0)
 	tween.tween_property(new_ability_labels, "modulate:a", 1.0, 3.0)
@@ -236,3 +251,16 @@ func vignette_change_alpha(value: float) -> void:
 func _on_animated_sprite_animation_finished() -> void:
 	if sprite.animation == "walk_start":
 		sprite.play("walk_loop")
+
+func teleport_to_start_location() -> void:
+	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(%FadeScreen, "color:a", 1.0, 2.0)
+	await tween.finished
+	global_position = teleporter.global_position
+	camera.position_smoothing_enabled = false
+	camera.global_position = global_position
+	await get_tree().process_frame
+	camera.position_smoothing_enabled = true
+	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(%FadeScreen, "color:a", 0.0, 2.0)
+	buffer_teleport = false
