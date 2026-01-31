@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://di4k0xufltrst"]
+
+[ext_resource type="Script" uid="uid://c7x3xfkwrwyhp" path="res://scripts/audio_manager.gd" id="1_8qd8g"]
+[ext_resource type="AudioStream" uid="uid://ly0eo2bdrxeg" path="res://audio/sfx/pickups/generic_pickup.wav" id="2_njtn3"]
+[ext_resource type="AudioStream" uid="uid://dc1nr10rqbw7q" path="res://audio/ambient/forest_ambient.wav" id="3_kq7b2"]
+[ext_resource type="AudioStream" uid="uid://ereahsq2lv40" path="res://audio/sfx/pickups/crystal_ball_pickup.wav" id="4_02gw7"]
+[ext_resource type="AudioStream" uid="uid://bmcsacfi0xlrw" path="res://audio/sfx/pickups/stick_pickup.wav" id="5_ujhup"]
+[ext_resource type="AudioStream" uid="uid://br6761qfyw10u" path="res://audio/sfx/pickups/water_bucket_pickup.wav" id="6_064dn"]
+
+[node name="AudioManager" type="Node2D"]
+script = ExtResource("1_8qd8g")
+
+[node name="GenericPickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_njtn3")
+
+[node name="ForestAmbient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kq7b2")
+
+[node name="SpiderPickup" type="AudioStreamPlayer" parent="."]
+
+[node name="CrystalBallPickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_02gw7")
+
+[node name="StickPickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ujhup")
+
+[node name="WaterBucketPickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_064dn")
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="."]
+
+[node name="BreakPlayerMask" type="AudioStreamPlayer" parent="."]
+
+[node name="AvatarColored" type="AudioStreamPlayer" parent="."]
