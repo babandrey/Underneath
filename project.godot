@@ -71,7 +71,7 @@ variables={
 "met": false,
 "quest_completed": false,
 "quest_taken": false,
-"relationship": 0.0
+"relationship": 0
 },
 "Shame": {
 "is_colored": false,
@@ -80,7 +80,8 @@ variables={
 "quest_taken": false,
 "relationship": 0.0
 },
-"b_met_someone": false
+"b_met_someone": false,
+"player_name": ""
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.07
