@@ -112,8 +112,12 @@ func _physics_process(delta: float) -> void:
 			barrier_in_area.break_barrier()
 			barrier_in_area = null
 		elif in_end_location:
-			print("GAME OVER")
-		
+			var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(%FadeScreen, "color:a", 1.0, 0.35)
+			is_talking = true
+			await tween.finished
+			get_tree().change_scene_to_file("res://scenes/end_game_screen.tscn")
+			
 		interact_label.text = ""
 		# TODO: once back from talking section you can put the activate the interact label again
 	
@@ -142,11 +146,16 @@ func should_run() -> bool:
 	return can_run and !is_swimming and Input.is_action_pressed("run")
 
 func respawn() -> void:
+	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(%FadeScreen, "color:a", 1.0, 0.35)
+	await tween.finished
 	global_position = respawn_position
 	camera.position_smoothing_enabled = false
 	camera.global_position = global_position
 	await get_tree().process_frame
 	camera.position_smoothing_enabled = true
+	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(%FadeScreen, "color:a", 0.0, 2.0)
 
 func unlock_ability(ability: Ability) -> void:
 	assert(ability in ability_unlock_dict, "No ability entry in ability unlock dictionary.")

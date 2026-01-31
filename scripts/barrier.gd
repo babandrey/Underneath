@@ -19,5 +19,7 @@ func break_barrier() -> void:
 	var tween = create_tween().set_parallel()
 	for body: RigidBody2D in $RocksRigidbodies.get_children():
 		body.freeze = false
-		tween.tween_property(body, "modulate:addd", 0.0, 3.0)
+		tween.tween_property(body, "modulate:a", 0.0, 3.0)
+		tween.finished.connect(body.queue_free)
+		
 	barrier_active = false
