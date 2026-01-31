@@ -310,9 +310,22 @@ size = Vector2(203.4425, 2488.254)
 z_index = -5
 position = Vector2(9099, 289)
 
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_left = -28915.0
+offset_top = 2289.0
+offset_right = 28593.0
+offset_bottom = 11666.0
+color = Color(0.03137255, 0.047058824, 0.09019608, 1)
+
 [node name="Bg5" type="Sprite2D" parent="Background"]
 material = ExtResource("1_egpmt")
 position = Vector2(-11708, -244)
+scale = Vector2(2, 2)
+texture = ExtResource("10_prrny")
+
+[node name="Bg10" type="Sprite2D" parent="Background"]
+material = ExtResource("1_egpmt")
+position = Vector2(-23224, -240)
 scale = Vector2(2, 2)
 texture = ExtResource("10_prrny")
 
@@ -470,11 +483,6 @@ texture = ExtResource("17_k4ex1")
 [node name="Platform1Big19" type="Sprite2D" parent="Terrain/Ground"]
 material = ExtResource("1_egpmt")
 position = Vector2(-18697, 1714.0002)
-texture = ExtResource("17_k4ex1")
-
-[node name="Platform1Big20" type="Sprite2D" parent="Terrain/Ground"]
-material = ExtResource("1_egpmt")
-position = Vector2(-20077, 1704.0002)
 texture = ExtResource("17_k4ex1")
 
 [node name="Platform2Big12" type="Sprite2D" parent="Terrain/Ground"]
@@ -1084,14 +1092,14 @@ texture = ExtResource("5_483gv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(-5214, -39)
-polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -1471, -26, 5033, -31, 6672, -31, 6661, 88, -2557, 51, -5107, 824, -6500, 1080, -6527, 939, -5955, 858)
+polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -1471, -26, 5033, -31, 6672, -31, 6889, 93, 6601, 617, 6552.6777, 685.48596, 6518, 776, 7420, 776, 8310, 780, 8226, 383, 8573, 893, 6437.6226, 856.3989, 6347, 972, 6616.2964, 87.82056, -2557, 51, -5107, 824, -6500, 1080, -6527, 939, -5955, 858)
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(-9327.5, 1012.70044)
 polygon = PackedVector2Array(-5256.5, 710.30005, -4326.5, 245.30005, -3546, 37, -2793, -64, -2608.5, -90.69995, -2557, 51, -5107, 824, -5804.5, 961.30005, -5898.5, 741.30005)
 
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Terrain/Ground"]
-polygon = PackedVector2Array(2697, -107, 2911.8276, -80.12634, 2946.3472, -79.36386, 3325, -71, 4329, 119, 5335, 489, 5905, 793, 6438, 1015, 7193, 1155, 7185, 1296, 6357, 1118, 5395, 711, 4616.8105, 413.8092, 3357, 68, 2927, 57, 2697, 32)
+polygon = PackedVector2Array(2616, -111, 2911.8276, -80.12634, 2946.3472, -79.36386, 3325, -71, 4329, 119, 5335, 489, 5905, 793, 6438, 1015, 7193, 1155, 7185, 1296, 6357, 1118, 5395, 711, 4616.8105, 413.8092, 3357, 68, 2927, 57, 3098, 764, 2836, 273, 2697, 32)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(9734, 1224)
@@ -1108,7 +1116,7 @@ one_way_collision = true
 
 [node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(-4546.199, 4063.3)
-polygon = PackedVector2Array(-2509, -189, -7956, -275, -9418, -855, -11069, -1576, -12153, -2209, -16014, -2265, -16025, -2396, -12517, -2365, -12053.129, -2316.7146, -11587, -2158, -11107, -1936, -9687, -1208, -8816, -752, -8458, -616, -7935, -453, -6883, -375, -4215, -327, -2499, -320)
+polygon = PackedVector2Array(-2509, -189, -7956, -275, -9418, -855, -11069, -1576, -12153, -2209, -15156.801, -2220.3, -15190.801, -2365.3, -12517, -2365, -12053.129, -2316.7146, -11587, -2158, -11107, -1936, -9687, -1208, -8816, -752, -8458, -616, -7935, -453, -6883, -375, -4215, -327, -2499, -320)
 one_way_collision = true
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Terrain/Ground"]
@@ -1373,7 +1381,7 @@ position = Vector2(2032, -1361)
 color = Color(0.89059, 0.89059, 0.8905901, 1)
 
 [node name="WorldBoundary" type="Area2D" parent="."]
-position = Vector2(-74, 2849)
+position = Vector2(173, 4742)
 collision_layer = 128
 script = ExtResource("16_q7nu1")
 
@@ -1415,9 +1423,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -10910.0
-offset_top = 2090.0002
+offset_top = 1873.0
 offset_right = -8910.0
-offset_bottom = 4296.0
+offset_bottom = 3947.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_vd26p")
