@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ca8cjq2maapex" path="res://scenes/water.tscn" id="3_sv7eu"]
 [ext_resource type="Texture2D" uid="uid://dabsd4gm6dpfl" path="res://art/Avatars/sadness.png" id="4_jdah1"]
 [ext_resource type="PackedScene" uid="uid://bsaii60gy3ya8" path="res://scenes/item.tscn" id="6_qe2qm"]
-[ext_resource type="PackedScene" uid="uid://bp0rvix62ab4o" path="res://scenes/dark_death_zone.tscn" id="8_vd26p"]
+[ext_resource type="PackedScene" path="res://scenes/dark_death_zone.tscn" id="8_vd26p"]
 [ext_resource type="PackedScene" uid="uid://px7kdlrn1vm1" path="res://scenes/checkpoint.tscn" id="9_6cesl"]
 [ext_resource type="Script" uid="uid://cdqlvv4yr501r" path="res://scenes/death_zone.gd" id="9_8j58j"]
 
@@ -22,13 +22,11 @@ shader_parameter/blue_anim = 0.0
 shader_parameter/green_anim = 0.0
 shader_parameter/yellow_anim = 0.0
 shader_parameter/purple_anim = 0.0
-shader_parameter/red = Color(1, 0, 0, 1)
-shader_parameter/blue1 = Color(0.08627451, 0.15686275, 0.4627451, 1)
-shader_parameter/blue2 = Color(0.08235294, 0.23137255, 0.8901961, 1)
-shader_parameter/blue3 = Color(0.24705882, 0.3882353, 1, 1)
-shader_parameter/green = Color(0, 0.6117647, 0, 1)
-shader_parameter/yellow = Color(1, 0.95686275, 0, 1)
-shader_parameter/purple = Color(0.64705884, 0.33333334, 0.92156863, 1)
+shader_parameter/red = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/blue = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/green = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/yellow = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/purple = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 shader_parameter/threshold = 0.15
 shader_parameter/edge_softness = 0.05
 
@@ -43,13 +41,11 @@ shader_parameter/blue_anim = 0.0
 shader_parameter/green_anim = 0.0
 shader_parameter/yellow_anim = 0.0
 shader_parameter/purple_anim = 0.0
-shader_parameter/red = Color(1, 0, 0, 1)
-shader_parameter/blue1 = Color(0, 0, 0, 1)
-shader_parameter/blue2 = Color(0, 0, 0, 1)
-shader_parameter/blue3 = Color(0, 0, 0, 1)
-shader_parameter/green = Color(0, 0.6117647, 0, 1)
-shader_parameter/yellow = Color(1, 0.95686275, 0, 1)
-shader_parameter/purple = Color(0.64705884, 0.33333334, 0.92156863, 1)
+shader_parameter/red = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/blue = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/green = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/yellow = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+shader_parameter/purple = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 shader_parameter/threshold = 0.25
 shader_parameter/edge_softness = 0.05
 
