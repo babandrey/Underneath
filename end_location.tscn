@@ -1,0 +1,86 @@
+[gd_scene load_steps=14 format=3 uid="uid://dhg873pr1eb2i"]
+
+[ext_resource type="Script" uid="uid://bh0g1tl17ijfw" path="res://end_location.gd" id="1_vrfy3"]
+[ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="2_g4pu7"]
+[ext_resource type="Texture2D" uid="uid://blibrih7nws7y" path="res://art/Background/AngerPillar.png" id="2_nr7gc"]
+[ext_resource type="Texture2D" uid="uid://3l1fbtam8sbw" path="res://art/Background/AnxietyPillar.png" id="3_g4pu7"]
+[ext_resource type="Texture2D" uid="uid://bsb4q0mf1usji" path="res://art/Background/AngerMask.png" id="3_jvbrd"]
+[ext_resource type="Texture2D" uid="uid://dojk2f0rpg2sy" path="res://art/Background/FearPillar.png" id="4_jvbrd"]
+[ext_resource type="Texture2D" uid="uid://dn5huo2ki0g40" path="res://art/Background/SadnessPillar.png" id="5_lmdgs"]
+[ext_resource type="Texture2D" uid="uid://cbqe2uj3m5goq" path="res://art/Background/AnxietyMask.png" id="5_t7uki"]
+[ext_resource type="Texture2D" uid="uid://brgjm53khker2" path="res://art/Background/ShamePillar.png" id="6_8skmr"]
+[ext_resource type="Texture2D" uid="uid://djmltwoxcj3t0" path="res://art/Background/FearMask.png" id="7_jc5rh"]
+[ext_resource type="Texture2D" uid="uid://dhxlqq6jqktab" path="res://art/Background/SadnessMask.png" id="9_bvfka"]
+[ext_resource type="Texture2D" uid="uid://bhiinj6sqfnbp" path="res://art/Background/ShameMask.png" id="11_3c2ds"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4pu7"]
+radius = 46.95
+height = 118.48
+
+[node name="EndLocation" type="Area2D"]
+collision_layer = 512
+script = ExtResource("1_vrfy3")
+
+[node name="AngerPillar" type="Sprite2D" parent="."]
+material = ExtResource("2_g4pu7")
+position = Vector2(150, 0)
+texture = ExtResource("2_nr7gc")
+
+[node name="AngerMask" type="Sprite2D" parent="AngerPillar"]
+visible = false
+position = Vector2(1, 17.999998)
+rotation = -0.06283186
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("3_jvbrd")
+
+[node name="AnxietyPillar" type="Sprite2D" parent="."]
+material = ExtResource("2_g4pu7")
+position = Vector2(75, 0)
+texture = ExtResource("3_g4pu7")
+
+[node name="AnxietyMask" type="Sprite2D" parent="AnxietyPillar"]
+visible = false
+position = Vector2(0, 13)
+rotation = 0.06283186
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_t7uki")
+
+[node name="FearPillar" type="Sprite2D" parent="."]
+material = ExtResource("2_g4pu7")
+position = Vector2(-75, 0)
+texture = ExtResource("4_jvbrd")
+
+[node name="FearMask" type="Sprite2D" parent="FearPillar"]
+visible = false
+position = Vector2(1, 14.000004)
+rotation = -0.06283186
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_jc5rh")
+
+[node name="SadnessPillar" type="Sprite2D" parent="."]
+material = ExtResource("2_g4pu7")
+texture = ExtResource("5_lmdgs")
+
+[node name="SadnessMask" type="Sprite2D" parent="SadnessPillar"]
+visible = false
+position = Vector2(1, 16)
+rotation = 0.06283186
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_bvfka")
+
+[node name="ShamePillar" type="Sprite2D" parent="."]
+material = ExtResource("2_g4pu7")
+position = Vector2(-150, 0)
+texture = ExtResource("6_8skmr")
+
+[node name="ShameMask" type="Sprite2D" parent="ShamePillar"]
+visible = false
+position = Vector2(-0.99999994, 18)
+rotation = 0.064577185
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_3c2ds")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 21)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_g4pu7")
