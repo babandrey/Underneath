@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://8d4wbkvyunov"]
+[gd_scene load_steps=33 format=3 uid="uid://8d4wbkvyunov"]
 
 [ext_resource type="PackedScene" uid="uid://b030j6fl17evo" path="res://scenes/player.tscn" id="1_5fr2l"]
 [ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_2sb77"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://og2kiem1py8t" path="res://scenes/running_wiitch.tscn" id="10_ff0s2"]
 [ext_resource type="Texture2D" uid="uid://b0awn7kno1n0b" path="res://art/Avatars/Fear.png" id="10_mwgft"]
 [ext_resource type="PackedScene" uid="uid://dk3tnf0trie1o" path="res://scenes/running_wiitch_trigger.tscn" id="11_uk2yf"]
+[ext_resource type="Texture2D" uid="uid://bs6gea2ls41b5" path="res://art/Background/Bucket.png" id="13_0e4v7"]
 [ext_resource type="PackedScene" uid="uid://dvlenlgfgsy36" path="res://scenes/barrier.tscn" id="17_ondrs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uqi0"]
@@ -799,10 +800,17 @@ direction_to_run = -1
 
 [node name="Interactables" type="Node2D" parent="."]
 
-[node name="Waterfall" parent="Interactables" instance=ExtResource("7_uk2yf")]
-position = Vector2(594, 234)
+[node name="WaterBucket" parent="Interactables" instance=ExtResource("7_uk2yf")]
+position = Vector2(571, 225)
 action_text = "fill the bucket from the watefall"
 avatar_quest = "sadness"
+
+[node name="CollisionShape2D" parent="Interactables/WaterBucket" index="0"]
+position = Vector2(0, -3)
+
+[node name="Sprite2D" parent="Interactables/WaterBucket" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("13_0e4v7")
 
 [node name="Spider" parent="Interactables" instance=ExtResource("7_uk2yf")]
 position = Vector2(13371, 477)
@@ -866,3 +874,4 @@ position = Vector2(4519, 262)
 [editable path="Avatars/AngerAvatar"]
 [editable path="Avatars/FearAvatar"]
 [editable path="Avatars/ShameAvatar"]
+[editable path="Interactables/WaterBucket"]

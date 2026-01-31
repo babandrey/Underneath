@@ -1,0 +1,936 @@
+[gd_scene load_steps=45 format=3 uid="uid://c3y33arvt3a40"]
+
+[ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_egpmt"]
+[ext_resource type="PackedScene" uid="uid://bplqieon6vd7b" path="res://scenes/avatar.tscn" id="3_30ub0"]
+[ext_resource type="Texture2D" uid="uid://dv7tg42soxlwp" path="res://art/Background/Water_fountain.png" id="3_aggj8"]
+[ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://shaders/grayscale.gdshader" id="4_2wl28"]
+[ext_resource type="Texture2D" uid="uid://cj42wwyakifxu" path="res://art/Background/Platform piece 1 - small.png" id="4_h285n"]
+[ext_resource type="Texture2D" uid="uid://djsrj2hj4qnn1" path="res://art/Background/Platfprm piece 2 - small.png" id="5_483gv"]
+[ext_resource type="Texture2D" uid="uid://dabsd4gm6dpfl" path="res://art/Avatars/sadness.png" id="5_t6k3e"]
+[ext_resource type="Texture2D" uid="uid://c70j8e22csf1l" path="res://art/Avatars/Anxiety.png" id="6_xvspm"]
+[ext_resource type="Texture2D" uid="uid://dn4wljhyfmo3" path="res://art/Avatars/Anger.png" id="7_btdyd"]
+[ext_resource type="Texture2D" uid="uid://b0awn7kno1n0b" path="res://art/Avatars/Fear.png" id="8_h285n"]
+[ext_resource type="Texture2D" uid="uid://dc78tn6p45dum" path="res://art/Avatars/Shame.png" id="9_483gv"]
+[ext_resource type="PackedScene" uid="uid://og2kiem1py8t" path="res://scenes/running_wiitch.tscn" id="10_jg8a7"]
+[ext_resource type="PackedScene" uid="uid://dk3tnf0trie1o" path="res://scenes/running_wiitch_trigger.tscn" id="11_0tvqr"]
+[ext_resource type="PackedScene" uid="uid://bsaii60gy3ya8" path="res://scenes/item.tscn" id="12_j5ryu"]
+[ext_resource type="Texture2D" uid="uid://bs6gea2ls41b5" path="res://art/Background/Bucket.png" id="13_4wbot"]
+[ext_resource type="PackedScene" uid="uid://b030j6fl17evo" path="res://scenes/player.tscn" id="14_x0i0p"]
+[ext_resource type="PackedScene" uid="uid://ca8cjq2maapex" path="res://scenes/water.tscn" id="15_lq2b6"]
+[ext_resource type="Texture2D" uid="uid://sevfvs8qv83c" path="res://art/Background/Platform 2 - Big.png" id="16_mhh6j"]
+[ext_resource type="Script" uid="uid://cdqlvv4yr501r" path="res://scenes/death_zone.gd" id="16_q7nu1"]
+[ext_resource type="Texture2D" uid="uid://binb7br01l7t6" path="res://art/Background/Platform 1 - Big.png" id="17_k4ex1"]
+[ext_resource type="Script" uid="uid://cxuyjmsd47i7c" path="res://scripts/dark_death_zone.gd" id="19_xvspm"]
+[ext_resource type="Script" uid="uid://dsmyg22pnksnj" path="res://scripts/item.gd" id="20_0tvqr"]
+[ext_resource type="Texture2D" uid="uid://d0y0fn6kxc7p6" path="res://art/Background/Tree 1.png" id="20_30ub0"]
+[ext_resource type="Texture2D" uid="uid://x14515wu256k" path="res://art/Background/Crystalball.png" id="21_0tvqr"]
+[ext_resource type="Texture2D" uid="uid://b0750g2f6lyu0" path="res://art/Background/Tree 2.png" id="21_2wl28"]
+[ext_resource type="Texture2D" uid="uid://cpelgy1wmy1lj" path="res://art/Background/spider.png" id="22_483gv"]
+[ext_resource type="Texture2D" uid="uid://c5xh2ty7m1gff" path="res://art/Background/Tree 3.png" id="22_xvspm"]
+[ext_resource type="Texture2D" uid="uid://c7r4cbcpxpk1g" path="res://art/Background/Trees.png" id="23_btdyd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uk2yf"]
+resource_local_to_scene = true
+shader = ExtResource("4_2wl28")
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
+shader_parameter/red = PackedColorArray(0.32941177, 0.12156863, 0.0627451, 1, 0.6862745, 0.24313726, 0.05882353, 1, 0.84313726, 0.3529412, 0.1882353, 1)
+shader_parameter/blue = PackedColorArray(0.078431375, 0.14117648, 0.4117647, 1, 0.07450981, 0.20784314, 0.7921569, 1, 0.21960784, 0.34509805, 0.8901961, 1)
+shader_parameter/green = PackedColorArray(0.043137256, 0.1764706, 0.02745098, 1, 0.15294118, 0.5176471, 0.40392157, 1, 0.60784316, 0.8901961, 0.5764706, 1)
+shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1, 0.6745098, 0.4862745, 0.27058825, 1, 0.8901961, 0.7372549, 0.5176471, 1)
+shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
+shader_parameter/threshold = 0.15
+shader_parameter/edge_softness = 0.05
+shader_parameter/move_wave = true
+shader_parameter/amplitude = 5.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sv7eu"]
+radius = 298.0067
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ondrs"]
+resource_local_to_scene = true
+shader = ExtResource("4_2wl28")
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
+shader_parameter/red = PackedColorArray(0.32941177, 0.12156863, 0.0627451, 1, 0.6862745, 0.24313726, 0.05882353, 1, 0.84313726, 0.3529412, 0.1882353, 1)
+shader_parameter/blue = PackedColorArray(0.078431375, 0.14117648, 0.4117647, 1, 0.07450981, 0.20784314, 0.7921569, 1, 0.21960784, 0.34509805, 0.8901961, 1)
+shader_parameter/green = PackedColorArray(0.043137256, 0.1764706, 0.02745098, 1, 0.15294118, 0.5176471, 0.40392157, 1, 0.60784316, 0.8901961, 0.5764706, 1)
+shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1, 0.6745098, 0.4862745, 0.27058825, 1, 0.8901961, 0.7372549, 0.5176471, 1)
+shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
+shader_parameter/threshold = 0.15
+shader_parameter/edge_softness = 0.05
+shader_parameter/move_wave = true
+shader_parameter/amplitude = 5.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_63km7"]
+resource_local_to_scene = true
+radius = 210.34258
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0e4v7"]
+resource_local_to_scene = true
+shader = ExtResource("4_2wl28")
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
+shader_parameter/red = PackedColorArray(0.32941177, 0.12156863, 0.0627451, 1, 0.6862745, 0.24313726, 0.05882353, 1, 0.84313726, 0.3529412, 0.1882353, 1)
+shader_parameter/blue = PackedColorArray(0.078431375, 0.14117648, 0.4117647, 1, 0.07450981, 0.20784314, 0.7921569, 1, 0.21960784, 0.34509805, 0.8901961, 1)
+shader_parameter/green = PackedColorArray(0.043137256, 0.1764706, 0.02745098, 1, 0.15294118, 0.5176471, 0.40392157, 1, 0.60784316, 0.8901961, 0.5764706, 1)
+shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1, 0.6745098, 0.4862745, 0.27058825, 1, 0.8901961, 0.7372549, 0.5176471, 1)
+shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
+shader_parameter/threshold = 0.15
+shader_parameter/edge_softness = 0.05
+shader_parameter/move_wave = true
+shader_parameter/amplitude = 5.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ff0s2"]
+resource_local_to_scene = true
+radius = 291.21
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6nivd"]
+resource_local_to_scene = true
+shader = ExtResource("4_2wl28")
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
+shader_parameter/red = PackedColorArray(0.32941177, 0.12156863, 0.0627451, 1, 0.6862745, 0.24313726, 0.05882353, 1, 0.84313726, 0.3529412, 0.1882353, 1)
+shader_parameter/blue = PackedColorArray(0.078431375, 0.14117648, 0.4117647, 1, 0.07450981, 0.20784314, 0.7921569, 1, 0.21960784, 0.34509805, 0.8901961, 1)
+shader_parameter/green = PackedColorArray(0.043137256, 0.1764706, 0.02745098, 1, 0.15294118, 0.5176471, 0.40392157, 1, 0.60784316, 0.8901961, 0.5764706, 1)
+shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1, 0.6745098, 0.4862745, 0.27058825, 1, 0.8901961, 0.7372549, 0.5176471, 1)
+shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
+shader_parameter/threshold = 0.15
+shader_parameter/edge_softness = 0.05
+shader_parameter/move_wave = true
+shader_parameter/amplitude = 5.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jg8a7"]
+resource_local_to_scene = true
+radius = 259.49374
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_al56o"]
+resource_local_to_scene = true
+shader = ExtResource("4_2wl28")
+shader_parameter/red_anim = 0.0
+shader_parameter/blue_anim = 0.0
+shader_parameter/green_anim = 0.0
+shader_parameter/yellow_anim = 0.0
+shader_parameter/purple_anim = 0.0
+shader_parameter/red = PackedColorArray(0.32941177, 0.12156863, 0.0627451, 1, 0.6862745, 0.24313726, 0.05882353, 1, 0.84313726, 0.3529412, 0.1882353, 1)
+shader_parameter/blue = PackedColorArray(0.078431375, 0.14117648, 0.4117647, 1, 0.07450981, 0.20784314, 0.7921569, 1, 0.21960784, 0.34509805, 0.8901961, 1)
+shader_parameter/green = PackedColorArray(0.043137256, 0.1764706, 0.02745098, 1, 0.15294118, 0.5176471, 0.40392157, 1, 0.60784316, 0.8901961, 0.5764706, 1)
+shader_parameter/yellow = PackedColorArray(0.27058825, 0.18039216, 0.05882353, 1, 0.6745098, 0.4862745, 0.27058825, 1, 0.8901961, 0.7372549, 0.5176471, 1)
+shader_parameter/purple = PackedColorArray(0.1254902, 0.05882353, 0.16078432, 1, 0.1764706, 0.09803922, 0.22352941, 1, 0.2784314, 0.18039216, 0.27450982, 1, 0.39607844, 0.2901961, 0.39607844, 1, 0.16470589, 0.023529412, 0.15686275, 1, 0.28235295, 0.078431375, 0.27450982, 1, 0.59607846, 0.34901962, 0.5882353, 1)
+shader_parameter/threshold = 0.15
+shader_parameter/edge_softness = 0.05
+shader_parameter/move_wave = true
+shader_parameter/amplitude = 5.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adxub"]
+resource_local_to_scene = true
+radius = 225.10886
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tnite"]
+radius = 109.29318
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_483gv"]
+radius = 120.98
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8j58j"]
+
+[sub_resource type="Gradient" id="Gradient_qe2qm"]
+offsets = PackedFloat32Array(0, 0.18529412, 0.8264706, 1)
+colors = PackedColorArray(0.36078432, 0.36078432, 0.36078432, 0, 0.0035892325, 0.0035892325, 0.0035892325, 1, 0.029411765, 0.029411765, 0.029411765, 1, 0.29411766, 0.29411766, 0.29411766, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vd26p"]
+gradient = SubResource("Gradient_qe2qm")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knpqy"]
+size = Vector2(203.4425, 2488.254)
+
+[node name="MainLevel" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -5
+position = Vector2(9099, 289)
+
+[node name="Trees" type="Node2D" parent="Background"]
+
+[node name="Tree1" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(15322, -337)
+texture = ExtResource("20_30ub0")
+
+[node name="Tree5" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(1368, -33)
+texture = ExtResource("20_30ub0")
+
+[node name="Tree4" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-906, -63)
+rotation = -0.19024089
+texture = ExtResource("20_30ub0")
+
+[node name="Tree2" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-1933, -91)
+texture = ExtResource("21_2wl28")
+
+[node name="Tree3" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(193, -393)
+texture = ExtResource("22_xvspm")
+
+[node name="Trees" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2870, -2127)
+texture = ExtResource("23_btdyd")
+
+[node name="Trees2" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-10597, -1598)
+rotation = 0.06283186
+skew = -0.015707964
+texture = ExtResource("23_btdyd")
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="Terrain"]
+collision_layer = 2
+
+[node name="Platform2Big" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-1125, -29)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(-428, -44)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big2" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(961, -56)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big3" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(961, -56)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big2" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(265, -44)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big7" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(7509.5, 1171)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big6" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(8206.5, 1156)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big7" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(9595.5, 1144)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big9" type="Sprite2D" parent="Terrain/Ground"]
+z_index = -90
+material = ExtResource("1_egpmt")
+position = Vector2(8899.5, 1156)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big8" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(10973.001, 1046.0001)
+rotation = -0.12391838
+scale = Vector2(1.0200043, 1)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big10" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(10284.009, 1129.1252)
+rotation = -0.06283186
+scale = Vector2(1.0056612, 1)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big11" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(15084.5, 976)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big13" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(14388.5, 988)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big12" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(16478, 957)
+scale = Vector2(1.0028329, 1)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big14" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(15779.5, 980)
+scale = Vector2(1.0056738, 1)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big4" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(3701.0002, -127)
+rotation = -0.12566371
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big5" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(5697, -548)
+rotation = -0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big4" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(3046.5, -73)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big6" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(5021.9995, -449.9999)
+rotation = -0.19024089
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big5" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(4361, -275.00012)
+rotation = -0.31764993
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big8" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(6378, -566)
+texture = ExtResource("16_mhh6j")
+
+[node name="Aliya" type="Node2D" parent="Terrain/Ground"]
+position = Vector2(6378, -566)
+
+[node name="Platform1Big6" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2676.9998, 439)
+rotation = -0.1256637
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big7" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(-681, 18)
+rotation = -0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big7" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(-3331.5, 493)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big9" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(-1356.0005, 116.00009)
+rotation = -0.19024089
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big10" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2017, 290.99988)
+rotation = -0.31764993
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big11" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big8" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(-681, 18)
+rotation = -0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big12" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(1382, -11)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big9" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(688, -11)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big13" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(2760, -23)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big10" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(2066, -23)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big14" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(3880, -36)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big11" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(3186, -36)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big15" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(5269, -48)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big12" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(4575, -48)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big16" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(11485, 1517)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big13" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(10791, 1517)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big17" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(12874, 1508)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big14" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(12180, 1508)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big18" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(12874, 1508)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big15" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(12180, 1508)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big19" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(17653, 1424)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big20" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(19023, 1409)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform1Big16" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(16962.914, 1404.0071)
+rotation = 0.06283186
+scale = Vector2(1.0062218, 1)
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big17" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(18331, 1408)
+texture = ExtResource("17_k4ex1")
+
+[node name="Aliya2" type="Node2D" parent="Terrain/Ground"]
+position = Vector2(-5147, -520)
+scale = Vector2(-1, 1)
+
+[node name="Platform1Big6" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2676.9998, 439)
+rotation = -0.1256637
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big7" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(-681, 18)
+rotation = -0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big7" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(-3331.5, 493)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big9" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(-1356.0005, 116.00009)
+rotation = -0.19024089
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big10" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2017, 290.99988)
+rotation = -0.31764993
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big11" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+texture = ExtResource("16_mhh6j")
+
+[node name="Aliya3" type="Node2D" parent="Terrain/Ground"]
+position = Vector2(-2943, -38.000015)
+rotation = -0.12740904
+
+[node name="Platform1Big6" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2676.9998, 439)
+rotation = -0.1256637
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big7" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-681, 18)
+rotation = -0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big7" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-3331.5, 493)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big9" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-1356.0005, 116.00009)
+rotation = -0.19024089
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big10" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2017, 290.99988)
+rotation = -0.31764993
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big11" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+texture = ExtResource("16_mhh6j")
+
+[node name="Aliya4" type="Node2D" parent="Terrain/Ground"]
+position = Vector2(3676.9998, -9.000122)
+rotation = 0.19024089
+scale = Vector2(-1, 1)
+
+[node name="Platform1Big6" type="Sprite2D" parent="Terrain/Ground/Aliya4"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2676.9998, 439)
+rotation = -0.1256637
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big7" type="Sprite2D" parent="Terrain/Ground/Aliya4"]
+material = ExtResource("1_egpmt")
+position = Vector2(-681, 18)
+rotation = -0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big7" type="Sprite2D" parent="Terrain/Ground/Aliya4"]
+material = ExtResource("1_egpmt")
+position = Vector2(-3331.5, 493)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big9" type="Sprite2D" parent="Terrain/Ground/Aliya4"]
+material = ExtResource("1_egpmt")
+position = Vector2(-1356.0005, 116.00009)
+rotation = -0.19024089
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big10" type="Sprite2D" parent="Terrain/Ground/Aliya4"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2017, 290.99988)
+rotation = -0.31764993
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big11" type="Sprite2D" parent="Terrain/Ground/Aliya4"]
+material = ExtResource("1_egpmt")
+texture = ExtResource("16_mhh6j")
+
+[node name="Har" type="Node2D" parent="Terrain/Ground"]
+position = Vector2(8941, -162)
+
+[node name="Platform1Big8" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(10973.001, 1046.0001)
+rotation = -0.12391838
+scale = Vector2(1.0200043, 1)
+texture = ExtResource("17_k4ex1")
+
+[node name="PlatformPiece1Small" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(11474, 962.99976)
+rotation = -0.25307274
+texture = ExtResource("4_h285n")
+
+[node name="PlatformPiece1Small2" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(12150, 774.9999)
+rotation = -0.19024089
+texture = ExtResource("4_h285n")
+
+[node name="PlatfprmPiece2Small" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(11807.273, 862.581)
+rotation = -0.31764993
+scale = Vector2(1.006841, 1)
+texture = ExtResource("5_483gv")
+
+[node name="PlatformPiece1Small4" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(12825.766, 789.4183)
+rotation = 0.25481808
+scale = Vector2(1.012831, 1)
+texture = ExtResource("4_h285n")
+
+[node name="PlatformPiece1Small5" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(13507, 930)
+rotation = 0.12915437
+texture = ExtResource("4_h285n")
+
+[node name="PlatfprmPiece2Small2" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(12489, 743)
+texture = ExtResource("5_483gv")
+
+[node name="PlatfprmPiece2Small6" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(-7443, 109)
+texture = ExtResource("5_483gv")
+
+[node name="PlatfprmPiece2Small3" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(13161.999, 867.99994)
+rotation = 0.19198622
+texture = ExtResource("5_483gv")
+
+[node name="PlatfprmPiece2Small5" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(13161.999, 867.99994)
+rotation = 0.19198622
+texture = ExtResource("5_483gv")
+
+[node name="PlatfprmPiece2Small4" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(13856.999, 961.9998)
+rotation = 0.064577185
+scale = Vector2(1.0115793, 1)
+texture = ExtResource("5_483gv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Ground"]
+polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -1481, -49, 1668, -79, 1667, 33, -2557, 51, -5107, 824, -6500, 1080, -6527, 939, -5955, 858)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Terrain/Ground"]
+polygon = PackedVector2Array(2827, -82, 3325, -71, 4329, 119, 5335, 489, 5905, 793, 6438, 1015, 7193, 1155, 7185, 1296, 6357, 1118, 5395, 711, 4616.8105, 413.8092, 3357, 68, 2872, 60)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Terrain/Ground"]
+position = Vector2(9734, 1224)
+polygon = PackedVector2Array(-2551, -65, -1387, -64, 1039, -161, 2380, -472, 2665, -506, 3173, -442, 3686, -339, 4191, -267, 5570, -263, 6032, -260, 9739.101, -301.26465, 10474.052, -390.57178, 11071, -530, 11369, -621, 11841, -634, 12573, -478, 13152, -431, 13731, -401, 14829, -404, 16012, -415, 16010, -271, 13638, -304, 12202.868, -409.37476, 11752, -463, 11167, -404, 9902, -74, -2557, 51)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Terrain/Ground"]
+polygon = PackedVector2Array(3633, -80, 4207, -167, 4707, -264, 5328, -404, 6624.962, -452.4496, 12006, -478, 12006, -649, 6727, -604, 5306, -545, 4455, -330, 4000, -197, 3410, -115)
+one_way_collision = true
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Terrain/Ground"]
+polygon = PackedVector2Array(-2901, -105, -4174, -363, -5493, -437, -5497, -565, -4165, -501, -3432, -356, -2772, -125)
+one_way_collision = true
+
+[node name="PlatformPiece1Small" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(11474, 962.99976)
+rotation = -0.25307274
+texture = ExtResource("4_h285n")
+
+[node name="PlatformPiece1Small2" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(12148.024, 775.3803)
+rotation = -0.19024089
+scale = Vector2(1.0111762, 1)
+texture = ExtResource("4_h285n")
+
+[node name="PlatfprmPiece2Small" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(11806, 862.99976)
+rotation = -0.31764993
+texture = ExtResource("5_483gv")
+
+[node name="PlatformPiece1Small4" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(12825.766, 789.4183)
+rotation = 0.25481808
+scale = Vector2(1.012831, 1)
+texture = ExtResource("4_h285n")
+
+[node name="PlatformPiece1Small5" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(13507, 930)
+rotation = 0.12915437
+texture = ExtResource("4_h285n")
+
+[node name="PlatfprmPiece2Small2" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(12489, 743)
+texture = ExtResource("5_483gv")
+
+[node name="PlatfprmPiece2Small3" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(13161.999, 867.99994)
+rotation = 0.19198622
+texture = ExtResource("5_483gv")
+
+[node name="PlatfprmPiece2Small4" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(13856.654, 963.7837)
+rotation = 0.064577185
+scale = Vector2(1.0171047, 1)
+texture = ExtResource("5_483gv")
+
+[node name="WaterFountain" type="Sprite2D" parent="."]
+material = ExtResource("1_egpmt")
+position = Vector2(394.00003, -293)
+scale = Vector2(1.305, 1.305)
+texture = ExtResource("3_aggj8")
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Avatars" type="Node2D" parent="."]
+
+[node name="SadnessAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
+position = Vector2(271, -342)
+avatar_name = "sadness"
+player_ability_unlock = 1
+unlock_color = "blue"
+
+[node name="Sprite2D" parent="Avatars/SadnessAvatar" index="0"]
+material = SubResource("ShaderMaterial_uk2yf")
+scale = Vector2(0.79, 0.79)
+texture = ExtResource("5_t6k3e")
+
+[node name="CollisionShape2D" parent="Avatars/SadnessAvatar" index="1"]
+visible = false
+shape = SubResource("CircleShape2D_sv7eu")
+
+[node name="AnxietyAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
+z_index = -80
+position = Vector2(9197, 895)
+avatar_name = "anxiety"
+player_ability_unlock = 2
+unlock_color = "yellow"
+
+[node name="Sprite2D" parent="Avatars/AnxietyAvatar" index="0"]
+material = SubResource("ShaderMaterial_ondrs")
+texture = ExtResource("6_xvspm")
+
+[node name="CollisionShape2D" parent="Avatars/AnxietyAvatar" index="1"]
+visible = false
+shape = SubResource("CircleShape2D_63km7")
+
+[node name="AngerAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
+position = Vector2(-5175, -1025)
+avatar_name = "anger"
+player_ability_unlock = 4
+unlock_color = "red"
+
+[node name="Sprite2D" parent="Avatars/AngerAvatar" index="0"]
+material = SubResource("ShaderMaterial_0e4v7")
+position = Vector2(-23, -101)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_btdyd")
+
+[node name="CollisionShape2D" parent="Avatars/AngerAvatar" index="1"]
+visible = false
+position = Vector2(-24, -45)
+shape = SubResource("CircleShape2D_ff0s2")
+
+[node name="FearAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
+position = Vector2(7562, -840)
+avatar_name = "fear"
+player_ability_unlock = 3
+unlock_color = "purple"
+
+[node name="Sprite2D" parent="Avatars/FearAvatar" index="0"]
+material = SubResource("ShaderMaterial_6nivd")
+position = Vector2(-51, 14)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("8_h285n")
+flip_h = true
+
+[node name="CollisionShape2D" parent="Avatars/FearAvatar" index="1"]
+position = Vector2(-51, 37)
+shape = SubResource("CircleShape2D_jg8a7")
+
+[node name="ShameAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
+position = Vector2(-6385, 673)
+avatar_name = "shame"
+unlock_color = "green"
+
+[node name="Sprite2D" parent="Avatars/ShameAvatar" index="0"]
+material = SubResource("ShaderMaterial_al56o")
+position = Vector2(-23, -101)
+texture = ExtResource("9_483gv")
+flip_h = true
+
+[node name="CollisionShape2D" parent="Avatars/ShameAvatar" index="1"]
+visible = false
+position = Vector2(7, -69)
+shape = SubResource("CircleShape2D_adxub")
+
+[node name="RunningWiitch" parent="." instance=ExtResource("10_jg8a7")]
+position = Vector2(14466, 860)
+speed = 420.0
+
+[node name="RunningWiitchTrigger" parent="." node_paths=PackedStringArray("running_witch") instance=ExtResource("11_0tvqr")]
+position = Vector2(15348, 851)
+running_witch = NodePath("../RunningWiitch")
+direction_to_run = 1
+
+[node name="RunningWiitchTrigger2" parent="." node_paths=PackedStringArray("running_witch") instance=ExtResource("11_0tvqr")]
+position = Vector2(18422, 769)
+running_witch = NodePath("../RunningWiitch")
+direction_to_run = -1
+
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="CrystalBall" type="Area2D" parent="Interactables"]
+z_index = 3
+position = Vector2(2258, 1155)
+collision_layer = 32
+script = ExtResource("20_0tvqr")
+action_text = "pickup crystal ball"
+avatar_quest = "anxiety"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/CrystalBall"]
+shape = SubResource("CircleShape2D_tnite")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/CrystalBall"]
+material = ExtResource("1_egpmt")
+scale = Vector2(1.775, 1.775)
+texture = ExtResource("21_0tvqr")
+
+[node name="WaterBucket" parent="Interactables" instance=ExtResource("12_j5ryu")]
+position = Vector2(1612, -113)
+action_text = "fill the bucket from the watefall"
+avatar_quest = "sadness"
+
+[node name="CollisionShape2D" parent="Interactables/WaterBucket" index="0"]
+position = Vector2(0, -3)
+
+[node name="Sprite2D" parent="Interactables/WaterBucket" index="1"]
+scale = Vector2(1, 1)
+texture = ExtResource("13_4wbot")
+
+[node name="Spider" parent="Interactables" instance=ExtResource("12_j5ryu")]
+position = Vector2(24262, 594)
+rotation = 2.8797932
+action_text = "pick up spider"
+avatar_quest = "fear"
+
+[node name="CollisionShape2D" parent="Interactables/Spider" index="0"]
+position = Vector2(4.4001284, -16.420683)
+shape = SubResource("CircleShape2D_483gv")
+
+[node name="Sprite2D" parent="Interactables/Spider" index="1"]
+scale = Vector2(1.54, 1.54)
+texture = ExtResource("22_483gv")
+
+[node name="Stick" parent="Interactables" instance=ExtResource("12_j5ryu")]
+position = Vector2(-4711, -1090)
+action_text = "pick up stick"
+avatar_quest = "anger"
+
+[node name="Player" parent="." instance=ExtResource("14_x0i0p")]
+position = Vector2(-1144, -217)
+
+[node name="WaterFall" parent="." instance=ExtResource("15_lq2b6")]
+position = Vector2(2032, -1361)
+
+[node name="ColorGrayer" type="CanvasModulate" parent="."]
+color = Color(0.89059, 0.89059, 0.8905901, 1)
+
+[node name="WorldBoundary" type="Area2D" parent="."]
+position = Vector2(-74, 2849)
+collision_layer = 128
+script = ExtResource("16_q7nu1")
+
+[node name="DeathZone" type="CollisionShape2D" parent="WorldBoundary"]
+z_index = 21
+position = Vector2(0.5, -16.000008)
+scale = Vector2(1.0174894, 0.74670833)
+shape = SubResource("WorldBoundaryShape2D_8j58j")
+
+[node name="DarkArea" type="TextureRect" parent="."]
+z_index = 10
+custom_minimum_size = Vector2(2000, 1000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8779.0
+offset_top = -2443.0
+offset_right = 10779.0
+offset_bottom = -237.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_vd26p")
+
+[node name="DarkDeathZone" type="Area2D" parent="DarkArea"]
+position = Vector2(959, 471)
+collision_layer = 64
+script = ExtResource("19_xvspm")
+
+[node name="DarkZone" type="CollisionShape2D" parent="DarkArea/DarkDeathZone"]
+z_index = 21
+position = Vector2(28.5, 479)
+scale = Vector2(1.0174894, 0.74670833)
+shape = SubResource("RectangleShape2D_knpqy")
+
+[connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
+[connection signal="body_entered" from="DarkArea/DarkDeathZone" to="DarkArea/DarkDeathZone" method="_on_body_entered"]
+[connection signal="body_exited" from="DarkArea/DarkDeathZone" to="DarkArea/DarkDeathZone" method="_on_body_exited"]
+
+[editable path="Avatars/SadnessAvatar"]
+[editable path="Avatars/AnxietyAvatar"]
+[editable path="Avatars/AngerAvatar"]
+[editable path="Avatars/FearAvatar"]
+[editable path="Avatars/ShameAvatar"]
+[editable path="Interactables/WaterBucket"]
+[editable path="Interactables/Spider"]

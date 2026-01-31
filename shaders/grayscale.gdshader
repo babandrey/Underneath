@@ -82,5 +82,5 @@ void fragment() {
 	}
 
     vec3 final_color = mix(gray_color, tex.rgb, clamp(keep_color, 0.0, 1.0));
-    COLOR = vec4(final_color, tex.a);
+    COLOR = vec4(final_color, COLOR.a);
 }

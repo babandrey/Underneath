@@ -1,5 +1,8 @@
 extends Node
 
+const world_grayscale_shader: ShaderMaterial = preload("uid://bwyc4afcikibs")
+var shader_param_name := ""
+
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogue_event)
 	
@@ -11,3 +14,11 @@ func _on_dialogue_event(dictonary: Dictionary) -> void:
 	if avatar_function == "break_player_mask":
 		var player: Player = get_tree().get_first_node_in_group("player")
 		player.new_ability_unlocked = avatar.player_ability_unlock
+		shader_param_name = avatar.unlock_color + "_anim"
+		var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+		tween.tween_method(change_color_animation, 0.0, 1.0, 5.0)
+		await tween.finished
+		shader_param_name = ""
+
+func change_color_animation(value: float) -> void:
+	world_grayscale_shader.set_shader_parameter(shader_param_name, value)
