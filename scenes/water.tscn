@@ -34,11 +34,11 @@ polygon = PackedVector2Array(-578, 1284, -261, 1288, -265, 1410, -353.56543, 141
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(1183, -525)
-polygon = PackedVector2Array(-618, 465, -537.98413, 439.834, -456, 449, -265, 1410, -488, 1400, -594, 1281)
+polygon = PackedVector2Array(-612, 80, -522, 63, -456, 449, -265, 1410, -488, 1400, -594, 1281)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(39, -557)
-polygon = PackedVector2Array(-374, 1322, -300, 1230, -291, 528, -317, 479, -361, 440, -475, 495, -544, 1405)
+polygon = PackedVector2Array(-374, 1322, -300, 1230, -291, 528, -334, 431, -336, 66, -449, 109, -544, 1405)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

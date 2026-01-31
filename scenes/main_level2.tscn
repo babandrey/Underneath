@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://bi4qbh7p0wq7s"]
+[gd_scene load_steps=67 format=3 uid="uid://bi4qbh7p0wq7s"]
 
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_egpmt"]
 [ext_resource type="PackedScene" uid="uid://px7kdlrn1vm1" path="res://scenes/checkpoint.tscn" id="2_egpmt"]
@@ -281,6 +281,9 @@ radius = 225.10886
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tnite"]
 radius = 109.29318
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fyepo"]
+radius = 153.79031
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_483gv"]
 radius = 120.98
@@ -1211,7 +1214,7 @@ direction_to_run = -1
 
 [node name="CrystalBall" type="Area2D" parent="Interactables"]
 z_index = 3
-position = Vector2(2198, -135)
+position = Vector2(2212, -1426)
 collision_layer = 32
 script = ExtResource("20_0tvqr")
 item_name = "crystal_ball"
@@ -1227,13 +1230,16 @@ scale = Vector2(1.775, 1.775)
 texture = ExtResource("21_0tvqr")
 
 [node name="WaterBucket" parent="Interactables" instance=ExtResource("12_j5ryu")]
-position = Vector2(1357, -127)
+z_index = 3
+position = Vector2(1578, -257.99997)
+rotation = 0.1972222
 item_name = "water_bucket"
 action_text = "fill the bucket from the watefall"
 avatar_quest = "sadness"
 
 [node name="CollisionShape2D" parent="Interactables/WaterBucket" index="0"]
 position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_fyepo")
 
 [node name="Sprite2D" parent="Interactables/WaterBucket" index="1"]
 scale = Vector2(1, 1)
@@ -1273,7 +1279,7 @@ action_text = "pick up diary"
 avatar_quest = "shame"
 
 [node name="Player" parent="." instance=ExtResource("14_x0i0p")]
-position = Vector2(-1144, -217)
+position = Vector2(-1169, -217)
 
 [node name="WaterFall" parent="." instance=ExtResource("15_lq2b6")]
 position = Vector2(2032, -1361)
