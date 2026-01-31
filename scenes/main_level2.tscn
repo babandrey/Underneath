@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c3y33arvt3a40"]
+[gd_scene load_steps=45 format=3 uid="uid://c3y33arvt3a40"]
 
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_egpmt"]
 [ext_resource type="PackedScene" uid="uid://bplqieon6vd7b" path="res://scenes/avatar.tscn" id="3_30ub0"]
@@ -21,8 +21,11 @@
 [ext_resource type="Script" uid="uid://cdqlvv4yr501r" path="res://scenes/death_zone.gd" id="16_q7nu1"]
 [ext_resource type="Texture2D" uid="uid://binb7br01l7t6" path="res://art/Background/Platform 1 - Big.png" id="17_k4ex1"]
 [ext_resource type="Script" uid="uid://cxuyjmsd47i7c" path="res://scripts/dark_death_zone.gd" id="19_xvspm"]
+[ext_resource type="Script" uid="uid://dsmyg22pnksnj" path="res://scripts/item.gd" id="20_0tvqr"]
 [ext_resource type="Texture2D" uid="uid://d0y0fn6kxc7p6" path="res://art/Background/Tree 1.png" id="20_30ub0"]
+[ext_resource type="Texture2D" uid="uid://x14515wu256k" path="res://art/Background/Crystalball.png" id="21_0tvqr"]
 [ext_resource type="Texture2D" uid="uid://b0750g2f6lyu0" path="res://art/Background/Tree 2.png" id="21_2wl28"]
+[ext_resource type="Texture2D" uid="uid://cpelgy1wmy1lj" path="res://art/Background/spider.png" id="22_483gv"]
 [ext_resource type="Texture2D" uid="uid://c5xh2ty7m1gff" path="res://art/Background/Tree 3.png" id="22_xvspm"]
 [ext_resource type="Texture2D" uid="uid://c7r4cbcpxpk1g" path="res://art/Background/Trees.png" id="23_btdyd"]
 
@@ -117,9 +120,9 @@ shader_parameter/amplitude = 5.0
 shader_parameter/frequency = 1.0
 shader_parameter/speed = 1.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uk2yf"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_jg8a7"]
 resource_local_to_scene = true
-radius = 246.51978
+radius = 354.04
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_al56o"]
 resource_local_to_scene = true
@@ -144,6 +147,12 @@ shader_parameter/speed = 1.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_adxub"]
 resource_local_to_scene = true
 radius = 225.10886
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tnite"]
+radius = 109.29318
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_483gv"]
+radius = 120.98
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8j58j"]
 
@@ -226,19 +235,14 @@ material = ExtResource("1_egpmt")
 position = Vector2(961, -56)
 texture = ExtResource("17_k4ex1")
 
+[node name="Platform1Big3" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(961, -56)
+texture = ExtResource("17_k4ex1")
+
 [node name="Platform2Big2" type="Sprite2D" parent="Terrain/Ground"]
 material = ExtResource("1_egpmt")
 position = Vector2(265, -44)
-texture = ExtResource("16_mhh6j")
-
-[node name="Platform1Big3" type="Sprite2D" parent="Terrain/Ground"]
-material = ExtResource("1_egpmt")
-position = Vector2(2351.5, -72)
-texture = ExtResource("17_k4ex1")
-
-[node name="Platform2Big3" type="Sprite2D" parent="Terrain/Ground"]
-material = ExtResource("1_egpmt")
-position = Vector2(1655.5, -60)
 texture = ExtResource("16_mhh6j")
 
 [node name="Platform2Big7" type="Sprite2D" parent="Terrain/Ground"]
@@ -624,7 +628,18 @@ material = ExtResource("1_egpmt")
 position = Vector2(12489, 743)
 texture = ExtResource("5_483gv")
 
+[node name="PlatfprmPiece2Small6" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(-7443, 109)
+texture = ExtResource("5_483gv")
+
 [node name="PlatfprmPiece2Small3" type="Sprite2D" parent="Terrain/Ground/Har"]
+material = ExtResource("1_egpmt")
+position = Vector2(13161.999, 867.99994)
+rotation = 0.19198622
+texture = ExtResource("5_483gv")
+
+[node name="PlatfprmPiece2Small5" type="Sprite2D" parent="Terrain/Ground/Har"]
 material = ExtResource("1_egpmt")
 position = Vector2(13161.999, 867.99994)
 rotation = 0.19198622
@@ -638,7 +653,10 @@ scale = Vector2(1.0115793, 1)
 texture = ExtResource("5_483gv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Ground"]
-polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -1481, -49, 3374.4849, -63.143677, 4329, 119, 5335, 489, 5905, 793, 6438, 1015, 7193, 1155, 7185, 1296, 6357, 1118, 5395, 711, 4616.8105, 413.8092, 3359.4917, 61.327393, -2557, 51, -5107, 824, -6500, 1080, -6527, 939, -5955, 858)
+polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -1481, -49, 1668, -79, 1667, 33, -2557, 51, -5107, 824, -6500, 1080, -6527, 939, -5955, 858)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Terrain/Ground"]
+polygon = PackedVector2Array(2827, -82, 3325, -71, 4329, 119, 5335, 489, 5905, 793, 6438, 1015, 7193, 1155, 7185, 1296, 6357, 1118, 5395, 711, 4616.8105, 413.8092, 3357, 68, 2872, 60)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Terrain/Ground"]
 position = Vector2(9734, 1224)
@@ -741,7 +759,7 @@ visible = false
 shape = SubResource("CircleShape2D_63km7")
 
 [node name="AngerAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
-position = Vector2(4089, 212)
+position = Vector2(-5175, -1025)
 avatar_name = "anger"
 player_ability_unlock = 4
 unlock_color = "red"
@@ -770,8 +788,8 @@ texture = ExtResource("8_h285n")
 flip_h = true
 
 [node name="CollisionShape2D" parent="Avatars/FearAvatar" index="1"]
-visible = false
-shape = SubResource("CircleShape2D_uk2yf")
+position = Vector2(-51, 46)
+shape = SubResource("CircleShape2D_jg8a7")
 
 [node name="ShameAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
 position = Vector2(-6385, 673)
@@ -805,8 +823,24 @@ direction_to_run = -1
 
 [node name="Interactables" type="Node2D" parent="."]
 
+[node name="CrystalBall" type="Area2D" parent="Interactables"]
+z_index = 3
+position = Vector2(2258, 1155)
+collision_layer = 32
+script = ExtResource("20_0tvqr")
+action_text = "pickup crystal ball"
+avatar_quest = "anxiety"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/CrystalBall"]
+shape = SubResource("CircleShape2D_tnite")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/CrystalBall"]
+material = ExtResource("1_egpmt")
+scale = Vector2(1.775, 1.775)
+texture = ExtResource("21_0tvqr")
+
 [node name="WaterBucket" parent="Interactables" instance=ExtResource("12_j5ryu")]
-position = Vector2(1623, -111)
+position = Vector2(1612, -113)
 action_text = "fill the bucket from the watefall"
 avatar_quest = "sadness"
 
@@ -818,25 +852,29 @@ scale = Vector2(1, 1)
 texture = ExtResource("13_4wbot")
 
 [node name="Spider" parent="Interactables" instance=ExtResource("12_j5ryu")]
-position = Vector2(13371, 477)
+position = Vector2(24262, 594)
+rotation = 2.8797932
 action_text = "pick up spider"
 avatar_quest = "fear"
 
+[node name="CollisionShape2D" parent="Interactables/Spider" index="0"]
+position = Vector2(4.4001284, -16.420683)
+shape = SubResource("CircleShape2D_483gv")
+
+[node name="Sprite2D" parent="Interactables/Spider" index="1"]
+scale = Vector2(1.54, 1.54)
+texture = ExtResource("22_483gv")
+
 [node name="Stick" parent="Interactables" instance=ExtResource("12_j5ryu")]
-position = Vector2(3633, 243)
+position = Vector2(-4711, -1090)
 action_text = "pick up stick"
 avatar_quest = "anger"
-
-[node name="CrystalBall" parent="Interactables" instance=ExtResource("12_j5ryu")]
-position = Vector2(2501, 242)
-action_text = "pick up crystal ball"
-avatar_quest = "anxiety"
 
 [node name="Player" parent="." instance=ExtResource("14_x0i0p")]
 position = Vector2(-1144, -217)
 
 [node name="WaterFall" parent="." instance=ExtResource("15_lq2b6")]
-position = Vector2(1996, -742)
+position = Vector2(2099, -80)
 
 [node name="ColorGrayer" type="CanvasModulate" parent="."]
 color = Color(0.89059, 0.89059, 0.8905901, 1)
@@ -858,10 +896,10 @@ custom_minimum_size = Vector2(2000, 1000)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 8031.0
-offset_top = -2432.0
-offset_right = 10031.0
-offset_bottom = -226.0
+offset_left = 8779.0
+offset_top = -2443.0
+offset_right = 10779.0
+offset_bottom = -237.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_vd26p")
@@ -887,3 +925,4 @@ shape = SubResource("RectangleShape2D_knpqy")
 [editable path="Avatars/FearAvatar"]
 [editable path="Avatars/ShameAvatar"]
 [editable path="Interactables/WaterBucket"]
+[editable path="Interactables/Spider"]

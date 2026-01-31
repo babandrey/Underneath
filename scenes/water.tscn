@@ -1,25 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca8cjq2maapex"]
+[gd_scene load_steps=5 format=3 uid="uid://ca8cjq2maapex"]
 
 [ext_resource type="Script" uid="uid://vtxq33altnoq" path="res://scripts/water.gd" id="1_gf5bf"]
-[ext_resource type="Texture2D" uid="uid://clb3wdqwhngny" path="res://icon.svg" id="2_qq3op"]
+[ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="2_p1n2c"]
+[ext_resource type="Texture2D" uid="uid://bro0oie65ub07" path="res://art/Background/Waterfall 2.png" id="2_s3811"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knpqy"]
-size = Vector2(851, 1099.2168)
+size = Vector2(835.3895, 2807.518)
 
 [node name="WaterFall" type="Area2D"]
-collision_layer = 2
+z_index = 2
+collision_layer = 4
 script = ExtResource("1_gf5bf")
 
+[node name="Waterfall2" type="Sprite2D" parent="."]
+material = ExtResource("2_p1n2c")
+position = Vector2(109, 987)
+texture = ExtResource("2_s3811")
+
 [node name="WaterZone" type="CollisionShape2D" parent="."]
-position = Vector2(133, 403)
+position = Vector2(162, 1040.8014)
 scale = Vector2(1.0174894, 0.74670833)
 shape = SubResource("RectangleShape2D_knpqy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.14117648, 0, 0.96862745, 0.48235294)
-position = Vector2(132, 400)
-scale = Vector2(6.75, 6.421875)
-texture = ExtResource("2_qq3op")
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-432, -2, -263, -12, -263, 1264, 582, 1264, 582, -7, 730, -4, 772, 110, 874, 1263, 876, 1312, -112, 1320, -605, 1294, -437, 591)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
