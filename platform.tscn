@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch06af2bw0dsj"]
+
+[ext_resource type="Texture2D" uid="uid://fb03hk23o848" path="res://art/Background/Floating platform.png" id="1_mi635"]
+
+[node name="Platform" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-250, -23)
+polygon = PackedVector2Array(-19, 16, 530, 22, 531, 36, 522, 61, 510, 71, 490, 75, 477, 75, 447, 98, 434, 98, 412, 92, 395, 89, 376, 89, 364, 93, 344, 98, 324, 95, 314, 89, 292, 95, 277, 92, 263, 96, 246, 85, 205, 86, 186, 103, 74, 89, 69, 92, 16, 69, -19, 35)
+one_way_collision = true
+
+[node name="FloatingPlatform" type="Sprite2D" parent="."]
+position = Vector2(1, -18)
+texture = ExtResource("1_mi635")

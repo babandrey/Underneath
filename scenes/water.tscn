@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knpqy"]
 size = Vector2(851, 1099.2168)
 
-[node name="Water" type="Area2D"]
+[node name="WaterFall" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_gf5bf")
 
