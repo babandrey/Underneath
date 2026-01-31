@@ -50,7 +50,7 @@ variables={
 "met": false,
 "quest_completed": false,
 "quest_taken": false,
-"relationship": 0.0,
+"relationship": 0,
 "times_nudged": 0
 },
 "Anxiety": {
@@ -65,14 +65,16 @@ variables={
 "met": false,
 "quest_completed": false,
 "quest_taken": false,
-"relationship": 0.0
+"relationship": 0,
+"times_nudged": 0
 },
 "Sadness": {
 "is_colored": false,
 "met": false,
 "quest_completed": false,
 "quest_taken": false,
-"relationship": 0
+"relationship": 0,
+"times_nudged": 0
 },
 "Shame": {
 "is_colored": false,
