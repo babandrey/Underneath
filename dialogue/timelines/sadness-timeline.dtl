@@ -12,6 +12,13 @@ else:
 
 # ---------------------------------------------------------------------------
 label First Meeting
+if {Sadness.times_nudged} == 0:
+	[i]What or whoever it is, seems to be too focused on the floating water droplets nearby.[/i]
+	set {Sadness.times_nudged} = 1
+	[end_timeline]
+
+set {Sadness.times_nudged} = 0
+set {Sadness.met} = true
 Unknown: Oh...[pause=0.5] I'm sorry...[br]I've been too focused..[pause=0.5] I haven't noticed you..
 Unknown: W-Who...[pause=0.5] are you?
 if {player_name} == "":
@@ -27,7 +34,6 @@ Unknown: [color=cornflower_blue]{player_name}[/color], huh...[pause=0.5] H-How d
 	jump Who are you
 	- Where is Here?
 		jump Where is Here
-set {Sadness.met} = true
 jump Quest
 
 # ---------------------------------------------------------------------------

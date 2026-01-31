@@ -72,7 +72,8 @@ variables={
 "met": false,
 "quest_completed": false,
 "quest_taken": false,
-"relationship": 0
+"relationship": 0,
+"times_nudged": 0
 },
 "Shame": {
 "is_colored": false,
