@@ -16,7 +16,7 @@ scale = Vector2(1.0174894, 0.74670833)
 shape = SubResource("RectangleShape2D_knpqy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.1394664, 0, 0.96811193, 1)
+modulate = Color(0.14117648, 0, 0.96862745, 0.48235294)
 position = Vector2(132, 400)
 scale = Vector2(6.75, 6.421875)
 texture = ExtResource("2_qq3op")
