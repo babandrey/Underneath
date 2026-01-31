@@ -3,7 +3,6 @@
 [ext_resource type="Shader" uid="uid://dp6u6fdwjdgra" path="res://shaders/grayscale.gdshader" id="1_hs73y"]
 
 [resource]
-resource_local_to_scene = true
 shader = ExtResource("1_hs73y")
 shader_parameter/red_anim = 0.0
 shader_parameter/blue_anim = 0.0

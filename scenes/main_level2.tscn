@@ -188,9 +188,202 @@ material = ExtResource("1_egpmt")
 position = Vector2(1655.5, -60)
 texture = ExtResource("16_mhh6j")
 
+[node name="Platform1Big4" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(3701.0002, -127)
+rotation = -0.12566371
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big5" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(5697, -548)
+rotation = -0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big4" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(3046.5, -73)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big6" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(5021.9995, -449.9999)
+rotation = -0.19024089
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big5" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(4361, -275.00012)
+rotation = -0.31764993
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big8" type="Sprite2D" parent="Terrain/Ground"]
+material = ExtResource("1_egpmt")
+position = Vector2(6378, -566)
+texture = ExtResource("16_mhh6j")
+
+[node name="Aliya" type="Node2D" parent="Terrain/Ground"]
+position = Vector2(6378, -566)
+
+[node name="Platform1Big6" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2676.9998, 439)
+rotation = -0.1256637
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big7" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(-681, 18)
+rotation = -0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big7" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(-3331.5, 493)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big9" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(-1356.0005, 116.00009)
+rotation = -0.19024089
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big10" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2017, 290.99988)
+rotation = -0.31764993
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big11" type="Sprite2D" parent="Terrain/Ground/Aliya"]
+material = ExtResource("1_egpmt")
+texture = ExtResource("16_mhh6j")
+
+[node name="Aliya2" type="Node2D" parent="Terrain/Ground"]
+position = Vector2(-5147, -520)
+scale = Vector2(-1, 1)
+
+[node name="Platform1Big6" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2676.9998, 439)
+rotation = -0.1256637
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big7" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(-681, 18)
+rotation = -0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big7" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(-3331.5, 493)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big9" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(-1356.0005, 116.00009)
+rotation = -0.19024089
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big10" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2017, 290.99988)
+rotation = -0.31764993
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big11" type="Sprite2D" parent="Terrain/Ground/Aliya2"]
+material = ExtResource("1_egpmt")
+texture = ExtResource("16_mhh6j")
+
+[node name="Aliya3" type="Node2D" parent="Terrain/Ground"]
+position = Vector2(-2943, -38.000015)
+rotation = -0.12740904
+
+[node name="Platform1Big6" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2676.9998, 439)
+rotation = -0.1256637
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big7" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-681, 18)
+rotation = -0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big7" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-3331.5, 493)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big9" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-1356.0005, 116.00009)
+rotation = -0.19024089
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big10" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2017, 290.99988)
+rotation = -0.31764993
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big11" type="Sprite2D" parent="Terrain/Ground/Aliya3"]
+material = ExtResource("1_egpmt")
+texture = ExtResource("16_mhh6j")
+
+[node name="Aliya4" type="Node2D" parent="Terrain/Ground"]
+position = Vector2(3676.9998, -9.000122)
+rotation = 0.19024089
+scale = Vector2(-1, 1)
+
+[node name="Platform1Big6" type="Sprite2D" parent="Terrain/Ground/Aliya4"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2676.9998, 439)
+rotation = -0.1256637
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform1Big7" type="Sprite2D" parent="Terrain/Ground/Aliya4"]
+material = ExtResource("1_egpmt")
+position = Vector2(-681, 18)
+rotation = -0.06283186
+texture = ExtResource("17_k4ex1")
+
+[node name="Platform2Big7" type="Sprite2D" parent="Terrain/Ground/Aliya4"]
+material = ExtResource("1_egpmt")
+position = Vector2(-3331.5, 493)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big9" type="Sprite2D" parent="Terrain/Ground/Aliya4"]
+material = ExtResource("1_egpmt")
+position = Vector2(-1356.0005, 116.00009)
+rotation = -0.19024089
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big10" type="Sprite2D" parent="Terrain/Ground/Aliya4"]
+material = ExtResource("1_egpmt")
+position = Vector2(-2017, 290.99988)
+rotation = -0.31764993
+texture = ExtResource("16_mhh6j")
+
+[node name="Platform2Big11" type="Sprite2D" parent="Terrain/Ground/Aliya4"]
+material = ExtResource("1_egpmt")
+texture = ExtResource("16_mhh6j")
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Ground"]
-visible = false
-polygon = PackedVector2Array(-1470, -70, 2705, -86, 2703, 51, -1473, 73)
+polygon = PackedVector2Array(-5282, 697, -3546, 37, -2793, -64, -2551, -65, -1481, -49, 3374.4849, -63.143677, 4329, 119, 5335, 489, 5905, 793, 6438, 1015, 7193, 1155, 7185, 1296, 6357, 1118, 5395, 711, 4616.8105, 413.8092, 3359.4917, 61.327393, -2557, 51, -5107, 824, -6500, 1080, -6527, 939, -5955, 858)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Terrain/Ground"]
+polygon = PackedVector2Array(3633, -80, 4207, -167, 4707, -264, 5328, -404, 6720, -456, 6727, -604, 5306, -545, 4455, -330, 4000, -197, 3410, -115)
+one_way_collision = true
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Terrain/Ground"]
+polygon = PackedVector2Array(-2901, -105, -4174, -363, -5493, -437, -5497, -565, -4165, -501, -3432, -356, -2772, -125)
+one_way_collision = true
 
 [node name="WaterFountain" type="Sprite2D" parent="."]
 material = ExtResource("1_egpmt")
