@@ -22,7 +22,7 @@ var is_talking := false
 var can_swim := false
 var can_run := false
 var can_go_through_dark := false
-var can_break_barriers := true
+var can_break_barriers := false
 
 @onready var respawn_position := global_position
 
@@ -58,7 +58,7 @@ var new_ability_unlocked := Ability.None
 var avatar_in_area: Avatar = null
 var item_in_area: Item = null
 var barrier_in_area: Barrier = null
-var in_end_location = true
+var in_end_location = false
 
 func _ready() -> void:
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
@@ -169,6 +169,7 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 	elif area is EndLocation:
 		if got_all_abilitties():
 			interact_label.text = "Press 'E' to end the game."
+			in_end_location = true
 			
 
 func got_all_abilitties() -> bool:

@@ -43,7 +43,7 @@ script = ExtResource("1_8qd8g")
 
 [node name="GenericPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_njtn3")
-volume_db = -10.0
+volume_db = -12.039
 
 [node name="ForestAmbient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kq7b2")
@@ -51,12 +51,18 @@ volume_db = -18.384
 
 [node name="SpiderPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_2y5yn")
+volume_db = -12.235
+
+[node name="DiaryPickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2y5yn")
+volume_db = -17.844
 
 [node name="CrystalBallPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_02gw7")
 
 [node name="StickPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ujhup")
+volume_db = -10.196
 
 [node name="WaterBucketPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_064dn")
