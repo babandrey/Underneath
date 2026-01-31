@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c3y33arvt3a40"]
+[gd_scene load_steps=47 format=3 uid="uid://bi4qbh7p0wq7s"]
 
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_egpmt"]
 [ext_resource type="PackedScene" uid="uid://px7kdlrn1vm1" path="res://scenes/checkpoint.tscn" id="2_egpmt"]
@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://sevfvs8qv83c" path="res://art/Background/Platform 2 - Big.png" id="16_mhh6j"]
 [ext_resource type="Script" uid="uid://cdqlvv4yr501r" path="res://scenes/death_zone.gd" id="16_q7nu1"]
 [ext_resource type="Texture2D" uid="uid://binb7br01l7t6" path="res://art/Background/Platform 1 - Big.png" id="17_k4ex1"]
-[ext_resource type="Script" uid="uid://cxuyjmsd47i7c" path="res://scripts/dark_death_zone.gd" id="19_xvspm"]
+[ext_resource type="Script" path="res://scripts/dark_death_zone.gd" id="19_xvspm"]
 [ext_resource type="Script" uid="uid://dsmyg22pnksnj" path="res://scripts/item.gd" id="20_0tvqr"]
 [ext_resource type="Texture2D" uid="uid://d0y0fn6kxc7p6" path="res://art/Background/Tree 1.png" id="20_30ub0"]
 [ext_resource type="Texture2D" uid="uid://x14515wu256k" path="res://art/Background/Crystalball.png" id="21_0tvqr"]
