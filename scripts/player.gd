@@ -185,7 +185,7 @@ func show_new_ability(new_ability: Ability) -> void:
 		Ability.Swim: text = "You can now swim in [color=cornflower_blue][b][wave amp=30.0 freq=3.5 connected=1]water[/wave][/b][/color].."
 		Ability.Run: text = "You can now press 'Shift' to [color=khaki][b]run[/b][/color]."
 		Ability.GoThroughDark: text = "You are no longer afraid of [color=indigo]the darkness[/color]."
-		Ability.BreakBarriers: text = "You can now interact to [color=red_orange]break barriers[/color]."
+		Ability.BreakBarriers: text = "You can now interact to [color=orange_red]break barriers[/color]."
 		# TODO: add last ability
 		_: push_error("unknown ability")
 		
