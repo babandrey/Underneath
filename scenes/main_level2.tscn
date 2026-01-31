@@ -758,14 +758,14 @@ position = Vector2(-24, -45)
 shape = SubResource("CircleShape2D_ff0s2")
 
 [node name="FearAvatar" parent="Avatars" instance=ExtResource("3_30ub0")]
-position = Vector2(13402, -244)
+position = Vector2(7562, -947)
 avatar_name = "fear"
 player_ability_unlock = 3
 unlock_color = "purple"
 
 [node name="Sprite2D" parent="Avatars/FearAvatar" index="0"]
 material = SubResource("ShaderMaterial_6nivd")
-scale = Vector2(0.75, 0.75)
+position = Vector2(-51, 14)
 texture = ExtResource("8_h285n")
 flip_h = true
 
