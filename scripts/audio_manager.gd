@@ -8,6 +8,7 @@ extends Node2D
 @onready var diary_pickup: AudioStreamPlayer = $DiaryPickup
 @onready var break_player_mask: AudioStreamPlayer = $BreakPlayerMask
 @onready var avatar_colored: AudioStreamPlayer = $AvatarColored
+@onready var unlock_ability: AudioStreamPlayer = $UnlockAbility
 
 @onready var intro_music: AudioStreamPlayer = $IntroMusic
 @onready var intro_music_stream: AudioStreamSynchronized = intro_music.stream
@@ -25,7 +26,8 @@ extends Node2D
 	"stick": stick_pickup,
 	"diary": diary_pickup,
 	"avatar_colored": avatar_colored,
-	"break_player_mask": break_player_mask
+	"break_player_mask": break_player_mask,
+	"unlock_ability": unlock_ability,
 }
 
 @onready var forest_ambient: AudioStreamPlayer = $ForestAmbient

@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://bi4qbh7p0wq7s"]
+[gd_scene load_steps=79 format=3 uid="uid://bi4qbh7p0wq7s"]
 
 [ext_resource type="PackedScene" uid="uid://dhg873pr1eb2i" path="res://end_location.tscn" id="1_867yn"]
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="1_egpmt"]
@@ -25,8 +25,10 @@
 [ext_resource type="PackedScene" uid="uid://ca8cjq2maapex" path="res://scenes/water.tscn" id="15_lq2b6"]
 [ext_resource type="Texture2D" uid="uid://sevfvs8qv83c" path="res://art/Background/Platform 2 - Big.png" id="16_mhh6j"]
 [ext_resource type="Script" uid="uid://cdqlvv4yr501r" path="res://scenes/death_zone.gd" id="16_q7nu1"]
+[ext_resource type="Script" uid="uid://d21wl4buuu4hm" path="res://scenes/audio_detection_zone.gd" id="17_61ona"]
 [ext_resource type="Texture2D" uid="uid://binb7br01l7t6" path="res://art/Background/Platform 1 - Big.png" id="17_k4ex1"]
 [ext_resource type="Script" uid="uid://budsgn4tscss3" path="res://scenes/fear_avatar.gd" id="17_x0i0p"]
+[ext_resource type="AudioStream" uid="uid://b5psnj38h8glf" path="res://audio/ambient/water_fountain.wav" id="18_ug036"]
 [ext_resource type="Texture2D" uid="uid://do6vu57qqgojd" path="res://art/Avatars/Fear/Peek/Fear_Peek1.png" id="18_x0i0p"]
 [ext_resource type="Texture2D" uid="uid://crnxl0ekcwh8j" path="res://art/Avatars/Fear/Slither/Fear_InOut1.png" id="19_muema"]
 [ext_resource type="Script" uid="uid://cxuyjmsd47i7c" path="res://scripts/dark_death_zone.gd" id="19_xvspm"]
@@ -56,6 +58,9 @@
 [ext_resource type="Texture2D" uid="uid://dy5ujtbdvvhvs" path="res://art/Background/Diary.png" id="46_djfd7"]
 [ext_resource type="PackedScene" uid="uid://ch06af2bw0dsj" path="res://platform.tscn" id="47_bdllo"]
 [ext_resource type="PackedScene" uid="uid://dvlenlgfgsy36" path="res://scenes/barrier.tscn" id="48_fyepo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_61ona"]
+size = Vector2(1600, 1600)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uk2yf"]
 resource_local_to_scene = true
@@ -446,6 +451,17 @@ texture = ExtResource("21_2wl28")
 [node name="Tree3" type="Sprite2D" parent="Background/Trees"]
 material = ExtResource("1_egpmt")
 position = Vector2(193, -393)
+texture = ExtResource("22_xvspm")
+
+[node name="Tree17" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-9487.313, -1204.5002)
+rotation = -0.19024089
+texture = ExtResource("20_30ub0")
+
+[node name="Tree18" type="Sprite2D" parent="Background/Trees"]
+material = ExtResource("1_egpmt")
+position = Vector2(-8385.312, -1562.5)
 texture = ExtResource("22_xvspm")
 
 [node name="Tree15" type="Sprite2D" parent="Background/Trees"]
@@ -1370,6 +1386,21 @@ position = Vector2(394.00003, -293)
 scale = Vector2(1.305, 1.305)
 texture = ExtResource("3_aggj8")
 
+[node name="PlayerDetectionZone" type="Area2D" parent="WaterFountain" node_paths=PackedStringArray("audio_player")]
+collision_layer = 0
+script = ExtResource("17_61ona")
+audio_player = NodePath("WaterFountainSound")
+
+[node name="WaterFountainSound" type="AudioStreamPlayer2D" parent="WaterFountain/PlayerDetectionZone"]
+unique_name_in_owner = true
+position = Vector2(187, 687)
+stream = ExtResource("18_ug036")
+max_distance = 1319.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterFountain/PlayerDetectionZone"]
+shape = SubResource("RectangleShape2D_61ona")
+debug_color = Color(0, 0.63174206, 0.4623264, 0.41960785)
+
 [node name="Checkpoints" type="Node2D" parent="."]
 
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("2_egpmt")]
@@ -1648,6 +1679,8 @@ shape = SubResource("RectangleShape2D_knpqy")
 [node name="Barrier" parent="." instance=ExtResource("48_fyepo")]
 position = Vector2(-7574, 3738)
 
+[connection signal="body_entered" from="WaterFountain/PlayerDetectionZone" to="WaterFountain/PlayerDetectionZone" method="_on_body_entered"]
+[connection signal="body_exited" from="WaterFountain/PlayerDetectionZone" to="WaterFountain/PlayerDetectionZone" method="_on_body_exited"]
 [connection signal="body_entered" from="WorldBoundary" to="WorldBoundary" method="_on_body_entered"]
 [connection signal="body_entered" from="DarkArea/DarkDeathZone" to="DarkArea/DarkDeathZone" method="_on_body_entered"]
 [connection signal="body_exited" from="DarkArea/DarkDeathZone" to="DarkArea/DarkDeathZone" method="_on_body_exited"]

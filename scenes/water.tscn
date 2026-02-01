@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca8cjq2maapex"]
+[gd_scene load_steps=7 format=3 uid="uid://ca8cjq2maapex"]
 
 [ext_resource type="Script" uid="uid://vtxq33altnoq" path="res://scripts/water.gd" id="1_gf5bf"]
 [ext_resource type="Material" uid="uid://bwyc4afcikibs" path="res://shaders/grayscale.tres" id="2_p1n2c"]
 [ext_resource type="Texture2D" uid="uid://be7oojxi4wng4" path="res://art/Background/Waterfall.png" id="3_p1n2c"]
+[ext_resource type="AudioStream" uid="uid://b6i3tji436njg" path="res://audio/ambient/waterfall_ambience.wav" id="4_ewrsg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knpqy"]
 size = Vector2(835.3895, 2807.518)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ewrsg"]
+size = Vector2(4000, 4000)
 
 [node name="WaterFall" type="Area2D"]
 z_index = 2
@@ -36,5 +40,21 @@ polygon = PackedVector2Array(-612, 80, -522, 63, -456, 449, -265, 1410, -488, 14
 position = Vector2(39, -557)
 polygon = PackedVector2Array(-374, 1322, -300, 1230, -291, 528, -334, 431, -336, 66, -449, 109, -544, 1405)
 
+[node name="PlayerDetectionZone" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="WaterfallSound" type="AudioStreamPlayer2D" parent="PlayerDetectionZone"]
+unique_name_in_owner = true
+position = Vector2(187, 687)
+stream = ExtResource("4_ewrsg")
+volume_db = -12.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectionZone"]
+position = Vector2(189, 818)
+shape = SubResource("RectangleShape2D_ewrsg")
+debug_color = Color(0, 0.63174206, 0.4623264, 0.41960785)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="PlayerDetectionZone" to="." method="_on_player_detection_zone_body_entered"]
+[connection signal="body_exited" from="PlayerDetectionZone" to="." method="_on_player_detection_zone_body_exited"]
