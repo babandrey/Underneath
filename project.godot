@@ -15,10 +15,6 @@ run/main_scene="uid://bi4qbh7p0wq7s"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
-[audio]
-
-general/default_playback_type.web=0
-
 [autoload]
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
@@ -126,6 +122,7 @@ audio/channel_defaults={
 }
 }
 text/dialog_text_prefix=""
+glossary/default_case_sensitive=true
 
 [display]
 

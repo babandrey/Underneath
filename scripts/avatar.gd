@@ -24,7 +24,6 @@ func set_shader_value(value: float) -> void:
 
 func break_player_mask() -> void:
 	# TODO: await Player break mask animation (?)
-	AudioManager.play("break_player_mask")
 	player.unlock_ability(player_ability_unlock)
 
 func talk() -> void:

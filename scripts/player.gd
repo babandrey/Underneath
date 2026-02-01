@@ -56,6 +56,8 @@ enum Ability
 var new_ability_unlocked := Ability.None
 
 @onready var vignette_material: ShaderMaterial = vignette.material
+@onready var footstep_audio_player: AudioStreamPlayer = $FootstepAudioPlayer
+@onready var footstep_timer: Timer = $FootstepTimer
 
 var avatar_in_area: Avatar = null
 var item_in_area: Item = null
@@ -71,6 +73,8 @@ func _ready() -> void:
 	new_ability_labels.modulate.a = 0.0
 	
 	AudioManager.play_ambient()
+	AudioManager.play_main_music() # if has main menu, start play in there
+	
 	Dialogic.signal_event.connect(func(args):
 		if args is String:
 			if args == "teleport_to_start_location":
@@ -126,7 +130,7 @@ func _physics_process(delta: float) -> void:
 			barrier_in_area = null
 		elif in_end_location:
 			var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-			tween.tween_property(%FadeScreen, "color:a", 1.0, 0.35)
+			tween.tween_property(%FadeScreen, "color:a", 1.0, 3.0)
 			is_talking = true
 			await tween.finished
 			get_tree().change_scene_to_file("res://scenes/end_game_screen.tscn")
@@ -145,6 +149,12 @@ func _physics_process(delta: float) -> void:
 			sprite.flip_h = true
 	else:
 		sprite.play(&"idle")
+	
+	# Audio
+	if direction != 0:
+		if last_vel.x == 0 and footstep_timer.is_stopped(): # start running
+			footstep_audio_player.play()
+			footstep_timer.start()
 	
 	move_and_slide()
 
@@ -226,8 +236,12 @@ func show_interact_avatar_text() -> void:
 func show_new_ability(new_ability: Ability) -> void:
 	if new_ability == Ability.ShameAbility: return
 	
+	const NORMAL_VIGNETTE = 1.3
+	const FULL_VIGNETTE = 1.6
+	
+	AudioManager.play("unlock_ability")
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).set_parallel()
-	tween.tween_method(vignette_change_alpha, 0.4, 1.0, 1.0)
+	tween.tween_method(vignette_change_alpha, NORMAL_VIGNETTE, FULL_VIGNETTE, 1.0)
 	tween.tween_property(new_ability_labels, "modulate:a", 1.0, 3.0)
 	var text: String
 	match new_ability:
@@ -242,11 +256,11 @@ func show_new_ability(new_ability: Ability) -> void:
 	await tween.finished
 	
 	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).set_parallel()
-	tween.tween_method(vignette_change_alpha, 1.0, 0.4, 3.0).set_delay(1.0)
+	tween.tween_method(vignette_change_alpha, FULL_VIGNETTE, NORMAL_VIGNETTE, 3.0).set_delay(1.0)
 	tween.tween_property(new_ability_labels, "modulate:a", 0.0, 3.0).set_delay(1.0)
 	
 func vignette_change_alpha(value: float) -> void:
-	vignette_material.set_shader_parameter("alpha", value)
+	vignette_material.set_shader_parameter("vignette_strength", value)
 
 func _on_animated_sprite_animation_finished() -> void:
 	if sprite.animation == "walk_start":
@@ -264,3 +278,9 @@ func teleport_to_start_location() -> void:
 	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(%FadeScreen, "color:a", 0.0, 2.0)
 	buffer_teleport = false
+
+func _on_footstep_timer_timeout() -> void:
+	if velocity.x != 0:
+		footstep_audio_player.play()
+	else:
+		footstep_timer.stop()
