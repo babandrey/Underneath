@@ -183,7 +183,7 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 		var item = area as Item
 		item_in_area = item
 		interact_label.text = area.get_interaction_text()
-	elif area is Barrier:
+	elif area is Barrier and can_break_barriers:
 		var barrier = area as Barrier
 		if barrier.barrier_active:
 			barrier_in_area = barrier
