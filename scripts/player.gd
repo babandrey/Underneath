@@ -226,6 +226,7 @@ func show_interact_avatar_text() -> void:
 func show_new_ability(new_ability: Ability) -> void:
 	if new_ability == Ability.ShameAbility: return
 	
+	AudioManager.play("unlock_ability")
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).set_parallel()
 	tween.tween_method(vignette_change_alpha, 0.4, 1.0, 1.0)
 	tween.tween_property(new_ability_labels, "modulate:a", 1.0, 3.0)
