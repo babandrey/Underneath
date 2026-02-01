@@ -4,6 +4,8 @@
 
 [resource]
 shader = ExtResource("1_gbuoh")
-shader_parameter/alpha = 0.4
 shader_parameter/inner_radius = 0.0
 shader_parameter/outer_radius = 1.0
+shader_parameter/vignette_strength = 1.3
+shader_parameter/dither_strength = 0.03
+shader_parameter/vignette_color = Color(0, 0, 0, 1)

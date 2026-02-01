@@ -1395,6 +1395,7 @@ audio_player = NodePath("WaterFountainSound")
 unique_name_in_owner = true
 position = Vector2(187, 687)
 stream = ExtResource("18_ug036")
+volume_db = -2.902
 max_distance = 1319.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterFountain/PlayerDetectionZone"]

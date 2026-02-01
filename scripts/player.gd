@@ -128,7 +128,7 @@ func _physics_process(delta: float) -> void:
 			barrier_in_area = null
 		elif in_end_location:
 			var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-			tween.tween_property(%FadeScreen, "color:a", 1.0, 0.35)
+			tween.tween_property(%FadeScreen, "color:a", 1.0, 3.0)
 			is_talking = true
 			await tween.finished
 			get_tree().change_scene_to_file("res://scenes/end_game_screen.tscn")
@@ -228,9 +228,12 @@ func show_interact_avatar_text() -> void:
 func show_new_ability(new_ability: Ability) -> void:
 	if new_ability == Ability.ShameAbility: return
 	
+	const NORMAL_VIGNETTE = 1.3
+	const FULL_VIGNETTE = 1.6
+	
 	AudioManager.play("unlock_ability")
 	var tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).set_parallel()
-	tween.tween_method(vignette_change_alpha, 0.4, 1.0, 1.0)
+	tween.tween_method(vignette_change_alpha, NORMAL_VIGNETTE, FULL_VIGNETTE, 1.0)
 	tween.tween_property(new_ability_labels, "modulate:a", 1.0, 3.0)
 	var text: String
 	match new_ability:
@@ -245,11 +248,11 @@ func show_new_ability(new_ability: Ability) -> void:
 	await tween.finished
 	
 	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE).set_parallel()
-	tween.tween_method(vignette_change_alpha, 1.0, 0.4, 3.0).set_delay(1.0)
+	tween.tween_method(vignette_change_alpha, FULL_VIGNETTE, NORMAL_VIGNETTE, 3.0).set_delay(1.0)
 	tween.tween_property(new_ability_labels, "modulate:a", 0.0, 3.0).set_delay(1.0)
 	
 func vignette_change_alpha(value: float) -> void:
-	vignette_material.set_shader_parameter("alpha", value)
+	vignette_material.set_shader_parameter("vignette_strength", value)
 
 func _on_animated_sprite_animation_finished() -> void:
 	if sprite.animation == "walk_start":

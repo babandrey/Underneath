@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://di4k0xufltrst"]
+[gd_scene load_steps=21 format=3 uid="uid://di4k0xufltrst"]
 
 [ext_resource type="Script" uid="uid://c7x3xfkwrwyhp" path="res://scripts/audio_manager.gd" id="1_8qd8g"]
 [ext_resource type="AudioStream" uid="uid://ly0eo2bdrxeg" path="res://audio/sfx/pickups/generic_pickup.wav" id="2_njtn3"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://c1uhq4joki7an" path="res://audio/music/shame_layer.wav" id="12_if78k"]
 [ext_resource type="AudioStream" uid="uid://bqc3kosel5p2e" path="res://audio/sfx/break_player_mask.wav" id="16_cuol6"]
 [ext_resource type="AudioStream" uid="uid://cwe4lu8yewu4c" path="res://audio/sfx/color_avatar.wav" id="17_m1k83"]
+[ext_resource type="AudioStream" uid="uid://bjivbqjquqtx6" path="res://audio/sfx/unlock_ability.wav" id="17_oummu"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_njtn3"]
 stream_count = 2
@@ -132,14 +133,14 @@ stream = SubResource("AudioStreamSynchronized_njtn3")
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamInteractive_cuol6")
-volume_db = -6.0
+volume_db = -8.5
 
 [node name="BreakPlayerMask" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_cuol6")
 volume_db = -6.0
 
 [node name="UnlockAbility" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_cuol6")
+stream = ExtResource("17_oummu")
 volume_db = -10.0
 
 [node name="AvatarColored" type="AudioStreamPlayer" parent="."]

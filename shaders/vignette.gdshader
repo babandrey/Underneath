@@ -1,12 +1,16 @@
 shader_type canvas_item;
 
-uniform float alpha = 1.0;
-uniform float inner_radius = 0.0;
-uniform float outer_radius = 1.0;
+uniform float inner_radius = 0.1;
+uniform float outer_radius = 1;
+uniform float vignette_strength = 1.0;
+uniform float dither_strength = 0.03;
+uniform vec4 vignette_color: source_color;
 
 void fragment() {
-	float x = abs(UV.r-.5)*2.0;
-	float y = abs(UV.g-.5)*2.0;
-	float q = 1.0-(1.0-sqrt(x*x+y*y)/outer_radius)/(1.0-inner_radius);
-	COLOR = vec4(0, 0, 0, q*alpha);
+	float dist = distance(UV, vec2(0.5));
+	
+	float vignette = smoothstep(inner_radius, outer_radius, dist) * vignette_strength;
+	float dither = fract(sin(dot(UV, vec2(12.9898, 78.233))) * 43758.5453123) * dither_strength;
+	
+	COLOR = vec4(vignette_color.rgb, vignette + dither);
 }
