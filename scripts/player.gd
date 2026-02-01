@@ -56,6 +56,8 @@ enum Ability
 var new_ability_unlocked := Ability.None
 
 @onready var vignette_material: ShaderMaterial = vignette.material
+@onready var footstep_audio_player: AudioStreamPlayer = $FootstepAudioPlayer
+@onready var footstep_timer: Timer = $FootstepTimer
 
 var avatar_in_area: Avatar = null
 var item_in_area: Item = null
@@ -147,6 +149,12 @@ func _physics_process(delta: float) -> void:
 			sprite.flip_h = true
 	else:
 		sprite.play(&"idle")
+	
+	# Audio
+	if direction != 0:
+		if last_vel.x == 0 and footstep_timer.is_stopped(): # start running
+			footstep_audio_player.play()
+			footstep_timer.start()
 	
 	move_and_slide()
 
@@ -270,3 +278,9 @@ func teleport_to_start_location() -> void:
 	tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(%FadeScreen, "color:a", 0.0, 2.0)
 	buffer_teleport = false
+
+func _on_footstep_timer_timeout() -> void:
+	if velocity.x != 0:
+		footstep_audio_player.play()
+	else:
+		footstep_timer.stop()
