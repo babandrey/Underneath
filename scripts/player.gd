@@ -23,6 +23,9 @@ var can_swim := false
 var can_run := false
 var can_go_through_dark := false
 var can_break_barriers := false
+var can_teleport := false
+
+var last_floor := false
 
 @onready var respawn_position := global_position
 
@@ -31,7 +34,7 @@ var ability_unlock_dict: Dictionary[Ability, Callable] = {
 	Ability.Run: func(): can_run = true,
 	Ability.GoThroughDark: func(): can_go_through_dark = true,
 	Ability.BreakBarriers: func(): can_break_barriers = true,
-	Ability.ShameAbility: func(): pass
+	Ability.ShameAbility: func(): can_teleport = true
 }
 
 enum Ability
@@ -151,10 +154,12 @@ func _physics_process(delta: float) -> void:
 		sprite.play(&"idle")
 	
 	# Audio
-	if direction != 0:
-		if last_vel.x == 0 and footstep_timer.is_stopped(): # start running
+	if is_on_floor() and direction != 0:
+		if (last_vel.x == 0 or last_floor != true) and footstep_timer.is_stopped(): # start running
 			footstep_audio_player.play()
 			footstep_timer.start()
+	
+	last_floor = is_on_floor()
 	
 	move_and_slide()
 
@@ -203,9 +208,8 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 			interact_label.text = "Press 'E' to end the game."
 			in_end_location = true
 			
-
 func got_all_abilitties() -> bool:
-	return can_swim and can_break_barriers and can_go_through_dark and can_run
+	return can_swim and can_break_barriers and can_go_through_dark and can_run and can_teleport
 
 func _on_interaction_area_area_exited(area: Area2D) -> void:
 	if area == avatar_in_area:
@@ -280,7 +284,7 @@ func teleport_to_start_location() -> void:
 	buffer_teleport = false
 
 func _on_footstep_timer_timeout() -> void:
-	if velocity.x != 0:
+	if velocity.x != 0 and is_on_floor():
 		footstep_audio_player.play()
 	else:
 		footstep_timer.stop()
