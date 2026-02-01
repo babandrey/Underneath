@@ -13,10 +13,8 @@ extends Node2D
 @onready var intro_music: AudioStreamPlayer = $IntroMusic
 @onready var intro_music_stream: AudioStreamSynchronized = intro_music.stream
 
-@onready var transition_timer: Timer = $TransitionTimer
-
 @onready var main_music: AudioStreamPlayer = $MainMusic
-@onready var music_audio_stream: AudioStreamSynchronized = main_music.stream
+var playback: AudioStreamPlaybackInteractive
 
 @onready var sounds: Dictionary[String, AudioStreamPlayer]= {
 	"pickup": generic_pickup,
@@ -34,57 +32,22 @@ extends Node2D
 @onready var forest_volume := forest_ambient.volume_linear
 
 var in_main_music = false
-var current_stream_index = -1
-signal transition_to_main_music
 
 func _ready() -> void:
 	Dialogic.signal_event.connect(_on_dialogue_event)
-	play_intro_music()
 
 func _on_dialogue_event(dictonary: Dictionary) -> void:
 	var avatar_function = dictonary.values()[0]
 	if not in_main_music and avatar_function == "complete_quest":
-		var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-		current_stream_index = 1
-		tween.tween_method(lerp_current_volume_thingy, -60.0, 0.0, 5.0)
-		print("INTRO MUSIC WAITING")
-		await transition_to_main_music
-		print("INTRO MUSIC FINISHED")
-		current_stream_index = -1
-		intro_music.stop()
-		play_main_music()
+		playback.switch_to_clip_by_name("intro_transition")
 		in_main_music = true
-
-func play_intro_music() -> void:
-	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	current_stream_index = 0
-	tween.tween_method(lerp_current_volume_thingy, -60.0, 0.0, 5.0)
-	intro_music.play()
-	var time = intro_music_stream.get_sync_stream(0).get_length()
-	transition_timer.wait_time = time
-	transition_timer.timeout.connect(wait_func)
-	transition_timer.start()
-	await tween.finished
-	current_stream_index = -1
-
-func wait_func() -> void:
-	transition_to_main_music.emit()
 
 func play_main_music() -> void:
 	main_music.play()
+	playback = main_music.get_stream_playback()
 
-func lerp_current_volume_thingy(value: float) -> void:
-	if in_main_music:
-		music_audio_stream.set_sync_stream_volume(current_stream_index, value)
-	else:
-		intro_music_stream.set_sync_stream_volume(current_stream_index, value)
-
-func add_music_layer(layer: Player.Ability) -> void:
-	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	current_stream_index = layer
-	tween.tween_method(lerp_current_volume_thingy, -60.0, 0.0, 5.0)
-	await tween.finished
-	current_stream_index = -1
+func add_music_layer(layer_name: StringName) -> void:
+	playback.switch_to_clip_by_name(layer_name.to_snake_case())
 
 func play(sound_name: String) -> void:
 	sounds[sound_name].play()

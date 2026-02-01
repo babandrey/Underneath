@@ -71,6 +71,8 @@ func _ready() -> void:
 	new_ability_labels.modulate.a = 0.0
 	
 	AudioManager.play_ambient()
+	AudioManager.play_main_music() # if has main menu, start play in there
+	
 	Dialogic.signal_event.connect(func(args):
 		if args is String:
 			if args == "teleport_to_start_location":
