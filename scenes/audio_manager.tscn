@@ -75,6 +75,7 @@ stream = SubResource("AudioStreamSynchronized_njtn3")
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamSynchronized_2y2jw")
+volume_db = -6.0
 
 [node name="BreakPlayerMask" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_cuol6")
