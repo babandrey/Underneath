@@ -16,6 +16,7 @@ func get_interaction_text() -> String:
 
 func break_barrier() -> void:
 	barrier_static.queue_free()
+	AudioManager.play("break_barrier")
 	var tween = create_tween().set_parallel()
 	for body: RigidBody2D in $RocksRigidbodies.get_children():
 		body.freeze = false

@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://di4k0xufltrst"]
+[gd_scene load_steps=22 format=3 uid="uid://di4k0xufltrst"]
 
 [ext_resource type="Script" uid="uid://c7x3xfkwrwyhp" path="res://scripts/audio_manager.gd" id="1_8qd8g"]
 [ext_resource type="AudioStream" uid="uid://ly0eo2bdrxeg" path="res://audio/sfx/pickups/generic_pickup.wav" id="2_njtn3"]
 [ext_resource type="AudioStream" uid="uid://dc1nr10rqbw7q" path="res://audio/ambient/forest_ambient.wav" id="3_kq7b2"]
+[ext_resource type="AudioStream" uid="uid://grvfq0al2mp7" path="res://audio/sfx/break_barrier.wav" id="3_oummu"]
 [ext_resource type="AudioStream" uid="uid://ereahsq2lv40" path="res://audio/sfx/pickups/crystal_ball_pickup.wav" id="4_02gw7"]
 [ext_resource type="AudioStream" uid="uid://gjc4gvwm48oa" path="res://audio/sfx/pickups/spider_pickup.wav" id="4_2y5yn"]
 [ext_resource type="AudioStream" uid="uid://bmcsacfi0xlrw" path="res://audio/sfx/pickups/stick_pickup.wav" id="5_ujhup"]
@@ -103,6 +104,10 @@ script = ExtResource("1_8qd8g")
 
 [node name="GenericPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_njtn3")
+volume_db = -15.491
+
+[node name="BreakBarrier" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_oummu")
 volume_db = -12.039
 
 [node name="ForestAmbient" type="AudioStreamPlayer" parent="."]
